@@ -285,131 +285,215 @@ export function Services() {
 
 
 
+
 export function PopularDestinations() {
   const destinations = [
     {
       id: 1,
-      name: "Lagos, Nigeria",
+      name: "Gaborone, Botswana",
       description:
-        "Explore the vibrant city of Lagos with its bustling markets, stunning beaches, and rich cultural heritage.",
-      image:
-        "https://images.unsplash.com/photo-1555703006-364adaf58be8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080&h=720",
+        "Explore the thriving capital of Botswana, known for its wildlife and rich cultural history.",
+      images: [
+        "https://source.unsplash.com/featured/?botswana",
+        "https://source.unsplash.com/featured/?gaborone",
+        "https://source.unsplash.com/featured/?wildlife,botswana",
+        "https://source.unsplash.com/featured/?africa,botswana",
+        "https://source.unsplash.com/featured/?nature,botswana",
+      ],
     },
     {
       id: 2,
-      name: "Accra, Ghana",
+      name: "Praia, Cape Verde",
       description:
-        "Discover the heart of Ghana with its historic forts, lively art scene, and welcoming culture.",
-      image:
-        "https://images.unsplash.com/photo-1581590652600-b7c84df4c11e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080&h=720",
+        "Enjoy the serene beaches and vibrant culture of Praia, the capital of Cape Verde.",
+      images: [
+        "https://source.unsplash.com/featured/?capeverde",
+        "https://source.unsplash.com/featured/?praia",
+        "https://source.unsplash.com/featured/?beach,capeverde",
+        "https://source.unsplash.com/featured/?ocean,capeverde",
+        "https://source.unsplash.com/featured/?island,capeverde",
+      ],
     },
     {
       id: 3,
-      name: "Cape Town, South Africa",
+      name: "Accra, Ghana",
       description:
-        "Experience the breathtaking scenery of Table Mountain, vibrant culture, and stunning beaches.",
-      image:
-        "https://images.unsplash.com/photo-1542224566-1ff50a7b3e16?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080&h=720",
+        "Discover the heart of Ghana with its historic forts, lively art scene, and welcoming culture.",
+      images: [
+        "https://source.unsplash.com/featured/?ghana",
+        "https://source.unsplash.com/featured/?accra",
+        "https://source.unsplash.com/featured/?culture,ghana",
+        "https://source.unsplash.com/featured/?landscape,ghana",
+        "https://source.unsplash.com/featured/?history,ghana",
+      ],
     },
     {
       id: 4,
-      name: "Nairobi, Kenya",
+      name: "Lagos, Nigeria",
       description:
-        "Immerse yourself in Kenya's capital with its wildlife parks, bustling markets, and scenic landscapes.",
-      image:
-        "https://images.unsplash.com/photo-1593784997985-b5b56cb7b7dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080&h=720",
+        "Explore the vibrant city of Lagos with its bustling markets, stunning beaches, and rich cultural heritage.",
+      images: [
+        "https://source.unsplash.com/featured/?nigeria",
+        "https://source.unsplash.com/featured/?lagos",
+        "https://source.unsplash.com/featured/?market,nigeria",
+        "https://source.unsplash.com/featured/?beach,nigeria",
+        "https://source.unsplash.com/featured/?culture,nigeria",
+      ],
     },
     {
       id: 5,
-      name: "Kigali, Rwanda",
+      name: "Nairobi, Kenya",
       description:
-        "Rwanda’s capital offers breathtaking views, clean streets, and a profound connection to its history.",
-      image:
-        "https://images.unsplash.com/photo-1546948633-6af7eb7f9b62?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080&h=720",
+        "Experience the charm of Nairobi with its unique blend of wildlife, culture, and modernity.",
+      images: [
+        "https://source.unsplash.com/featured/?kenya",
+        "https://source.unsplash.com/featured/?nairobi",
+        "https://source.unsplash.com/featured/?wildlife,kenya",
+        "https://source.unsplash.com/featured/?safari,kenya",
+        "https://source.unsplash.com/featured/?nature,kenya",
+      ],
     },
     {
       id: 6,
-      name: "Gaborone, Botswana",
+      name: "Dar es Salaam, Tanzania",
       description:
-        "Enjoy the serenity of Gaborone with its wildlife reserves, modern cityscape, and rich culture.",
-      image:
-        "https://images.unsplash.com/photo-1528825871115-3581a5387919?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080&h=720",
+        "Unwind in Dar es Salaam, a city offering stunning beaches, vibrant markets, and rich history.",
+      images: [
+        "https://source.unsplash.com/featured/?tanzania",
+        "https://source.unsplash.com/featured/?daressalaam",
+        "https://source.unsplash.com/featured/?beach,tanzania",
+        "https://source.unsplash.com/featured/?market,tanzania",
+        "https://source.unsplash.com/featured/?culture,tanzania",
+      ],
     },
     {
       id: 7,
-      name: "Praia, Cape Verde",
+      name: "Kigali, Rwanda",
       description:
-        "Relax in the tropical paradise of Praia, with its stunning beaches and vibrant Creole culture.",
-      image:
-        "https://images.unsplash.com/photo-1600508778151-9e162e1e11cf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080&h=720",
+        "Witness the beauty and transformation of Kigali, a city known for its cleanliness and resilience.",
+      images: [
+        "https://source.unsplash.com/featured/?rwanda",
+        "https://source.unsplash.com/featured/?kigali",
+        "https://source.unsplash.com/featured/?nature,rwanda",
+        "https://source.unsplash.com/featured/?culture,rwanda",
+        "https://source.unsplash.com/featured/?city,rwanda",
+      ],
     },
     {
       id: 8,
-      name: "Lusaka, Zambia",
+      name: "Kampala, Uganda",
       description:
-        "Explore Zambia’s capital with its vibrant markets, cultural experiences, and close proximity to wildlife.",
-      image:
-        "https://images.unsplash.com/photo-1569144157591-32663b175b96?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080&h=720",
+        "Discover Kampala, a city full of life, culture, and breathtaking landscapes in Uganda.",
+      images: [
+        "https://source.unsplash.com/featured/?uganda",
+        "https://source.unsplash.com/featured/?kampala",
+        "https://source.unsplash.com/featured/?landscape,uganda",
+        "https://source.unsplash.com/featured/?culture,uganda",
+        "https://source.unsplash.com/featured/?city,uganda",
+      ],
     },
     {
       id: 9,
-      name: "Libreville, Gabon",
+      name: "Lusaka, Zambia",
       description:
-        "Experience Gabon’s capital with its stunning coastal views, unique wildlife, and rich cultural heritage.",
-      image:
-        "https://images.unsplash.com/photo-1542300059-f7be7006f68a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080&h=720",
+        "Explore Lusaka, a growing city with vibrant markets and a gateway to Zambia's natural wonders.",
+      images: [
+        "https://source.unsplash.com/featured/?zambia",
+        "https://source.unsplash.com/featured/?lusaka",
+        "https://source.unsplash.com/featured/?culture,zambia",
+        "https://source.unsplash.com/featured/?market,zambia",
+        "https://source.unsplash.com/featured/?landscape,zambia",
+      ],
     },
     {
       id: 10,
-      name: "Victoria Falls, Zimbabwe",
+      name: "Harare, Zimbabwe",
       description:
-        "Marvel at the majesty of one of the world’s largest waterfalls and the surrounding adventure activities.",
-      image:
-        "https://images.unsplash.com/photo-1609944193968-53c8dd078cf1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080&h=720",
+        "Discover the cultural richness and vibrant art scene of Harare, Zimbabwe's capital city.",
+      images: [
+        "https://source.unsplash.com/featured/?zimbabwe",
+        "https://source.unsplash.com/featured/?harare",
+        "https://source.unsplash.com/featured/?culture,zimbabwe",
+        "https://source.unsplash.com/featured/?art,zimbabwe",
+        "https://source.unsplash.com/featured/?city,zimbabwe",
+      ],
     },
     {
       id: 11,
-      name: "Kampala, Uganda",
+      name: "Cape Town, South Africa",
       description:
-        "Discover the vibrant culture of Kampala with its lively markets, music, and historical sites.",
-      image:
-        "https://images.unsplash.com/photo-1530018607911-70b8ef855eb4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080&h=720",
+        "Enjoy the breathtaking landscapes and vibrant culture of Cape Town, South Africa's jewel.",
+      images: [
+        "https://source.unsplash.com/featured/?southafrica",
+        "https://source.unsplash.com/featured/?capetown",
+        "https://source.unsplash.com/featured/?landscape,southafrica",
+        "https://source.unsplash.com/featured/?nature,southafrica",
+        "https://source.unsplash.com/featured/?beach,southafrica",
+      ],
     },
     {
       id: 12,
-      name: "Dar es Salaam, Tanzania",
+      name: "Windhoek, Namibia",
       description:
-        "Unwind in the coastal charm of Dar es Salaam with its beaches, markets, and vibrant culture.",
-      image:
-        "https://images.unsplash.com/photo-1618427288833-dfdb72f34387?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080&h=720",
+        "Discover the unique blend of German heritage and African traditions in Windhoek.",
+      images: [
+        "https://source.unsplash.com/featured/?namibia",
+        "https://source.unsplash.com/featured/?windhoek",
+        "https://source.unsplash.com/featured/?culture,namibia",
+        "https://source.unsplash.com/featured/?landscape,namibia",
+        "https://source.unsplash.com/featured/?city,namibia",
+      ],
     },
     {
       id: 13,
-      name: "Windhoek, Namibia",
+      name: "Libreville, Gabon",
       description:
-        "Experience the unique blend of modernity and tradition in Namibia’s capital city, Windhoek.",
-      image:
-        "https://images.unsplash.com/photo-1547106634-56dcd53ae883?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080&h=720",
+        "Relax in Libreville, a city offering beautiful beaches and a laid-back atmosphere.",
+      images: [
+        "https://source.unsplash.com/featured/?gabon",
+        "https://source.unsplash.com/featured/?libreville",
+        "https://source.unsplash.com/featured/?beach,gabon",
+        "https://source.unsplash.com/featured/?ocean,gabon",
+        "https://source.unsplash.com/featured/?city,gabon",
+      ],
     },
   ];
-
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    const destinationInterval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % destinations.length);
+      setCurrentImageIndex(0);
     }, 10000);
 
-    return () => clearInterval(interval);
+    return () => clearInterval(destinationInterval);
   }, [destinations.length]);
+
+  useEffect(() => {
+    const imageInterval = setInterval(() => {
+      setCurrentImageIndex((prevImageIndex) => {
+        const images = destinations[currentIndex]?.images || [];
+        return (prevImageIndex + 1) % images.length;
+      });
+    }, 5000);
+
+    return () => clearInterval(imageInterval);
+  }, [currentIndex, destinations]);
 
   const goToNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % destinations.length);
+    setCurrentImageIndex(0);
   };
 
   const goToPrevious = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + destinations.length) % destinations.length);
+    setCurrentImageIndex(0);
   };
+
+  const currentDestination = destinations[currentIndex];
+  const currentImage =
+    currentDestination.images[currentImageIndex] || currentDestination.images[0];
 
   return (
     <div className="bg-gradient-to-b from-white to-green-200">
@@ -424,10 +508,10 @@ export function PopularDestinations() {
         <div className="relative isolate overflow-hidden bg-gradient-to-r from-gray-800 to-gray-900 px-12 pt-20 shadow-2xl sm:rounded-3xl sm:px-20 lg:flex lg:gap-x-20 lg:px-32 lg:pt-0">
           <div className="mx-auto max-w-lg text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
             <h2 className="text-5xl font-bold tracking-tight text-white sm:text-6xl">
-              {destinations[currentIndex].name}
+              {currentDestination.name}
             </h2>
             <p className="mt-8 text-xl leading-relaxed text-gray-300">
-              {destinations[currentIndex].description}
+              {currentDestination.description}
             </p>
             <div className="mt-12 flex items-center justify-center gap-x-8 lg:justify-start">
               <button
@@ -444,11 +528,11 @@ export function PopularDestinations() {
               </button>
             </div>
           </div>
-          <div className="relative mt-16 h-[32rem] lg:mt-0 lg:flex-auto lg:pl-16">
+          <div className="relative mt-10 h-80 w-full max-w-lg mx-auto lg:mt-0 lg:max-w-xl lg:flex-shrink-0">
             <img
-              alt={destinations[currentIndex].name}
-              src={destinations[currentIndex].image}
-              className="absolute left-0 top-0 w-full h-full object-cover rounded-lg shadow-lg ring-2 ring-white"
+              src={currentImage}
+              alt={currentDestination.name}
+              className="h-full w-full object-cover rounded-xl shadow-xl"
             />
           </div>
         </div>
@@ -456,6 +540,7 @@ export function PopularDestinations() {
     </div>
   );
 }
+
 
 
 
@@ -688,11 +773,11 @@ export default function Home() {
     <Services />
     <KeyFeaturesSection />
     <Cta />
-    <SecondSection />
     <PopularDestinations />
     <Partners />
     <Testimonials />
     <Steps />
+    <SecondSection />
     <Footer />
     </div>
   );
