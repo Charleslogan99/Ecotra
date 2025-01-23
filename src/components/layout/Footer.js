@@ -26,14 +26,13 @@ const Footer = () => {
             </Link>
           </div>
 
-          {/* Company Links */}
           <div className="flex flex-col space-y-6">
             <div className="font-semibold text-2xl text-gray-50 mb-4">
               Company
             </div>
             <ul className="space-y-4 text-gray-50 text-lg">
               <li>
-                <Link href="#" className="hover:text-green-600 transition">
+                <Link href="/about" className="hover:text-green-600 transition">
                   About Ecotra
                 </Link>
               </li>
@@ -55,7 +54,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Contact Links */}
           <div className="flex flex-col space-y-6">
             <div className="font-semibold text-2xl text-gray-50 mb-4">
               Navigation
@@ -94,7 +92,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* More Links */}
           <div className="flex flex-col space-y-6">
             <div className="font-semibold text-2xl text-gray-50 mb-4">
               Legal

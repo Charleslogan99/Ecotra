@@ -1,5 +1,3 @@
-
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -73,8 +71,6 @@ export function HeroSection() {
           </Link>
         </div>
       </div>
-
-     
     </section>
   );
 }
@@ -83,10 +79,10 @@ export function InfoSection() {
   return (
     <section className="bg-white py-20 px-6 sm:px-12 lg:px-24">
       <div className="max-w-7xl mx-auto text-center text-white">
-        <h2 className="text-4xl sm:text-5xl font-extrabold text-black leading-tight mb-6">
+        <h2 className="text-4xl sm:text-6xl font-serif text-black leading-tight mb-6">
           Unlock the Adventure of a Lifetime
         </h2>
-        <p className="text-green-600 text-xl sm:text-lg mb-12">
+        <p className="text-gray-500 text-xl sm:text-lg mb-12">
           Join thousands of satisfied travelers who’ve experienced the best of
           customized travel. From exotic destinations to curated experiences,
           we’ve got it all covered.
@@ -139,7 +135,7 @@ export function InfoSection() {
           </p>
           <a
             href="/accounts/sign-up"
-            className="inline-block bg-green-500 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-600 transition-all duration-300"
+            className="inline-block bg-green-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-green-7 00 transition-all duration-300"
           >
             Sign Up Today
           </a>
@@ -194,58 +190,57 @@ export function KeyFeaturesSection() {
 }
 
 export function Cta() {
-    return (
-        <section className="bg-black py-16 text-center text-white">
-  <div className="max-w-4xl mx-auto">
-    <h3 className="text-3xl font-bold mb-6">
-      Ready to Explore Africa Responsibly?
-    </h3>
-    <p className="text-lg mb-8">
-      Join us in promoting sustainable tourism while enjoying the beauty of
-      Africa. Let’s conserve nature and uplift communities together.
-    </p>
-    <a
-      href="/accounts/sign-up"
-      className="bg-green-600 text-gray-950 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all duration-300"
-    >
-      Get Started
-    </a>
-  </div>
-</section>
-
-    )
+  return (
+    <section className="bg-black py-16 text-center text-white">
+      <div className="max-w-4xl mx-auto">
+        <h3 className="text-3xl font-bold mb-6">
+          Ready to Explore Africa Responsibly?
+        </h3>
+        <p className="text-lg mb-8">
+          Join us in promoting sustainable tourism while enjoying the beauty of
+          Africa. Let’s conserve nature and uplift communities together.
+        </p>
+        <a
+          href="/accounts/sign-up"
+          className="bg-green-600 text-gray-950 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all duration-300"
+        >
+          Get Started
+        </a>
+      </div>
+    </section>
+  );
 }
 
 export function Services() {
   const services = [
     {
       id: 1,
-      title: 'Flight Bookings',
+      title: "Flight Bookings",
       description:
-        'Book domestic and international flights at the best prices with Ecotra Travel Agency.',
+        "Book domestic and international flights at the best prices with Ecotra Travel Agency.",
       icon: <span className="text-green-600">✈️</span>,
     },
     {
       id: 2,
-      title: 'Hotel Reservations',
+      title: "Hotel Reservations",
       description:
-        'Find and reserve the perfect hotel for your travel destination worldwide.',
-      icon: '🏨',
+        "Find and reserve the perfect hotel for your travel destination worldwide.",
+      icon: "🏨",
     },
     {
       id: 3,
-      title: 'Tour Packages',
+      title: "Tour Packages",
       description:
-        'Explore our customized tour packages designed to give you an unforgettable experience.',
-      icon: '🌍',
+        "Explore our customized tour packages designed to give you an unforgettable experience.",
+      icon: "🌍",
     },
-   
+
     {
       id: 4,
-      title: 'Travel Insurance',
+      title: "Travel Insurance",
       description:
-        'Stay safe with our comprehensive travel insurance plans tailored for travelers.',
-      icon: '🛡️',
+        "Stay safe with our comprehensive travel insurance plans tailored for travelers.",
+      icon: "🛡️",
     },
   ];
 
@@ -256,7 +251,8 @@ export function Services() {
           Our Services
         </h2>
         <p className="text-gray-600 mb-10 font-serif">
-          At Ecotra Travel Agency, we offer a range of services to make your travel experience seamless and enjoyable.
+          At Ecotra Travel Agency, we offer a range of services to make your
+          travel experience seamless and enjoyable.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 ">
           {services.map((service) => (
@@ -277,10 +273,6 @@ export function Services() {
   );
 }
 
-
-
-
-
 export function PopularDestinations() {
   const destinations = [
     {
@@ -289,11 +281,7 @@ export function PopularDestinations() {
       description:
         "Explore the thriving capital of Botswana, known for its wildlife and rich cultural history.",
       images: [
-        "https://source.unsplash.com/featured/?botswana",
-        "https://source.unsplash.com/featured/?gaborone",
-        "https://source.unsplash.com/featured/?wildlife,botswana",
-        "https://source.unsplash.com/featured/?africa,botswana",
-        "https://source.unsplash.com/featured/?nature,botswana",
+        "https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dHJhdmVsfGVufDB8fDB8fHww",
       ],
     },
     {
@@ -302,11 +290,7 @@ export function PopularDestinations() {
       description:
         "Enjoy the serene beaches and vibrant culture of Praia, the capital of Cape Verde.",
       images: [
-        "https://source.unsplash.com/featured/?capeverde",
-        "https://source.unsplash.com/featured/?praia",
-        "https://source.unsplash.com/featured/?beach,capeverde",
-        "https://source.unsplash.com/featured/?ocean,capeverde",
-        "https://source.unsplash.com/featured/?island,capeverde",
+        "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGFmcmljYXxlbnwwfHwwfHx8MA%3D%3D",
       ],
     },
     {
@@ -315,11 +299,7 @@ export function PopularDestinations() {
       description:
         "Discover the heart of Ghana with its historic forts, lively art scene, and welcoming culture.",
       images: [
-        "https://source.unsplash.com/featured/?ghana",
-        "https://source.unsplash.com/featured/?accra",
-        "https://source.unsplash.com/featured/?culture,ghana",
-        "https://source.unsplash.com/featured/?landscape,ghana",
-        "https://source.unsplash.com/featured/?history,ghana",
+        "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGFmcmljYXxlbnwwfHwwfHx8MA%3D%3D",
       ],
     },
     {
@@ -328,11 +308,7 @@ export function PopularDestinations() {
       description:
         "Explore the vibrant city of Lagos with its bustling markets, stunning beaches, and rich cultural heritage.",
       images: [
-        "https://source.unsplash.com/featured/?nigeria",
-        "https://source.unsplash.com/featured/?lagos",
-        "https://source.unsplash.com/featured/?market,nigeria",
-        "https://source.unsplash.com/featured/?beach,nigeria",
-        "https://source.unsplash.com/featured/?culture,nigeria",
+        "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGFmcmljYXxlbnwwfHwwfHx8MA%3D%3D",
       ],
     },
     {
@@ -341,11 +317,7 @@ export function PopularDestinations() {
       description:
         "Experience the charm of Nairobi with its unique blend of wildlife, culture, and modernity.",
       images: [
-        "https://source.unsplash.com/featured/?kenya",
-        "https://source.unsplash.com/featured/?nairobi",
-        "https://source.unsplash.com/featured/?wildlife,kenya",
-        "https://source.unsplash.com/featured/?safari,kenya",
-        "https://source.unsplash.com/featured/?nature,kenya",
+        "https://images.unsplash.com/photo-1543746746-46047c4f4bb0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHRyYXZlbCUyMHRvdXJpc218ZW58MHx8MHx8fDA%3D",
       ],
     },
     {
@@ -354,11 +326,7 @@ export function PopularDestinations() {
       description:
         "Unwind in Dar es Salaam, a city offering stunning beaches, vibrant markets, and rich history.",
       images: [
-        "https://source.unsplash.com/featured/?tanzania",
-        "https://source.unsplash.com/featured/?daressalaam",
-        "https://source.unsplash.com/featured/?beach,tanzania",
-        "https://source.unsplash.com/featured/?market,tanzania",
-        "https://source.unsplash.com/featured/?culture,tanzania",
+        "https://images.unsplash.com/photo-1543746746-46047c4f4bb0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHRyYXZlbCUyMHRvdXJpc218ZW58MHx8MHx8fDA%3D",
       ],
     },
     {
@@ -367,11 +335,7 @@ export function PopularDestinations() {
       description:
         "Witness the beauty and transformation of Kigali, a city known for its cleanliness and resilience.",
       images: [
-        "https://source.unsplash.com/featured/?rwanda",
-        "https://source.unsplash.com/featured/?kigali",
-        "https://source.unsplash.com/featured/?nature,rwanda",
-        "https://source.unsplash.com/featured/?culture,rwanda",
-        "https://source.unsplash.com/featured/?city,rwanda",
+        "https://images.unsplash.com/photo-1543746746-46047c4f4bb0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHRyYXZlbCUyMHRvdXJpc218ZW58MHx8MHx8fDA%3D",
       ],
     },
     {
@@ -380,11 +344,7 @@ export function PopularDestinations() {
       description:
         "Discover Kampala, a city full of life, culture, and breathtaking landscapes in Uganda.",
       images: [
-        "https://source.unsplash.com/featured/?uganda",
-        "https://source.unsplash.com/featured/?kampala",
-        "https://source.unsplash.com/featured/?landscape,uganda",
-        "https://source.unsplash.com/featured/?culture,uganda",
-        "https://source.unsplash.com/featured/?city,uganda",
+        "https://images.unsplash.com/photo-1672889255276-4f34588ac93c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHRyYXZlbCUyMHRvdXJpc218ZW58MHx8MHx8fDA%3D",
       ],
     },
     {
@@ -393,11 +353,7 @@ export function PopularDestinations() {
       description:
         "Explore Lusaka, a growing city with vibrant markets and a gateway to Zambia's natural wonders.",
       images: [
-        "https://source.unsplash.com/featured/?zambia",
-        "https://source.unsplash.com/featured/?lusaka",
-        "https://source.unsplash.com/featured/?culture,zambia",
-        "https://source.unsplash.com/featured/?market,zambia",
-        "https://source.unsplash.com/featured/?landscape,zambia",
+        "https://images.unsplash.com/photo-1667377532685-7048d322143e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dHJhdmVsJTIwdG91cmlzbXxlbnwwfHwwfHx8MA%3D%3D",
       ],
     },
     {
@@ -406,11 +362,7 @@ export function PopularDestinations() {
       description:
         "Discover the cultural richness and vibrant art scene of Harare, Zimbabwe's capital city.",
       images: [
-        "https://source.unsplash.com/featured/?zimbabwe",
-        "https://source.unsplash.com/featured/?harare",
-        "https://source.unsplash.com/featured/?culture,zimbabwe",
-        "https://source.unsplash.com/featured/?art,zimbabwe",
-        "https://source.unsplash.com/featured/?city,zimbabwe",
+        "https://images.unsplash.com/photo-1672889255276-4f34588ac93c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHRyYXZlbCUyMHRvdXJpc218ZW58MHx8MHx8fDA%3D",
       ],
     },
     {
@@ -419,11 +371,7 @@ export function PopularDestinations() {
       description:
         "Enjoy the breathtaking landscapes and vibrant culture of Cape Town, South Africa's jewel.",
       images: [
-        "https://source.unsplash.com/featured/?southafrica",
-        "https://source.unsplash.com/featured/?capetown",
-        "https://source.unsplash.com/featured/?landscape,southafrica",
-        "https://source.unsplash.com/featured/?nature,southafrica",
-        "https://source.unsplash.com/featured/?beach,southafrica",
+        "https://images.unsplash.com/photo-1491555103944-7c647fd857e6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHRyYXZlbCUyMHRvdXJpc218ZW58MHx8MHx8fDA%3D",
       ],
     },
     {
@@ -432,11 +380,7 @@ export function PopularDestinations() {
       description:
         "Discover the unique blend of German heritage and African traditions in Windhoek.",
       images: [
-        "https://source.unsplash.com/featured/?namibia",
-        "https://source.unsplash.com/featured/?windhoek",
-        "https://source.unsplash.com/featured/?culture,namibia",
-        "https://source.unsplash.com/featured/?landscape,namibia",
-        "https://source.unsplash.com/featured/?city,namibia",
+        "https://images.unsplash.com/photo-1491555103944-7c647fd857e6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHRyYXZlbCUyMHRvdXJpc218ZW58MHx8MHx8fDA%3D",
       ],
     },
     {
@@ -445,11 +389,7 @@ export function PopularDestinations() {
       description:
         "Relax in Libreville, a city offering beautiful beaches and a laid-back atmosphere.",
       images: [
-        "https://source.unsplash.com/featured/?gabon",
-        "https://source.unsplash.com/featured/?libreville",
-        "https://source.unsplash.com/featured/?beach,gabon",
-        "https://source.unsplash.com/featured/?ocean,gabon",
-        "https://source.unsplash.com/featured/?city,gabon",
+        "https://images.unsplash.com/photo-1491555103944-7c647fd857e6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHRyYXZlbCUyMHRvdXJpc218ZW58MHx8MHx8fDA%3D",
       ],
     },
   ];
@@ -460,7 +400,7 @@ export function PopularDestinations() {
     const destinationInterval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % destinations.length);
       setCurrentImageIndex(0);
-    }, 10000);
+    }, 6000);
 
     return () => clearInterval(destinationInterval);
   }, [destinations.length]);
@@ -482,20 +422,26 @@ export function PopularDestinations() {
   };
 
   const goToPrevious = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + destinations.length) % destinations.length);
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + destinations.length) % destinations.length
+    );
     setCurrentImageIndex(0);
   };
 
   const currentDestination = destinations[currentIndex];
   const currentImage =
-    currentDestination.images[currentImageIndex] || currentDestination.images[0];
+    currentDestination.images[currentImageIndex] ||
+    currentDestination.images[0];
 
   return (
     <div className="bg-gradient-to-b from-white to-green-600">
       <div className="mx-auto max-w-screen-2xl py-16 px-8 text-center">
-        <h1 className="text-6xl font-serif tracking-tight text-green-800">Our Top Destinations</h1>
+        <h1 className="text-6xl font-serif tracking-tight text-green-800">
+          Our Top Destinations
+        </h1>
         <p className="mt-4 text-lg text-gray-700 font-serif">
-          Explore the beauty and diversity of these amazing destinations across Africa.
+          Explore the beauty and diversity of these amazing destinations across
+          Africa.
         </p>
       </div>
 
@@ -536,112 +482,101 @@ export function PopularDestinations() {
   );
 }
 
-
-
-
-
 export function Partners() {
-    return (
-      <div className="bg-neutral-100 py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <h2 className="text-center text-4xl/8 font-serif text-black">
+  return (
+    <div className="bg-neutral-100 py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <h2 className="text-center text-4xl/8 font-serif text-black">
           Trusted by Africa’s Leading Airlines
-          </h2>
-          <div className="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
-            <img
-              alt="Transistor"
-              // src="https://tailwindui.com/plus/img/logos/158x48/transistor-logo-gray-900.svg"
-              src="https://flyairpeace.com/wp-content/uploads/2024/05/logo.webp"
-              width={158}
-              height={48}
-              className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-            />
-            <img
-              alt="Reform"
-              // src="https://tailwindui.com/plus/img/logos/158x48/reform-logo-gray-900.svg"
-              src="https://www.ethiopianairlines.com/images/default-source/default-album/icons/et-logo.png"
-              width={158}
-              height={48}
-              className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-            />
-            <img
-              alt="Tuple"
-              // src="https://tailwindui.com/plus/img/logos/158x48/tuple-logo-gray-900.svg"
-              src="https://www.zambia-airways.com/Cms_Data/Sites/ZambiaAirways/Files/zambia-logo.png"
-              width={158}
-              height={48}
-              className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-            />
-            <img
-              alt="SavvyCal"
-              // src="https://tailwindui.com/plus/img/logos/158x48/savvycal-logo-gray-900.svg"
-              src="https://assets.airtrfx.com/media-em/wb/logos/wb-large-default.png?width=170&quality=80&fit=crop&format=auto&opt=true"
-              width={158}
-              height={48}
-              className="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
-            />
-            <img
-              alt="Statamic"
-              // src="https://tailwindui.com/plus/img/logos/158x48/statamic-logo-gray-900.svg"
-              src="https://www.flysaa.com/saa-airways-theme/airways/images/logo.png"
-              width={158}
-              height={48}
-              className="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
-            />
-          </div>
+        </h2>
+        <div className="mx-auto mt-10 grid max-w-lg grid-cols-2 items-center gap-x-6 gap-y-8 sm:max-w-xl sm:grid-cols-3 lg:mx-0 lg:max-w-none lg:grid-cols-5 lg:gap-x-10">
+          <img
+            alt="Transistor"
+            src="https://flyairpeace.com/wp-content/uploads/2024/05/logo.webp"
+            width={158}
+            height={48}
+            className="max-h-12 w-full object-contain"
+          />
+          <img
+            alt="Reform"
+            src="https://www.ethiopianairlines.com/images/default-source/default-album/icons/et-logo.png"
+            width={158}
+            height={48}
+            className="max-h-12 w-full object-contain"
+          />
+          <img
+            alt="Tuple"
+            src="https://www.zambia-airways.com/Cms_Data/Sites/ZambiaAirways/Files/zambia-logo.png"
+            width={158}
+            height={48}
+            className="max-h-12 w-full object-contain"
+          />
+          <img
+            alt="SavvyCal"
+            src="https://assets.airtrfx.com/media-em/wb/logos/wb-large-default.png?width=170&quality=80&fit=crop&format=auto&opt=true"
+            width={158}
+            height={48}
+            className="max-h-12 w-full object-contain"
+          />
+          <img
+            alt="Statamic"
+            src="https://www.flysaa.com/saa-airways-theme/airways/images/logo.png"
+            width={158}
+            height={48}
+            className="max-h-12 w-full object-contain"
+          />
         </div>
       </div>
-    )
-  }
+    </div>
+  );
+}
 
+export function Steps() {
+  const steps = [
+    {
+      icon: "🌍",
+      title: "Choose A Destination",
+      description:
+        "Explore Africa’s most breathtaking destinations with Ecotra. Whether it’s wildlife safaris, serene beaches, or cultural landmarks, we help you discover the perfect experience.",
+    },
+    {
+      icon: "💳",
+      title: "Pay Online",
+      description:
+        "Book your adventure seamlessly with our secure online payment system. At Ecotra, we ensure a hassle-free process so you can focus on your journey.",
+    },
+    {
+      icon: <span className="text-green-600">✈️</span>,
+      title: "Fly Today",
+      description:
+        "Start your journey with our trusted airline partners and enjoy a sustainable travel experience that benefits local communities and conserves nature.",
+    },
+  ];
 
-  export function Steps() {
-    const steps = [
-      {
-        icon: '🌍', 
-        title: 'Choose A Destination',
-        description:
-          'Explore Africa’s most breathtaking destinations with Ecotra. Whether it’s wildlife safaris, serene beaches, or cultural landmarks, we help you discover the perfect experience.',
-      },
-      {
-        icon: '💳', 
-        title: 'Pay Online',
-        description:
-          'Book your adventure seamlessly with our secure online payment system. At Ecotra, we ensure a hassle-free process so you can focus on your journey.',
-      },
-      {
-        icon: <span className="text-green-600">✈️</span>, 
-        title: 'Fly Today',
-        description:
-          'Start your journey with our trusted airline partners and enjoy a sustainable travel experience that benefits local communities and conserves nature.',
-      },
-    ];
-  
-    return (
-      <div className="bg-gray-950 text-white py-16">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <h2 className="text-center text-4xl font-serif text-green-600 mb-8">
-            3 Easy Steps
-          </h2>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {steps.map((step, index) => (
-              <div
-                key={index}
-                className="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg"
-              >
-                <div className="text-4xl mb-4">{step.icon}</div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  {step.title}
-                </h3>
-                <p className="text-gray-600 text-center">{step.description}</p>
-              </div>
-            ))}
-          </div>
+  return (
+    <div className="bg-gray-950 text-white py-16">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <h2 className="text-center text-4xl font-serif text-green-600 mb-8">
+          3 Easy Steps
+        </h2>
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {steps.map((step, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg"
+            >
+              <div className="text-4xl mb-4">{step.icon}</div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                {step.title}
+              </h3>
+              <p className="text-gray-600 text-center">{step.description}</p>
+            </div>
+          ))}
         </div>
       </div>
-    );
-  }
-
+    </div>
+  );
+}
 
 export function Testimonials() {
   const testimonials = [
@@ -714,7 +649,9 @@ export function Testimonials() {
 
   return (
     <section className="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:px-8">
-      <h1 className="text-center text-5xl text-green-800 font-serif">Testimonials</h1>
+      <h1 className="text-center text-5xl text-green-800 font-serif">
+        Testimonials
+      </h1>
 
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.green.900),white)] opacity-20" />
       <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
@@ -735,11 +672,21 @@ export function Testimonials() {
               className="mx-auto size-10 rounded-full"
             />
             <div className="mt-4 flex items-center justify-center space-x-3 text-base">
-              <div className="font-semibold text-gray-900">{testimonials[currentIndex].name}</div>
-              <svg width={3} height={3} viewBox="0 0 2 2" aria-hidden="true" className="fill-gray-900">
+              <div className="font-semibold text-gray-900">
+                {testimonials[currentIndex].name}
+              </div>
+              <svg
+                width={3}
+                height={3}
+                viewBox="0 0 2 2"
+                aria-hidden="true"
+                className="fill-gray-900"
+              >
                 <circle r={1} cx={1} cy={1} />
               </svg>
-              <div className="text-gray-600">{testimonials[currentIndex].position}</div>
+              <div className="text-gray-600">
+                {testimonials[currentIndex].position}
+              </div>
             </div>
           </figcaption>
         </figure>
@@ -762,24 +709,21 @@ export function Testimonials() {
   );
 }
 
-
-  
-
 export default function Home() {
   return (
     <div className="font-sans">
-    <Navbar />
-    <HeroSection />
-    <Services />
-    <KeyFeaturesSection />
-    <Cta />
-    <PopularDestinations />
-    <Partners />
-    <Testimonials />
-    <Steps />
-    <InfoSection />
-    <Newsletter />
-    <Footer />
+      <Navbar />
+      <HeroSection />
+      <Services />
+      <KeyFeaturesSection />
+      <Cta />
+      <PopularDestinations />
+      <Partners />
+      <Testimonials />
+      <Steps />
+      <InfoSection />
+      <Newsletter />
+      <Footer />
     </div>
   );
 }

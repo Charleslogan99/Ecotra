@@ -42,7 +42,8 @@ export default function ForgotPassword() {
         <Translator />
       </div>
 
-      <div className="w-full mt-16 max-w-xl space-y-8 bg-black bg-opacity-100 p-6 shadow-2xl rounded-lg">
+      <div className="w-full mt-16 max-w-xl space-y-8 bg-black bg-opacity-100 p-10 shadow-2xl rounded-lg">
+
         <div className="text-center">
           <a href="/">
             <Image
