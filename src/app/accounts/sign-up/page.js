@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-
 import Image from "next/image";
 import Select from "react-select";
 import useCountries from "react-select-country-list";
@@ -86,18 +85,15 @@ export default function SignUp() {
     <div
       className="flex min-h-screen font-serif flex-col items-center text-gray-500 justify-center bg-cover bg-center bg-no-repeat py-10 px-4 sm:px-6 lg:px-8"
       style={{
-        backgroundImage: "url('/bgimage.jpg')", // Replace 'your-image-name.jpg' with the actual image filename
+        backgroundImage: "url('/bgimage.jpg')", 
       }}
     >
-      {/* Translator Component */}
       <div className="absolute top-4 right-4 sm:top-6 sm:right-6 z-50">
         <Translator />
       </div>
 
-      {/* Main Form Container */}
       <div className="w-full mt-16 max-w-xl space-y-8 bg-black bg-opacity-100 p-6 shadow-2xl rounded-lg">
         <div className="text-center">
-          {/* Logo */}
           <a href="/">
             <Image
               alt="Ecotra"
@@ -113,14 +109,13 @@ export default function SignUp() {
           </h2>
           <p className="mt-2 text-lg text-gray-400">
             Already have an account?{" "}
-            <a href="/signin" className="text-green-600 hover:text-green-500">
+            <a href="/accounts/login" className="text-green-600 hover:text-green-500">
               Sign in
             </a>
           </p>
         </div>
 
         <form className="mt-8 space-y-6">
-          {/* Form Fields */}
           <div className="grid grid-cols-2 gap-4">
             <InputField
               label="First Name"
@@ -181,7 +176,7 @@ export default function SignUp() {
               value={phoneNumber}
               onChange={(phone) => setPhoneNumber(phone)}
               className="mt-1 block w-full"
-              inputClass="w-full rounded-md border border-gray-600 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+              inputClass="w-full bg-transparent rounded-md border border-gray-600 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
               buttonClass="bg-transparent border border-gray-900 rounded-l-md"
               dropdownClass="custom-dropdown"
               enableSearch={true}
@@ -241,7 +236,7 @@ export default function SignUp() {
             Create Account
           </button>
 
-          <p className="mt-4 text-md text-gray-400 text-center">
+          <p className="mt-4 text-md text-gray-400 text-centr">
             Need help?{" "}
             <a
               href="/support"

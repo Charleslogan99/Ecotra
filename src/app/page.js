@@ -64,7 +64,7 @@ export function HeroSection() {
             luxury.
           </p>
           <Link
-            href="/sign-up"
+            href="/accounts/sign-up"
             className="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold text-lg hover:bg-green-700 transition-all duration-300"
           >
             Get Started
