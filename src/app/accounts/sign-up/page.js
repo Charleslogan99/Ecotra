@@ -10,10 +10,7 @@ import Translator from "@/components/layout/Translator";
 
 const InputField = ({ label, id, type, value, onChange, placeholder }) => (
   <div>
-    <label
-      htmlFor={id}
-      className="block text-lg font-medium text-gray-50"
-    >
+    <label htmlFor={id} className="block text-lg font-medium text-gray-50">
       {label}
     </label>
     <input
@@ -38,10 +35,7 @@ const PasswordField = ({
   onChange,
 }) => (
   <div>
-    <label
-      htmlFor={id}
-      className="block text-lg font-medium text-gray-50"
-    >
+    <label htmlFor={id} className="block text-lg font-medium text-gray-50">
       {label}
     </label>
     <div className="relative">
@@ -85,7 +79,7 @@ export default function SignUp() {
     <div
       className="flex min-h-screen font-serif flex-col items-center text-gray-500 justify-center bg-cover bg-center bg-no-repeat py-10 px-4 sm:px-6 lg:px-8"
       style={{
-        backgroundImage: "url('/bgimage.jpg')", 
+        backgroundImage: "url('/bgimage.jpg')",
       }}
     >
       <div className="absolute top-4 right-4 sm:top-6 sm:right-6 z-50">
@@ -109,7 +103,10 @@ export default function SignUp() {
           </h2>
           <p className="mt-2 text-lg text-gray-400">
             Already have an account?{" "}
-            <a href="/accounts/login" className="text-green-600 hover:text-green-500">
+            <a
+              href="/accounts/login"
+              className="text-green-600 hover:text-green-500"
+            >
               Sign in
             </a>
           </p>
@@ -213,20 +210,15 @@ export default function SignUp() {
 
           <div className="text-sm text-center text-gray-400">
             By signing up, I confirm I accept the{" "}
-            <a
-              href="#"
-              className="text-green-600 hover:text-green-500"
-            >
+            <a href="#" className="text-green-600 hover:text-green-500">
               Terms of Use
             </a>{" "}
             and consent to the processing of my personal and biometric data as
             stated in the{" "}
-            <a
-              href="#"
-              className="text-green-600 hover:text-green-500"
-            >
+            <a href="#" className="text-green-600 hover:text-green-500">
               Privacy Policy
-            </a>.
+            </a>
+            .
           </div>
 
           <button
@@ -239,7 +231,7 @@ export default function SignUp() {
           <p className="mt-4 text-md text-gray-400 text-centr">
             Need help?{" "}
             <a
-              href="/support"
+              href="mailto:support@ecotra.com"
               className="text-green-600 hover:text-green-500 font-medium"
             >
               Contact Support

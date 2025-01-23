@@ -1,8 +1,10 @@
-// import HeroSection, { Cta, DestinationHighlight, KeyFeaturesSection, Partners, SecondSection, Steps } from "@/components/layout/HeroSection";
+
 
 "use client";
 
 import { useState, useEffect } from "react";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import Newsletter from "@/components/layout/Newsletter";
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "../components/layout/Navbar";
@@ -77,9 +79,9 @@ export function HeroSection() {
   );
 }
 
-export function SecondSection() {
+export function InfoSection() {
   return (
-    <section className="bg-gray-50 py-20 px-6 sm:px-12 lg:px-24">
+    <section className="bg-white py-20 px-6 sm:px-12 lg:px-24">
       <div className="max-w-7xl mx-auto text-center text-white">
         <h2 className="text-4xl sm:text-5xl font-extrabold text-black leading-tight mb-6">
           Unlock the Adventure of a Lifetime
@@ -136,8 +138,8 @@ export function SecondSection() {
             Ready to get started on your next adventure?
           </p>
           <a
-            href="/sign-up"
-            className="inline-block bg-yellow-500 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-600 transition-all duration-300"
+            href="/accounts/sign-up"
+            className="inline-block bg-green-500 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-600 transition-all duration-300"
           >
             Sign Up Today
           </a>
@@ -193,7 +195,7 @@ export function KeyFeaturesSection() {
 
 export function Cta() {
     return (
-        <section className="bg-gray-950 py-16 text-center text-white">
+        <section className="bg-black py-16 text-center text-white">
   <div className="max-w-4xl mx-auto">
     <h3 className="text-3xl font-bold mb-6">
       Ready to Explore Africa Responsibly?
@@ -203,8 +205,8 @@ export function Cta() {
       Africa. Let’s conserve nature and uplift communities together.
     </p>
     <a
-      href="/sign-up"
-      className="bg-white text-green-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all duration-300"
+      href="/accounts/sign-up"
+      className="bg-green-600 text-gray-950 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all duration-300"
     >
       Get Started
     </a>
@@ -221,7 +223,7 @@ export function Services() {
       title: 'Flight Bookings',
       description:
         'Book domestic and international flights at the best prices with Ecotra Travel Agency.',
-      icon: '✈️',
+      icon: <span className="text-green-600">✈️</span>,
     },
     {
       id: 2,
@@ -237,15 +239,9 @@ export function Services() {
         'Explore our customized tour packages designed to give you an unforgettable experience.',
       icon: '🌍',
     },
+   
     {
       id: 4,
-      title: 'Visa Assistance',
-      description:
-        'Get reliable assistance for processing travel visas to various countries.',
-      icon: '🛂',
-    },
-    {
-      id: 5,
       title: 'Travel Insurance',
       description:
         'Stay safe with our comprehensive travel insurance plans tailored for travelers.',
@@ -266,9 +262,8 @@ export function Services() {
           {services.map((service) => (
             <div
               key={service.id}
-              className="bg-white shadow-lg rounded-lg p-6 flex flex-col items-center text-center"
+              className="bg-white shadow-lg rounded-lg p-6 flex flex-col items-center text-center "
             >
-              {/* Green Icon */}
               <div className="text-5xl mb-4 text-gray-900">{service.icon}</div>
               <h3 className="text-xl font-serif text-green-900 mb-2">
                 {service.title}
@@ -496,7 +491,7 @@ export function PopularDestinations() {
     currentDestination.images[currentImageIndex] || currentDestination.images[0];
 
   return (
-    <div className="bg-gradient-to-b from-white to-green-200">
+    <div className="bg-gradient-to-b from-white to-green-600">
       <div className="mx-auto max-w-screen-2xl py-16 px-8 text-center">
         <h1 className="text-6xl font-serif tracking-tight text-green-800">Our Top Destinations</h1>
         <p className="mt-4 text-lg text-gray-700 font-serif">
@@ -505,7 +500,7 @@ export function PopularDestinations() {
       </div>
 
       <div className="mx-auto max-w-screen-2xl px-8">
-        <div className="relative isolate overflow-hidden bg-gradient-to-r from-gray-800 to-gray-900 px-12 pt-20 shadow-2xl sm:rounded-3xl sm:px-20 lg:flex lg:gap-x-20 lg:px-32 lg:pt-0">
+        <div className="relative isolate overflow-hidden bg-black px-12 pt-20 shadow-2xl sm:rounded-3xl sm:px-20 lg:flex lg:gap-x-20 lg:px-32 lg:pt-0">
           <div className="mx-auto max-w-lg text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
             <h2 className="text-5xl font-bold tracking-tight text-white sm:text-6xl">
               {currentDestination.name}
@@ -547,43 +542,48 @@ export function PopularDestinations() {
 
 export function Partners() {
     return (
-      <div className="bg-white py-24 sm:py-32">
+      <div className="bg-neutral-100 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <h2 className="text-center text-3xl/8 font-serif text-green-700">
+          <h2 className="text-center text-4xl/8 font-serif text-black">
           Trusted by Africa’s Leading Airlines
           </h2>
           <div className="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
             <img
               alt="Transistor"
-              src="https://tailwindui.com/plus/img/logos/158x48/transistor-logo-gray-900.svg"
+              // src="https://tailwindui.com/plus/img/logos/158x48/transistor-logo-gray-900.svg"
+              src="https://flyairpeace.com/wp-content/uploads/2024/05/logo.webp"
               width={158}
               height={48}
               className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
             />
             <img
               alt="Reform"
-              src="https://tailwindui.com/plus/img/logos/158x48/reform-logo-gray-900.svg"
+              // src="https://tailwindui.com/plus/img/logos/158x48/reform-logo-gray-900.svg"
+              src="https://www.ethiopianairlines.com/images/default-source/default-album/icons/et-logo.png"
               width={158}
               height={48}
               className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
             />
             <img
               alt="Tuple"
-              src="https://tailwindui.com/plus/img/logos/158x48/tuple-logo-gray-900.svg"
+              // src="https://tailwindui.com/plus/img/logos/158x48/tuple-logo-gray-900.svg"
+              src="https://www.zambia-airways.com/Cms_Data/Sites/ZambiaAirways/Files/zambia-logo.png"
               width={158}
               height={48}
               className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
             />
             <img
               alt="SavvyCal"
-              src="https://tailwindui.com/plus/img/logos/158x48/savvycal-logo-gray-900.svg"
+              // src="https://tailwindui.com/plus/img/logos/158x48/savvycal-logo-gray-900.svg"
+              src="https://assets.airtrfx.com/media-em/wb/logos/wb-large-default.png?width=170&quality=80&fit=crop&format=auto&opt=true"
               width={158}
               height={48}
               className="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
             />
             <img
               alt="Statamic"
-              src="https://tailwindui.com/plus/img/logos/158x48/statamic-logo-gray-900.svg"
+              // src="https://tailwindui.com/plus/img/logos/158x48/statamic-logo-gray-900.svg"
+              src="https://www.flysaa.com/saa-airways-theme/airways/images/logo.png"
               width={158}
               height={48}
               className="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
@@ -598,19 +598,19 @@ export function Partners() {
   export function Steps() {
     const steps = [
       {
-        icon: '🌍', // Replace this emoji with an actual icon if needed
+        icon: '🌍', 
         title: 'Choose A Destination',
         description:
           'Explore Africa’s most breathtaking destinations with Ecotra. Whether it’s wildlife safaris, serene beaches, or cultural landmarks, we help you discover the perfect experience.',
       },
       {
-        icon: '💳', // Replace this emoji with an actual icon if needed
+        icon: '💳', 
         title: 'Pay Online',
         description:
           'Book your adventure seamlessly with our secure online payment system. At Ecotra, we ensure a hassle-free process so you can focus on your journey.',
       },
       {
-        icon: '✈️', // Replace this emoji with an actual icon if needed
+        icon: <span className="text-green-600">✈️</span>, 
         title: 'Fly Today',
         description:
           'Start your journey with our trusted airline partners and enjoy a sustainable travel experience that benefits local communities and conserves nature.',
@@ -618,9 +618,9 @@ export function Partners() {
     ];
   
     return (
-      <div className="bg-gray-50 py-16">
+      <div className="bg-gray-950 text-white py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <h2 className="text-center text-4xl font-serif text-gray-900 mb-8">
+          <h2 className="text-center text-4xl font-serif text-green-600 mb-8">
             3 Easy Steps
           </h2>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -641,7 +641,7 @@ export function Partners() {
       </div>
     );
   }
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa"; // Importing arrow icons
+
 
 export function Testimonials() {
   const testimonials = [
@@ -716,7 +716,7 @@ export function Testimonials() {
     <section className="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:px-8">
       <h1 className="text-center text-5xl text-green-800 font-serif">Testimonials</h1>
 
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.indigo.100),white)] opacity-20" />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.green.900),white)] opacity-20" />
       <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
       <div className="mx-auto max-w-2xl lg:max-w-4xl">
         <img
@@ -777,7 +777,8 @@ export default function Home() {
     <Partners />
     <Testimonials />
     <Steps />
-    <SecondSection />
+    <InfoSection />
+    <Newsletter />
     <Footer />
     </div>
   );

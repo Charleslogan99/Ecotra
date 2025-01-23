@@ -88,8 +88,7 @@ export default function Login() {
 
           <h2 className="text-4xl font-semibold text-gray-100">Login</h2>
           <p className="mt-2 text-lg text-gray-400">
-          To get access to all your dashboards
-
+            To get access to all your dashboards
             {/* <p className=" text-green-600 hover:text-green-500">
             Login with your account
             </p> */}
@@ -115,12 +114,12 @@ export default function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
           <p className="text-right">
-          <a
-                href="/accounts/forgotpassword"
-                className="text-green-600 hover:text-green-500 font-medium"
-              >
-               Forgot Password?
-              </a>
+            <a
+              href="/accounts/forgotpassword"
+              className="text-green-600 hover:text-green-500 font-medium"
+            >
+              Forgot Password?
+            </a>
           </p>
 
           <button
@@ -133,7 +132,7 @@ export default function Login() {
             <p className="mt-4 text-md text-gray-400">
               Need help?{" "}
               <a
-                href="/support"
+                href="mailto:support@ecotra.com"
                 className="text-green-600 hover:text-green-500 font-medium"
               >
                 Contact Support
