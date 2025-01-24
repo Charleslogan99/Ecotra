@@ -21,7 +21,7 @@ const InputField = ({ label, id, type, value, onChange, placeholder }) => (
       onChange={onChange}
       placeholder={placeholder}
       required
-      className="mt-1 block bg-transparent w-full rounded-md border border-gray-600 px-3 py-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+      className="mt-1 block w-full rounded-md border border-gray-600 px-4 py-3 text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 bg-transparent focus:border-green-500 shadow-sm sm:text-sm"
     />
   </div>
 );
@@ -46,7 +46,7 @@ const PasswordField = ({
         value={value}
         onChange={onChange}
         required
-        className="mt-1 block bg-transparent w-full rounded-md border border-gray-600 px-3 py-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+        className="mt-1 block w-full rounded-md border border-gray-600 px-4 py-3 text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 bg-transparent focus:border-green-500 shadow-sm sm:text-sm"
       />
       <span
         className="absolute inset-y-0 right-3 flex items-center cursor-pointer"
@@ -86,8 +86,7 @@ export default function SignUp() {
         <Translator />
       </div>
 
-      <div className="w-full mt-16 max-w-xl space-y-8 bg-black bg-opacity-100 p-10 shadow-2xl rounded-lg">
-
+      <div className="w-full mt-16 max-w-xl space-y-8 bg-black bg-opacity-80 p-12 shadow-2xl rounded-lg">
         <div className="text-center">
           <a href="/">
             <Image
@@ -98,16 +97,10 @@ export default function SignUp() {
               className="mx-auto"
             />
           </a>
-
-          <h2 className="text-4xl font-semibold text-gray-100">
-            Create Account
-          </h2>
+          <h2 className="text-4xl font-semibold text-gray-100">Create Account</h2>
           <p className="mt-2 text-lg text-gray-400">
             Already have an account?{" "}
-            <a
-              href="/accounts/login"
-              className="text-green-600 hover:text-green-500"
-            >
+            <a href="/accounts/login" className="text-green-600 hover:text-green-500">
               Sign in
             </a>
           </p>
@@ -168,13 +161,11 @@ export default function SignUp() {
               Phone Number
             </label>
             <PhoneInput
-              country={
-                selectedCountry ? selectedCountry.value.toLowerCase() : "us"
-              }
+              country={selectedCountry ? selectedCountry.value.toLowerCase() : "us"}
               value={phoneNumber}
               onChange={(phone) => setPhoneNumber(phone)}
               className="mt-1 block w-full"
-              inputClass="w-full bg-transparent rounded-md border border-gray-600 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+              inputClass="w-full bg-transparent rounded-md border border-gray-600 px-4 py-3 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
               buttonClass="bg-transparent border border-gray-900 rounded-l-md"
               dropdownClass="custom-dropdown"
               enableSearch={true}
@@ -214,8 +205,7 @@ export default function SignUp() {
             <a href="#" className="text-green-600 hover:text-green-500">
               Terms of Use
             </a>{" "}
-            and consent to the processing of my personal and biometric data as
-            stated in the{" "}
+            and consent to the processing of my personal and biometric data as stated in the{" "}
             <a href="#" className="text-green-600 hover:text-green-500">
               Privacy Policy
             </a>
@@ -229,12 +219,9 @@ export default function SignUp() {
             Create Account
           </button>
 
-          <p className="mt-4 text-md text-gray-400 text-centr">
+          <p className="mt-4 text-md text-gray-400 text-center">
             Need help?{" "}
-            <a
-              href="mailto:support@ecotra.com"
-              className="text-green-600 hover:text-green-500 font-medium"
-            >
+            <a href="mailto:support@ecotra.com" className="text-green-600 hover:text-green-500 font-medium">
               Contact Support
             </a>
           </p>

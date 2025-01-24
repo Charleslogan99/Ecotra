@@ -27,7 +27,7 @@ export default function ForgotPassword() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your forgot password logic here
+
     console.log("Forgot password email sent to:", email);
   };
 
@@ -42,7 +42,7 @@ export default function ForgotPassword() {
         <Translator />
       </div>
 
-      <div className="w-full mt-16 max-w-xl space-y-8 bg-black bg-opacity-100 p-10 shadow-2xl rounded-lg">
+      <div className="w-full mt-16 max-w-xl space-y-8 bg-black bg-opacity-100 p-12 shadow-2xl rounded-lg">
 
         <div className="text-center">
           <a href="/">

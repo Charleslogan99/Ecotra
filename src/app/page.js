@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { FaArrowLeft, FaArrowRight, FaMapMarkerAlt, FaUserAlt, FaSuitcaseRolling  } from "react-icons/fa";
 import Newsletter from "@/components/layout/Newsletter";
 import Image from "next/image";
 import Link from "next/link";
@@ -30,7 +30,7 @@ export function HeroSection() {
 
   return (
     <section className="relative w-full h-screen overflow-hidden">
-      <div className="absolute inset-0 w-full h-full flex transition-transform duration-700 ease-in-out">
+      <div className="absolute inset-0 w-full h-full flex transition-transform duration-1000 ease-in-out">
         {images.map((image, index) => (
           <div
             key={index}
@@ -40,32 +40,34 @@ export function HeroSection() {
               transition: "transform 1s ease-in-out",
             }}
           >
-            <Image
-              src={image}
-              alt={`Travel Image ${index + 1}`}
-              width={1600}
-              height={900}
-              className="object-cover w-full h-full opacity-100"
-              priority
-            />
+            <div className="relative w-full h-full">
+              <Image
+                src={image}
+                alt={`Travel Image ${index + 1}`}
+                layout="fill" // This allows the image to scale with its container
+                objectFit="cover" // Ensures the image covers the container without distortion
+                className="opacity-100"
+                priority
+              />
+            </div>
           </div>
         ))}
       </div>
 
-      <div className="absolute inset-0 bg-black opacity-50"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-transparent opacity-90"></div>
+
       <div className="absolute inset-0 flex justify-start items-center text-left text-white z-10 px-4 sm:px-6 lg:px-16 xl:px-24 lg:pl-32">
         <div className="max-w-3xl space-y-6">
-          <h1 className="text-4xl sm:text-7xl font-serif leading-tight tracking-tight sm:leading-tight">
+          <h1 className="text-5xl sm:text-7xl font-extrabold tracking-tight leading-tight sm:leading-tight drop-shadow-lg">
             Explore Your Dream Destinations with Us
           </h1>
-          <p className="text-lg sm:text-xl font-medium">
-            We offer customized travel experiences that cater to your
-            preferences. Discover unforgettable destinations with ease and
-            luxury.
+          <p className="text-lg sm:text-xl font-medium opacity-90 leading-relaxed">
+            We offer customized travel experiences that cater to your preferences. 
+            Discover unforgettable destinations with ease and luxury.
           </p>
           <Link
             href="/accounts/sign-up"
-            className="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold text-lg hover:bg-green-700 transition-all duration-300"
+            className="inline-block bg-green-600 text-white px-8 py-4 rounded-xl font-semibold text-xl sm:text-2xl hover:bg-green-700 transition-all duration-300 transform hover:scale-105"
           >
             Get Started
           </Link>
@@ -75,57 +77,76 @@ export function HeroSection() {
   );
 }
 
+
 export function InfoSection() {
   return (
-    <section className="bg-white py-20 px-6 sm:px-12 lg:px-24">
-      <div className="max-w-7xl mx-auto text-center text-white">
-        <h2 className="text-4xl sm:text-6xl font-serif text-black leading-tight mb-6">
+    <section className="bg-gray-100 py-20 px-6 sm:px-12 lg:px-24">
+      <div className="max-w-7xl mx-auto text-center">
+        <h2 className="text-4xl sm:text-6xl font-serif text-gray-800 leading-tight mb-6">
           Unlock the Adventure of a Lifetime
         </h2>
-        <p className="text-gray-500 text-xl sm:text-lg mb-12">
+        <p className="text-gray-600 text-xl sm:text-lg mb-12 max-w-2xl mx-auto">
           Join thousands of satisfied travelers who’ve experienced the best of
           customized travel. From exotic destinations to curated experiences,
           we’ve got it all covered.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-          <div className="bg-white p-8 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300">
-            <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
+          <div className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out">
+            <div className="flex justify-center items-center mb-6">
+              <FaMapMarkerAlt size={48} className="text-green-600 mb-4" />
+            </div>
+            <h3 className="text-3xl font-semibold text-gray-800 mb-4">
               Personalized Itineraries
             </h3>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-600 mb-6 text-lg">
               Whether you're into adventure or relaxation, we’ll customize your
               trip to match your needs and interests. You decide the pace!
             </p>
-            <div className="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold text-lg hover:bg-green-700 transition-all duration-300">
+            <a
+              href="/about"
+              className="bg-green-600 text-white px-8 py-4 rounded-md font-semibold text-lg hover:bg-green-700 transition-all duration-300 transform hover:scale-105"
+            >
               Learn More
-            </div>
+            </a>
           </div>
 
-          <div className="bg-white p-8 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300">
-            <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+          <div className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out">
+            <div className="flex justify-center items-center mb-6">
+              <FaUserAlt size={48} className="text-blue-600 mb-4" />
+            </div>
+            <h3 className="text-3xl font-semibold text-gray-800 mb-4">
               Expert Guides
             </h3>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-600 mb-6 text-lg">
               Our local guides know the hidden gems and will ensure you have the
               best experience possible, every step of the way.
             </p>
-            <div className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-all duration-300">
+            <a
+              href="/about"
+              className="bg-blue-600 text-white px-8 py-4 rounded-md font-semibold text-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105"
+            >
               Learn More
-            </div>
+            </a>
           </div>
 
-          <div className="bg-white p-8 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300">
-            <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+          <div className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out">
+            <div className="flex justify-center items-center mb-6">
+              <FaSuitcaseRolling size={48} className="text-red-600 mb-4" />
+            </div>
+            <h3 className="text-3xl font-semibold text-gray-800 mb-4">
               Stress-Free Travel
             </h3>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-600 mb-6 text-lg">
               From airport transfers to bookings, we handle all the details so
               you can focus on enjoying your vacation without the hassle.
             </p>
-            <div className="bg-red-600 text-white px-6 py-3 rounded-lg font-semibold text-lg hover:bg-red-700 transition-all duration-300">
+            <a
+              href="/about"
+              className="bg-red-600 text-white px-8 py-4 rounded-md font-semibold text-lg hover:bg-red-700 transition-all duration-300 transform hover:scale-105"
+            >
               Learn More
-            </div>
+            </a>
           </div>
         </div>
 
@@ -135,7 +156,7 @@ export function InfoSection() {
           </p>
           <a
             href="/accounts/sign-up"
-            className="inline-block bg-green-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-green-7 00 transition-all duration-300"
+            className="inline-block bg-gradient-to-r from-green-600 to-green-700 text-white px-8 py-4 rounded-md font-bold text-lg hover:from-green-700 hover:to-green-800 transition-all duration-300 transform hover:scale-105"
           >
             Sign Up Today
           </a>
@@ -145,39 +166,49 @@ export function InfoSection() {
   );
 }
 
+
 export function KeyFeaturesSection() {
   return (
-    <section className="bg-gray-200 py-20 px-6 sm:px-12 lg:px-24">
+    <section className="bg-gradient-to-b from-gray-50 to-white py-24 px-6 sm:px-12 lg:px-24">
       <div className="max-w-7xl mx-auto text-center">
-        <h3 className="text-3xl font-serif text-green-800 mb-10">
+        <h3 className="text-4xl font-serif font-bold text-green-800 mb-16">
           Why Travel with Ecotra?
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h4 className="text-xl font-semibold text-green-600 mb-4">
+          <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div className="bg-green-100 w-16 h-16 flex items-center justify-center rounded-full mb-6 mx-auto">
+              <span className="text-green-900 text-3xl font-bold">🌱</span>
+            </div>
+            <h4 className="text-2xl font-semibold text-green-700 mb-4">
               Sustainable Tourism
             </h4>
-            <p className="text-gray-600">
+            <p className="text-gray-700 text-lg leading-relaxed">
               A portion of our revenue directly supports conservation projects,
-              ensuring that your travel positively impacts the environment and
-              local communities.
+              ensuring your travel positively impacts the environment and local
+              communities.
             </p>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h4 className="text-xl font-semibold text-green-600 mb-4">
+          <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div className="bg-green-100 w-16 h-16 flex items-center justify-center rounded-full mb-6 mx-auto">
+              <span className="text-green-600 text-3xl font-bold">🌍</span>
+            </div>
+            <h4 className="text-2xl font-semibold text-green-700 mb-4">
               Diverse Destinations
             </h4>
-            <p className="text-gray-600">
+            <p className="text-gray-700 text-lg leading-relaxed">
               From the savannahs of Kenya to the beaches of Cape Verde, explore
               Africa’s hidden treasures with guided tours and customized
               itineraries.
             </p>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h4 className="text-xl font-semibold text-green-600 mb-4">
+          <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div className="bg-green-100 w-16 h-16 flex items-center justify-center rounded-full mb-6 mx-auto">
+              <span className="text-green-600 text-3xl font-bold">🤝</span>
+            </div>
+            <h4 className="text-2xl font-semibold text-green-700 mb-4">
               Expert Partnerships
             </h4>
-            <p className="text-gray-600">
+            <p className="text-gray-700 text-lg leading-relaxed">
               Travel with confidence through partnerships with leading airlines,
               embassies, and NGOs, ensuring a seamless experience from start to
               finish.
@@ -189,20 +220,21 @@ export function KeyFeaturesSection() {
   );
 }
 
+
 export function Cta() {
   return (
-    <section className="bg-black py-16 text-center text-white">
-      <div className="max-w-4xl mx-auto">
-        <h3 className="text-3xl font-bold mb-6">
+    <section className="bg-black py-24 text-center text-white">
+      <div className="max-w-5xl mx-auto px-6">
+        <h3 className="text-4xl font-extrabold mb-6 leading-tight tracking-wide">
           Ready to Explore Africa Responsibly?
         </h3>
-        <p className="text-lg mb-8">
+        <p className="text-lg mb-12 max-w-2xl mx-auto">
           Join us in promoting sustainable tourism while enjoying the beauty of
           Africa. Let’s conserve nature and uplift communities together.
         </p>
         <a
           href="/accounts/sign-up"
-          className="bg-green-600 text-gray-950 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all duration-300"
+          className="bg-gradient-to-r from-green-600 to-green-500 text-gray-950 px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:bg-green-500 transform hover:scale-105 transition-all duration-300"
         >
           Get Started
         </a>
@@ -210,6 +242,7 @@ export function Cta() {
     </section>
   );
 }
+
 
 export function Services() {
   const services = [
@@ -234,7 +267,6 @@ export function Services() {
         "Explore our customized tour packages designed to give you an unforgettable experience.",
       icon: "🌍",
     },
-
     {
       id: 4,
       title: "Travel Insurance",
@@ -245,26 +277,36 @@ export function Services() {
   ];
 
   return (
-    <section className="bg-gray-100 py-12 px-6">
+    <section
+      className="relative py-16 px-6"
+      style={{
+        backgroundImage:
+          'url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 1440 320%27%3E%3Cpath fill=%27%23047857%27 fill-opacity=%271%27 d=%27M0,224L48,197.3C96,171,192,117,288,122.7C384,128,480,192,576,197.3C672,203,768,149,864,128C960,107,1056,117,1152,144C1248,171,1344,213,1392,234.7L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z%27%3E%3C/path%3E%3C/svg%3E")',
+        backgroundSize: "cover",
+        backgroundPosition: "top",
+      }}
+    >
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-4xl font-serif text-green-800 mb-6">
+        <h2 className="text-5xl font-serif text-green-800 mb-8">
           Our Services
         </h2>
-        <p className="text-gray-600 mb-10 font-serif">
+        <p className="text-gray-600 mb-12 font-serif max-w-3xl mx-auto">
           At Ecotra Travel Agency, we offer a range of services to make your
           travel experience seamless and enjoyable.
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
           {services.map((service) => (
             <div
               key={service.id}
-              className="bg-white shadow-lg rounded-lg p-6 flex flex-col items-center text-center "
+              className="bg-white shadow-lg rounded-xl p-8 flex flex-col items-center text-center transform hover:-translate-y-2 hover:shadow-2xl transition-all duration-300"
             >
-              <div className="text-5xl mb-4 text-gray-900">{service.icon}</div>
-              <h3 className="text-xl font-serif text-green-900 mb-2">
+              <div className="text-6xl mb-6 text-green-600">{service.icon}</div>
+              <h3 className="text-2xl font-serif text-green-900 mb-4">
                 {service.title}
               </h3>
-              <p className="text-gray-900 font-sans">{service.description}</p>
+              <p className="text-gray-600 font-sans leading-relaxed">
+                {service.description}
+              </p>
             </div>
           ))}
         </div>
@@ -272,6 +314,8 @@ export function Services() {
     </section>
   );
 }
+
+
 
 export function PopularDestinations() {
   const destinations = [
@@ -393,6 +437,7 @@ export function PopularDestinations() {
       ],
     },
   ];
+ 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -434,48 +479,44 @@ export function PopularDestinations() {
     currentDestination.images[0];
 
   return (
-    <div className="bg-gradient-to-b from-white to-green-600">
-      <div className="mx-auto max-w-screen-2xl py-16 px-8 text-center">
-        <h1 className="text-6xl font-serif tracking-tight text-green-800">
+    <div className="bg-white py-16">
+      <div className="mx-auto max-w-screen-2xl px-8 text-center">
+        <h1 className="text-6xl font-serif font-extrabold tracking-tight text-green-800">
           Our Top Destinations
         </h1>
-        <p className="mt-4 text-lg text-gray-700 font-serif">
+        <p className="mt-4 text-lg text-gray-600 font-serif">
           Explore the beauty and diversity of these amazing destinations across
           Africa.
         </p>
       </div>
 
-      <div className="mx-auto max-w-screen-2xl px-8">
-        <div className="relative isolate overflow-hidden bg-black px-12 pt-20 shadow-2xl sm:rounded-3xl sm:px-20 lg:flex lg:gap-x-20 lg:px-32 lg:pt-0">
-          <div className="mx-auto max-w-lg text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
-            <h2 className="text-5xl font-bold tracking-tight text-white sm:text-6xl">
-              {currentDestination.name}
-            </h2>
-            <p className="mt-8 text-xl leading-relaxed text-gray-300">
-              {currentDestination.description}
-            </p>
-            <div className="mt-12 flex items-center justify-center gap-x-8 lg:justify-start">
+      <div className="mx-auto max-w-screen-2xl px-8 mt-16">
+        <div className="relative flex items-center justify-between bg-black text-white py-16 px-12 rounded-3xl shadow-2xl lg:px-32 lg:py-20">
+          <div className="max-w-lg text-center lg:text-left lg:max-w-xl lg:w-1/2">
+            <h2 className="text-5xl font-extrabold">{currentDestination.name}</h2>
+            <p className="mt-4 text-lg text-gray-300">{currentDestination.description}</p>
+            <div className="mt-8 flex justify-center gap-x-8 lg:justify-start">
               <button
                 onClick={goToPrevious}
-                className="rounded-lg bg-white px-5 py-3 text-lg font-semibold text-gray-900 shadow-md hover:bg-gray-100 transition duration-200"
+                className="rounded-lg bg-white px-6 py-3 text-lg font-semibold text-gray-900 shadow-md hover:bg-gray-100 transition duration-300 transform hover:scale-105"
               >
                 Previous
               </button>
               <button
                 onClick={goToNext}
-                className="rounded-lg bg-white px-5 py-3 text-lg font-semibold text-gray-900 shadow-md hover:bg-gray-100 transition duration-200"
+                className="rounded-lg bg-white px-6 py-3 text-lg font-semibold text-gray-900 shadow-md hover:bg-gray-100 transition duration-300 transform hover:scale-105"
               >
                 Next
               </button>
             </div>
           </div>
-          <div className="relative mt-10 h-80 w-full max-w-lg mx-auto lg:mt-0 lg:max-w-xl lg:flex-shrink-0">
-            <img
-              src={currentImage}
-              alt={currentDestination.name}
-              className="h-full w-full object-cover rounded-xl shadow-xl"
-            />
-          </div>
+          <div className="relative w-full max-w-full mx-auto lg:w-1/2 h-96">
+  <img
+    src={currentImage}
+    alt={currentDestination.name}
+    className="w-full h-full object-cover rounded-2xl shadow-xl"
+  />
+</div>
         </div>
       </div>
     </div>
@@ -484,52 +525,63 @@ export function PopularDestinations() {
 
 export function Partners() {
   return (
-    <div className="bg-neutral-100 py-24 sm:py-32">
+    <div className="bg-gradient-to-r from-gray-50 to-gray-100 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <h2 className="text-center text-4xl/8 font-serif text-black">
+        <h2 className="text-center text-4xl font-extrabold text-gray-900 mb-16">
           Trusted by Africa’s Leading Airlines
         </h2>
-        <div className="mx-auto mt-10 grid max-w-lg grid-cols-2 items-center gap-x-6 gap-y-8 sm:max-w-xl sm:grid-cols-3 lg:mx-0 lg:max-w-none lg:grid-cols-5 lg:gap-x-10">
-          <img
-            alt="Transistor"
-            src="https://flyairpeace.com/wp-content/uploads/2024/05/logo.webp"
-            width={158}
-            height={48}
-            className="max-h-12 w-full object-contain"
-          />
-          <img
-            alt="Reform"
-            src="https://www.ethiopianairlines.com/images/default-source/default-album/icons/et-logo.png"
-            width={158}
-            height={48}
-            className="max-h-12 w-full object-contain"
-          />
-          <img
-            alt="Tuple"
-            src="https://www.zambia-airways.com/Cms_Data/Sites/ZambiaAirways/Files/zambia-logo.png"
-            width={158}
-            height={48}
-            className="max-h-12 w-full object-contain"
-          />
-          <img
-            alt="SavvyCal"
-            src="https://assets.airtrfx.com/media-em/wb/logos/wb-large-default.png?width=170&quality=80&fit=crop&format=auto&opt=true"
-            width={158}
-            height={48}
-            className="max-h-12 w-full object-contain"
-          />
-          <img
-            alt="Statamic"
-            src="https://www.flysaa.com/saa-airways-theme/airways/images/logo.png"
-            width={158}
-            height={48}
-            className="max-h-12 w-full object-contain"
-          />
+        <div className="mx-auto grid max-w-lg grid-cols-2 items-center gap-12 sm:max-w-xl sm:grid-cols-3 lg:mx-0 lg:max-w-none lg:grid-cols-5 lg:gap-x-16">
+          <div className="flex justify-center items-center transition-transform duration-500 ease-in-out transform hover:scale-110">
+            <img
+              alt="Air Peace"
+              src="https://flyairpeace.com/wp-content/uploads/2024/05/logo.webp"
+              width={158}
+              height={48}
+              className="max-h-12 w-full object-contain"
+            />
+          </div>
+          <div className="flex justify-center items-center transition-transform duration-500 ease-in-out transform hover:scale-110">
+            <img
+              alt="Ethiopian Airlines"
+              src="https://www.ethiopianairlines.com/images/default-source/default-album/icons/et-logo.png"
+              width={158}
+              height={48}
+              className="max-h-12 w-full object-contain"
+            />
+          </div>
+          <div className="flex justify-center items-center transition-transform duration-500 ease-in-out transform hover:scale-110">
+            <img
+              alt="Zambia Airways"
+              src="https://www.zambia-airways.com/Cms_Data/Sites/ZambiaAirways/Files/zambia-logo.png"
+              width={158}
+              height={48}
+              className="max-h-12 w-full object-contain"
+            />
+          </div>
+          <div className="flex justify-center items-center transition-transform duration-500 ease-in-out transform hover:scale-110">
+            <img
+              alt="Airtrfx"
+              src="https://assets.airtrfx.com/media-em/wb/logos/wb-large-default.png?width=170&quality=80&fit=crop&format=auto&opt=true"
+              width={158}
+              height={48}
+              className="max-h-12 w-full object-contain"
+            />
+          </div>
+          <div className="flex justify-center items-center transition-transform duration-500 ease-in-out transform hover:scale-110">
+            <img
+              alt="South African Airways"
+              src="https://www.flysaa.com/saa-airways-theme/airways/images/logo.png"
+              width={158}
+              height={48}
+              className="max-h-12 w-full object-contain"
+            />
+          </div>
         </div>
       </div>
     </div>
   );
 }
+
 
 export function Steps() {
   const steps = [
@@ -554,22 +606,22 @@ export function Steps() {
   ];
 
   return (
-    <div className="bg-gray-950 text-white py-16">
+    <div className="bg-black text-white py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <h2 className="text-center text-4xl font-serif text-green-600 mb-8">
+        <h2 className="text-center text-4xl font-serif text-green-600 mb-16">
           3 Easy Steps
         </h2>
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
           {steps.map((step, index) => (
             <div
               key={index}
-              className="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg"
+              className="flex flex-col items-center bg-white p-8 rounded-lg shadow-xl transform hover:scale-105 hover:shadow-2xl transition-all duration-300"
             >
-              <div className="text-4xl mb-4">{step.icon}</div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+              <div className="text-6xl text-green-600 mb-6">{step.icon}</div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">
                 {step.title}
               </h3>
-              <p className="text-gray-600 text-center">{step.description}</p>
+              <p className="text-gray-700 text-center font-serif">{step.description}</p>
             </div>
           ))}
         </div>
@@ -577,6 +629,8 @@ export function Steps() {
     </div>
   );
 }
+
+
 
 export function Testimonials() {
   const testimonials = [
@@ -632,9 +686,9 @@ export function Testimonials() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-    }, 5000); // Change testimonial every 5 seconds
+    }, 5000);
 
-    return () => clearInterval(interval); // Cleanup on component unmount
+    return () => clearInterval(interval);
   }, [testimonials.length]);
 
   const goToNextTestimonial = () => {
@@ -648,66 +702,60 @@ export function Testimonials() {
   };
 
   return (
-    <section className="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:px-8">
-      <h1 className="text-center text-5xl text-green-800 font-serif">
-        Testimonials
-      </h1>
+    <section className="relative overflow-hidden bg-white text-black py-16">
+      <h1 className="text-center text-4xl font-serif font-medium mb-12">Customer Testimonials</h1>
 
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.green.900),white)] opacity-20" />
-      <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
-      <div className="mx-auto max-w-2xl lg:max-w-4xl">
-        <img
-          alt=""
-          src="https://yourlogo.com/ecotra-travel-logo.svg"
-          className="mx-auto h-12"
-        />
-        <figure className="mt-10">
-          <blockquote className="text-center text-xl/8 font-semibold text-gray-900 sm:text-2xl/9">
-            <p>{testimonials[currentIndex].quote}</p>
-          </blockquote>
-          <figcaption className="mt-10">
-            <img
-              alt=""
-              src={testimonials[currentIndex].image}
-              className="mx-auto size-10 rounded-full"
-            />
-            <div className="mt-4 flex items-center justify-center space-x-3 text-base">
-              <div className="font-semibold text-gray-900">
-                {testimonials[currentIndex].name}
-              </div>
-              <svg
-                width={3}
-                height={3}
-                viewBox="0 0 2 2"
-                aria-hidden="true"
-                className="fill-gray-900"
-              >
-                <circle r={1} cx={1} cy={1} />
-              </svg>
-              <div className="text-gray-600">
-                {testimonials[currentIndex].position}
+      <div className="max-w-2xl mx-auto text-center">
+        <div className="relative overflow-hidden rounded-xl shadow-lg">
+          <div className="p-8 bg-green-700 text-lg font-light relative">
+            <svg
+              className="absolute top-0 left-0 transform -translate-x-5 -translate-y-5 w-20 h-20 text-white opacity-30"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 64 64"
+              fill="currentColor"
+            >
+              <path d="M32 64c8.75 0 16-7.25 16-16 0-7.62-4.88-14.1-11.75-16.8C38.85 31.4 37.5 28.3 37.5 25 37.5 14.15 27.5 7.5 19 7.5 9.75 7.5 2 14.25 2 23s7.75 15.5 17 15.5c4.62 0 8.75-1.25 12.25-3.25C44.75 36.9 47 40.55 47 45c0 9.5-7.5 16-16 16zM32 42c5.5 0 10-4.5 10-10 0-3.2-2.4-5.9-5.5-7.5C34.3 26.5 32 24 32 20s2.3-6.5 4.5-7.5C39.6 10.9 42 8.2 42 5c0-5.5-4.5-10-10-10-5.5 0-10 4.5-10 10 0 3.2 2.4 5.9 5.5 7.5C29.7 18.5 32 21 32 25s-2.3 6.5-4.5 7.5C26.4 35.1 24 37.8 24 41c0 5.5 4.5 10 10 10z"/>
+            </svg>
+
+            <p className="mb-4 italic">{testimonials[currentIndex].quote}</p>
+
+            <div className="flex justify-center items-center space-x-6">
+              <img
+                src={testimonials[currentIndex].image}
+                alt={testimonials[currentIndex].name}
+                className="w-16 h-16 rounded-full border-4 border-white"
+              />
+              <div className="text-lg font-semibold">
+                <p>{testimonials[currentIndex].name}</p>
+                <p className="text-sm font-sans text-gray-200">{testimonials[currentIndex].position}</p>
               </div>
             </div>
-          </figcaption>
-        </figure>
-        <div className="mt-8 flex justify-center space-x-4">
-          <button
-            onClick={goToPreviousTestimonial}
-            className="px-4 py-2 bg-green-600 text-white rounded-full hover:bg-gray-900 transition"
-          >
-            <FaArrowLeft size={20} />
-          </button>
-          <button
-            onClick={goToNextTestimonial}
-            className="px-4 py-2 bg-green-600 text-white rounded-full hover:bg-gray-900 transition"
-          >
-            <FaArrowRight size={20} />
-          </button>
+          </div>
+
+          {/* Navigation arrows */}
+          <div className="absolute top-1/2 left-0 transform -translate-y-1/2 pl-4">
+            <button
+              onClick={goToPreviousTestimonial}
+              className="p-2 bg-black text-white rounded-full hover:bg-gray-600 transition duration-300"
+            >
+              <FaArrowLeft size={20} />
+            </button>
+          </div>
+          <div className="absolute top-1/2 right-0 transform -translate-y-1/2 pr-4">
+            <button
+              onClick={goToNextTestimonial}
+              className="p-2 bg-black text-white rounded-full hover:bg-gray-600 transition duration-300"
+            >
+              <FaArrowRight size={20} />
+            </button>
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
+
 
 export default function Home() {
   return (
