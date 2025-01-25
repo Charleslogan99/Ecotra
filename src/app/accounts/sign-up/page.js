@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import PhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css";
+// import "react-phone-input-2/lib/style.css";
 import Image from "next/image";
 import Select from "react-select";
 import useCountries from "react-select-country-list";
@@ -21,7 +21,7 @@ const InputField = ({ label, id, type, value, onChange, placeholder }) => (
       onChange={onChange}
       placeholder={placeholder}
       required
-      className="mt-1 block w-full rounded-md border border-gray-600 px-4 py-3 text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 bg-transparent focus:border-green-500 shadow-sm sm:text-sm"
+      className="mt-1 block w-full rounded-md border border-gray-600 px-4 py-3  text-gray-100 placeholder-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500 bg-transparent focus:border-green-500 shadow-sm sm:text-lg"
     />
   </div>
 );
@@ -46,7 +46,7 @@ const PasswordField = ({
         value={value}
         onChange={onChange}
         required
-        className="mt-1 block w-full rounded-md border border-gray-600 px-4 py-3 text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 bg-transparent focus:border-green-500 shadow-sm sm:text-sm"
+        className="mt-1 block w-full rounded-md border border-gray-600 px-4 py-3 text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 bg-transparent focus:border-green-500 shadow-sm sm:text-lg"
       />
       <span
         className="absolute inset-y-0 right-3 flex items-center cursor-pointer"
@@ -138,7 +138,7 @@ export default function SignUp() {
               options={countries.getData()}
               value={selectedCountry}
               onChange={setSelectedCountry}
-              className="mt-1"
+              className="mt-1 text-gray-600"
               placeholder="-- Select your country --"
               styles={{
                 control: (base) => ({
@@ -158,14 +158,14 @@ export default function SignUp() {
               htmlFor="phoneNumber"
               className="block text-lg font-medium text-gray-50"
             >
-              Phone Number
+              {/* Phone Number */}
             </label>
             <PhoneInput
               country={selectedCountry ? selectedCountry.value.toLowerCase() : "us"}
               value={phoneNumber}
               onChange={(phone) => setPhoneNumber(phone)}
               className="mt-1 block w-full"
-              inputClass="w-full bg-transparent rounded-md border border-gray-600 px-4 py-3 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+              inputClass="w-full bg-transparent rounded-md border border-gray-600 px-4 py-3 focus:border-green-500 focus:ring-green-500 sm:text-sm"
               buttonClass="bg-transparent border border-gray-900 rounded-l-md"
               dropdownClass="custom-dropdown"
               enableSearch={true}
@@ -202,11 +202,11 @@ export default function SignUp() {
 
           <div className="text-sm text-center text-gray-400">
             By signing up, I confirm I accept the{" "}
-            <a href="#" className="text-green-600 hover:text-green-500">
+            <a href="/legal/terms" className="text-green-600 hover:text-green-500">
               Terms of Use
             </a>{" "}
             and consent to the processing of my personal and biometric data as stated in the{" "}
-            <a href="#" className="text-green-600 hover:text-green-500">
+            <a href="/legal/privacy-policy" className="text-green-600 hover:text-green-500">
               Privacy Policy
             </a>
             .

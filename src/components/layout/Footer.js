@@ -13,7 +13,7 @@ const Footer = () => {
   return (
     <div className="bg-black pt-20 pb-16">
       <div className="max-w-screen-xl mx-auto px-6">
-        <div className="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-4 gap-16">
+        <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-4 gap-16">
           <div className="flex justify-center items-center">
             <Link href="/" className="flex items-center space-x-3">
               <Image

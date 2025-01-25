@@ -1,12 +1,19 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { FaArrowLeft, FaArrowRight, FaMapMarkerAlt, FaUserAlt, FaSuitcaseRolling  } from "react-icons/fa";
+import {
+  FaArrowLeft,
+  FaArrowRight,
+  FaMapMarkerAlt,
+  FaUserAlt,
+  FaSuitcaseRolling,
+} from "react-icons/fa";
 import Newsletter from "@/components/layout/Newsletter";
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "../components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import AfricaMap from "@/components/layout/Map";
 
 export function HeroSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -44,9 +51,10 @@ export function HeroSection() {
               <Image
                 src={image}
                 alt={`Travel Image ${index + 1}`}
-                layout="fill" // This allows the image to scale with its container
-                objectFit="cover" // Ensures the image covers the container without distortion
-                className="opacity-100"
+                layout="fill" 
+                objectFit="cover" 
+              // className="w-full h-full object-cover rounded-2xl shadow-xl"
+              className="opacity-100"
                 priority
               />
             </div>
@@ -62,8 +70,9 @@ export function HeroSection() {
             Explore Your Dream Destinations with Us
           </h1>
           <p className="text-lg sm:text-xl font-medium opacity-90 leading-relaxed">
-            We offer customized travel experiences that cater to your preferences. 
-            Discover unforgettable destinations with ease and luxury.
+            We offer customized travel experiences that cater to your
+            preferences. Discover unforgettable destinations with ease and
+            luxury.
           </p>
           <Link
             href="/accounts/sign-up"
@@ -76,7 +85,6 @@ export function HeroSection() {
     </section>
   );
 }
-
 
 export function InfoSection() {
   return (
@@ -91,7 +99,7 @@ export function InfoSection() {
           we’ve got it all covered.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           <div className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out">
             <div className="flex justify-center items-center mb-6">
               <FaMapMarkerAlt size={48} className="text-green-600 mb-4" />
@@ -166,7 +174,6 @@ export function InfoSection() {
   );
 }
 
-
 export function KeyFeaturesSection() {
   return (
     <section className="bg-gradient-to-b from-gray-50 to-white py-24 px-6 sm:px-12 lg:px-24">
@@ -176,10 +183,10 @@ export function KeyFeaturesSection() {
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
           <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <div className="bg-green-100 w-16 h-16 flex items-center justify-center rounded-full mb-6 mx-auto">
+            <div className="bg-green-900 w-16 h-16 flex items-center justify-center rounded-full mb-6 mx-auto">
               <span className="text-green-900 text-3xl font-bold">🌱</span>
             </div>
-            <h4 className="text-2xl font-semibold text-green-700 mb-4">
+            <h4 className="text-2xl font-serif text-green-700 mb-4">
               Sustainable Tourism
             </h4>
             <p className="text-gray-700 text-lg leading-relaxed">
@@ -189,10 +196,10 @@ export function KeyFeaturesSection() {
             </p>
           </div>
           <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <div className="bg-green-100 w-16 h-16 flex items-center justify-center rounded-full mb-6 mx-auto">
+            <div className="bg-green-900 w-16 h-16 flex items-center justify-center rounded-full mb-6 mx-auto">
               <span className="text-green-600 text-3xl font-bold">🌍</span>
             </div>
-            <h4 className="text-2xl font-semibold text-green-700 mb-4">
+            <h4 className="text-2xl font-serif text-green-700 mb-4">
               Diverse Destinations
             </h4>
             <p className="text-gray-700 text-lg leading-relaxed">
@@ -202,10 +209,10 @@ export function KeyFeaturesSection() {
             </p>
           </div>
           <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <div className="bg-green-100 w-16 h-16 flex items-center justify-center rounded-full mb-6 mx-auto">
+            <div className="bg-green-900 w-16 h-16 flex items-center justify-center rounded-full mb-6 mx-auto">
               <span className="text-green-600 text-3xl font-bold">🤝</span>
             </div>
-            <h4 className="text-2xl font-semibold text-green-700 mb-4">
+            <h4 className="text-2xl font-serif text-green-700 mb-4">
               Expert Partnerships
             </h4>
             <p className="text-gray-700 text-lg leading-relaxed">
@@ -219,7 +226,6 @@ export function KeyFeaturesSection() {
     </section>
   );
 }
-
 
 export function Cta() {
   return (
@@ -243,7 +249,6 @@ export function Cta() {
   );
 }
 
-
 export function Services() {
   const services = [
     {
@@ -251,7 +256,7 @@ export function Services() {
       title: "Flight Bookings",
       description:
         "Book domestic and international flights at the best prices with Ecotra Travel Agency.",
-      icon: <span className="text-green-600">✈️</span>,
+      icon: <span className="text-green-700">✈️</span>,
     },
     {
       id: 2,
@@ -290,7 +295,7 @@ export function Services() {
         <h2 className="text-5xl font-serif text-green-800 mb-8">
           Our Services
         </h2>
-        <p className="text-gray-600 mb-12 font-serif max-w-3xl mx-auto">
+        <p className="text-gray-600 text-xl mb-12 font-serif max-w-3xl mx-auto">
           At Ecotra Travel Agency, we offer a range of services to make your
           travel experience seamless and enjoyable.
         </p>
@@ -314,8 +319,6 @@ export function Services() {
     </section>
   );
 }
-
-
 
 export function PopularDestinations() {
   const destinations = [
@@ -437,7 +440,7 @@ export function PopularDestinations() {
       ],
     },
   ];
- 
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -493,8 +496,12 @@ export function PopularDestinations() {
       <div className="mx-auto max-w-screen-2xl px-8 mt-16">
         <div className="relative flex items-center justify-between bg-black text-white py-16 px-12 rounded-3xl shadow-2xl lg:px-32 lg:py-20">
           <div className="max-w-lg text-center lg:text-left lg:max-w-xl lg:w-1/2">
-            <h2 className="text-5xl font-extrabold">{currentDestination.name}</h2>
-            <p className="mt-4 text-lg text-gray-300">{currentDestination.description}</p>
+            <h2 className="text-5xl font-extrabold">
+              {currentDestination.name}
+            </h2>
+            <p className="mt-4 text-lg text-gray-300">
+              {currentDestination.description}
+            </p>
             <div className="mt-8 flex justify-center gap-x-8 lg:justify-start">
               <button
                 onClick={goToPrevious}
@@ -511,12 +518,12 @@ export function PopularDestinations() {
             </div>
           </div>
           <div className="relative w-full max-w-full mx-auto lg:w-1/2 h-96">
-  <img
-    src={currentImage}
-    alt={currentDestination.name}
-    className="w-full h-full object-cover rounded-2xl shadow-xl"
-  />
-</div>
+            <img
+              src={currentImage}
+              alt={currentDestination.name}
+              className="w-full h-full object-cover rounded-2xl shadow-xl"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -558,6 +565,16 @@ export function Partners() {
               className="max-h-12 w-full object-contain"
             />
           </div>
+          {/* <div className="flex justify-center items-center transition-transform duration-500 ease-in-out transform hover:scale-110">
+            <img
+              alt="Zambia Airways"
+              // src="https://www.zambia-airways.com/Cms_Data/Sites/ZambiaAirways/Files/zambia-logo.png"
+              src="https://res.cloudinary.com/diapyzzws/image/upload/v1682565809/Website%20Images/paystackLogoColoured.svg"
+              width={158}
+              height={48}
+              className="max-h-12 w-full object-contain"
+            />
+          </div> */}
           <div className="flex justify-center items-center transition-transform duration-500 ease-in-out transform hover:scale-110">
             <img
               alt="Airtrfx"
@@ -581,7 +598,6 @@ export function Partners() {
     </div>
   );
 }
-
 
 export function Steps() {
   const steps = [
@@ -621,7 +637,9 @@ export function Steps() {
               <h3 className="text-xl font-semibold text-gray-900 mb-4">
                 {step.title}
               </h3>
-              <p className="text-gray-700 text-center font-serif">{step.description}</p>
+              <p className="text-gray-700 text-center font-serif">
+                {step.description}
+              </p>
             </div>
           ))}
         </div>
@@ -629,8 +647,6 @@ export function Steps() {
     </div>
   );
 }
-
-
 
 export function Testimonials() {
   const testimonials = [
@@ -641,7 +657,7 @@ export function Testimonials() {
       name: "Samantha Lee",
       position: "Marketing Manager",
       image:
-        "https://images.unsplash.com/photo-1603415526960-3f210acd312f?crop=faces&fit=crop&w=256&h=256&q=80",
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?crop=faces&fit=crop&w=256&h=256&q=80",
     },
     {
       id: 2,
@@ -659,7 +675,7 @@ export function Testimonials() {
       name: "Michael Adams",
       position: "CEO of BrightTech",
       image:
-        "https://images.unsplash.com/photo-1502767089025-6572583495e4?crop=faces&fit=crop&w=256&h=256&q=80",
+      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?crop=faces&fit=crop&w=256&h=256&q=80",
     },
     {
       id: 4,
@@ -703,7 +719,9 @@ export function Testimonials() {
 
   return (
     <section className="relative overflow-hidden bg-white text-black py-16">
-      <h1 className="text-center text-4xl font-serif font-medium mb-12">Customer Testimonials</h1>
+      <h1 className="text-center text-4xl font-serif font-medium mb-12">
+        Customer Testimonials
+      </h1>
 
       <div className="max-w-2xl mx-auto text-center">
         <div className="relative overflow-hidden rounded-xl shadow-lg">
@@ -714,7 +732,7 @@ export function Testimonials() {
               viewBox="0 0 64 64"
               fill="currentColor"
             >
-              <path d="M32 64c8.75 0 16-7.25 16-16 0-7.62-4.88-14.1-11.75-16.8C38.85 31.4 37.5 28.3 37.5 25 37.5 14.15 27.5 7.5 19 7.5 9.75 7.5 2 14.25 2 23s7.75 15.5 17 15.5c4.62 0 8.75-1.25 12.25-3.25C44.75 36.9 47 40.55 47 45c0 9.5-7.5 16-16 16zM32 42c5.5 0 10-4.5 10-10 0-3.2-2.4-5.9-5.5-7.5C34.3 26.5 32 24 32 20s2.3-6.5 4.5-7.5C39.6 10.9 42 8.2 42 5c0-5.5-4.5-10-10-10-5.5 0-10 4.5-10 10 0 3.2 2.4 5.9 5.5 7.5C29.7 18.5 32 21 32 25s-2.3 6.5-4.5 7.5C26.4 35.1 24 37.8 24 41c0 5.5 4.5 10 10 10z"/>
+              <path d="M32 64c8.75 0 16-7.25 16-16 0-7.62-4.88-14.1-11.75-16.8C38.85 31.4 37.5 28.3 37.5 25 37.5 14.15 27.5 7.5 19 7.5 9.75 7.5 2 14.25 2 23s7.75 15.5 17 15.5c4.62 0 8.75-1.25 12.25-3.25C44.75 36.9 47 40.55 47 45c0 9.5-7.5 16-16 16zM32 42c5.5 0 10-4.5 10-10 0-3.2-2.4-5.9-5.5-7.5C34.3 26.5 32 24 32 20s2.3-6.5 4.5-7.5C39.6 10.9 42 8.2 42 5c0-5.5-4.5-10-10-10-5.5 0-10 4.5-10 10 0 3.2 2.4 5.9 5.5 7.5C29.7 18.5 32 21 32 25s-2.3 6.5-4.5 7.5C26.4 35.1 24 37.8 24 41c0 5.5 4.5 10 10 10z" />
             </svg>
 
             <p className="mb-4 italic">{testimonials[currentIndex].quote}</p>
@@ -727,7 +745,9 @@ export function Testimonials() {
               />
               <div className="text-lg font-semibold">
                 <p>{testimonials[currentIndex].name}</p>
-                <p className="text-sm font-sans text-gray-200">{testimonials[currentIndex].position}</p>
+                <p className="text-sm font-sans text-gray-200">
+                  {testimonials[currentIndex].position}
+                </p>
               </div>
             </div>
           </div>
@@ -757,6 +777,56 @@ export function Testimonials() {
 
 
 
+
+export function AirplaneCard() {
+  return (
+    <div className="flex flex-col md:flex-row items-center justify-between h-screen bg-white p-8">
+      {/* Plane Image Section */}
+      <div className="w-full md:w-4/6 flex justify-center">
+        <div className="relative w-full max-w-4xl aspect-video rounded-l-3xl overflow-hidden shadow-2xl border-4 border-green-200">
+          <Image
+            src="/plane.jpg" // Replace with your plane image path
+            alt="Airplane"
+            layout="fill"
+            objectFit="cover"
+            priority
+            className="rounded-l-3xl"
+          />
+        </div>
+      </div>
+
+      {/* Text Section */}
+      <div className="w-full md:w-2/6 flex flex-col items-center md:items-start text-center md:text-left mt-10 md:mt-0 px-6 space-y-6">
+        <h1 className="text-5xl md:text-6xl font-extrabold text-green-800 leading-tight">
+          Explore New Horizons
+        </h1>
+        <p className="text-lg md:text-xl text-gray-700 font-serif">
+          Discover the joy of flying with unmatched comfort and luxury. Your
+          journey to extraordinary destinations begins here. Let's create
+          memories that will last a lifetime.
+        </p>
+        <button className="px-8 py-4 bg-green-600 text-white text-lg font-semibold rounded-md shadow-md hover:bg-green-700 transition duration-300 ease-in-out">
+          Book Your Flight
+        </button>
+      </div>
+    </div>
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 export default function Home() {
   return (
     <div className="font-sans">
@@ -771,6 +841,7 @@ export default function Home() {
       <Steps />
       <InfoSection />
       <Newsletter />
+      <AirplaneCard />
       <Footer />
     </div>
   );
