@@ -12,7 +12,7 @@ import {
 const Footer = () => {
   return (
     <div className="bg-black pt-20 pb-16">
-      <div className="max-w-screen-xl mx-auto px-6">
+      <div className="max-w-screen-2xl mx-auto px-6">
         <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-4 gap-16">
           <div className="flex justify-center items-center">
             <Link href="/" className="flex items-center space-x-3">
@@ -62,6 +62,11 @@ const Footer = () => {
               <li>
                 <Link href="/" className="hover:text-green-600 transition">
                   Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-green-600 transition">
+                  Contact
                 </Link>
               </li>
               <li>

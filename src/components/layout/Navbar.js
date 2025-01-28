@@ -152,6 +152,7 @@ export default function Navbar() {
                 key={item.name}
                 href={item.href}
                 className="block text-gray-800 text-lg hover:text-green-600 transition-all duration-300"
+                onClick={() => setMenuOpen(false)} // Close the menu when a link is clicked
               >
                 {item.name}
               </Link>
@@ -164,6 +165,7 @@ export default function Navbar() {
                     key={index}
                     href="#"
                     className="text-gray-800 hover:text-green-600"
+                    onClick={() => setMenuOpen(false)} // Close the menu when a link is clicked
                   >
                     <Icon className="w-6 h-6" />
                   </Link>

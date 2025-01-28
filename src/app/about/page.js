@@ -139,7 +139,7 @@ export default function About() {
     </section>
 
       {/* Meet Our Team */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20">
   <div className="max-w-6xl mx-auto px-6">
     <h2 className="text-4xl font-extrabold text-center text-green-900 tracking-wide">
       Meet Our Team

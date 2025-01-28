@@ -89,93 +89,93 @@ export function HeroSection() {
   );
 }
 
-export function InfoSection() {
-  return (
-    <section className="bg-gray-100 py-20 px-6 sm:px-12 lg:px-24">
-      <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-4xl sm:text-6xl font-serif text-gray-800 leading-tight mb-6">
-          Unlock the Adventure of a Lifetime
-        </h2>
-        <p className="text-gray-600 text-xl sm:text-lg mb-12 max-w-2xl mx-auto">
-          Join thousands of satisfied travelers who’ve experienced the best of
-          customized travel. From exotic destinations to curated experiences,
-          we’ve got it all covered.
-        </p>
+// export function InfoSection() {
+//   return (
+//     <section className="bg-gray-100 py-20 px-6 sm:px-12 lg:px-24">
+//       <div className="max-w-7xl mx-auto text-center">
+//         <h2 className="text-4xl sm:text-6xl font-serif text-gray-800 leading-tight mb-6">
+//           Unlock the Adventure of a Lifetime
+//         </h2>
+//         <p className="text-gray-600 text-xl sm:text-lg mb-12 max-w-2xl mx-auto">
+//           Join thousands of satisfied travelers who’ve experienced the best of
+//           customized travel. From exotic destinations to curated experiences,
+//           we’ve got it all covered.
+//         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          <div className="bp-8 rounded-2xl shadow-md hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out">
-            <div className="flex justify-center items-center mb-6">
-              <FaMapMarkerAlt size={48} className="text-green-600 mb-4" />
-            </div>
-            <h3 className="text-3xl font-semibold text-gray-800 mb-4">
-              Personalized Itineraries
-            </h3>
-            <p className="text-gray-600 mb-6 text-lg">
-              Whether you're into adventure or relaxation, we’ll customize your
-              trip to match your needs and interests. You decide the pace!
-            </p>
-            <a
-              href="/about"
-              className="bg-green-600 text-white px-8 py-4 rounded-md font-semibold text-lg hover:bg-green-700 transition-all duration-300 transform hover:scale-105"
-            >
-              Learn More
-            </a>
-          </div>
+//         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+//           <div className="bp-8 rounded-2xl shadow-md hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out">
+//             <div className="flex justify-center items-center mb-6">
+//               <FaMapMarkerAlt size={48} className="text-green-600 mb-4" />
+//             </div>
+//             <h3 className="text-3xl font-semibold text-gray-800 mb-4">
+//               Personalized Itineraries
+//             </h3>
+//             <p className="text-gray-600 mb-6 text-lg">
+//               Whether you're into adventure or relaxation, we’ll customize your
+//               trip to match your needs and interests. You decide the pace!
+//             </p>
+//             <a
+//               href="/about"
+//               className="bg-green-600 text-white px-8 py-4 rounded-md font-semibold text-lg hover:bg-green-700 transition-all duration-300 transform hover:scale-105"
+//             >
+//               Learn More
+//             </a>
+//           </div>
 
-          <div className="p-8 rounded-2xl shadow-md hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out">
-            <div className="flex justify-center items-center mb-6">
-              <FaUserAlt size={48} className="text-blue-600 mb-4" />
-            </div>
-            <h3 className="text-3xl font-semibold text-gray-800 mb-4">
-              Expert Guides
-            </h3>
-            <p className="text-gray-600 mb-6 text-lg">
-              Our local guides know the hidden gems and will ensure you have the
-              best experience possible, every step of the way.
-            </p>
-            <a
-              href="/about"
-              className="bg-blue-600 text-white px-8 py-4 rounded-md font-semibold text-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105"
-            >
-              Learn More
-            </a>
-          </div>
+//           <div className="p-8 rounded-2xl shadow-md hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out">
+//             <div className="flex justify-center items-center mb-6">
+//               <FaUserAlt size={48} className="text-blue-600 mb-4" />
+//             </div>
+//             <h3 className="text-3xl font-semibold text-gray-800 mb-4">
+//               Expert Guides
+//             </h3>
+//             <p className="text-gray-600 mb-6 text-lg">
+//               Our local guides know the hidden gems and will ensure you have the
+//               best experience possible, every step of the way.
+//             </p>
+//             <a
+//               href="/about"
+//               className="bg-blue-600 text-white px-8 py-4 rounded-md font-semibold text-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105"
+//             >
+//               Learn More
+//             </a>
+//           </div>
 
-          <div className="p-8 rounded-2xl shadow-md hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out">
-            <div className="flex justify-center items-center mb-6">
-              <FaSuitcaseRolling size={48} className="text-red-600 mb-4" />
-            </div>
-            <h3 className="text-3xl font-semibold text-gray-800 mb-4">
-              Stress-Free Travel
-            </h3>
-            <p className="text-gray-600 mb-6 text-lg">
-              From airport transfers to bookings, we handle all the details so
-              you can focus on enjoying your vacation without the hassle.
-            </p>
-            <a
-              href="/about"
-              className="bg-red-600 text-white px-8 py-4 rounded-md font-semibold text-lg hover:bg-red-700 transition-all duration-300 transform hover:scale-105"
-            >
-              Learn More
-            </a>
-          </div>
-        </div>
+//           <div className="p-8 rounded-2xl shadow-md hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out">
+//             <div className="flex justify-center items-center mb-6">
+//               <FaSuitcaseRolling size={48} className="text-red-600 mb-4" />
+//             </div>
+//             <h3 className="text-3xl font-semibold text-gray-800 mb-4">
+//               Stress-Free Travel
+//             </h3>
+//             <p className="text-gray-600 mb-6 text-lg">
+//               From airport transfers to bookings, we handle all the details so
+//               you can focus on enjoying your vacation without the hassle.
+//             </p>
+//             <a
+//               href="/about"
+//               className="bg-red-600 text-white px-8 py-4 rounded-md font-semibold text-lg hover:bg-red-700 transition-all duration-300 transform hover:scale-105"
+//             >
+//               Learn More
+//             </a>
+//           </div>
+//         </div>
 
-        <div className="mt-12">
-          <p className="text-black text-lg sm:text-xl font-semibold mb-6">
-            Ready to get started on your next adventure?
-          </p>
-          <a
-            href="/accounts/sign-up"
-            className="inline-block bg-gradient-to-r from-green-600 to-green-700 text-white px-8 py-4 rounded-md font-bold text-lg hover:from-green-700 hover:to-green-800 transition-all duration-300 transform hover:scale-105"
-          >
-            Sign Up Today
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}
+//         <div className="mt-12">
+//           <p className="text-black text-lg sm:text-xl font-semibold mb-6">
+//             Ready to get started on your next adventure?
+//           </p>
+//           <a
+//             href="/accounts/sign-up"
+//             className="inline-block bg-gradient-to-r from-green-600 to-green-700 text-white px-8 py-4 rounded-md font-bold text-lg hover:from-green-700 hover:to-green-800 transition-all duration-300 transform hover:scale-105"
+//           >
+//             Sign Up Today
+//           </a>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
 
 export function KeyFeaturesSection() {
   return (
@@ -328,7 +328,7 @@ export function PopularDestinations() {
       description:
         "Explore the thriving capital of Botswana, known for its wildlife and rich cultural history.",
       images: [
-        "https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dHJhdmVsfGVufDB8fDB8fHww",
+        "https://img.freepik.com/free-photo/elephants-savannah_167946-123.jpg?ga=GA1.1.640371070.1737806957&semt=ais_hybrid",
       ],
     },
     {
@@ -337,7 +337,7 @@ export function PopularDestinations() {
       description:
         "Enjoy the serene beaches and vibrant culture of Praia, the capital of Cape Verde.",
       images: [
-        "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGFmcmljYXxlbnwwfHwwfHx8MA%3D%3D",
+        "https://img.freepik.com/free-photo/high-angle-shot-boats-sea-cityscape_181624-44810.jpg?ga=GA1.1.640371070.1737806957&semt=ais_hybrid",
       ],
     },
     {
@@ -346,7 +346,7 @@ export function PopularDestinations() {
       description:
         "Discover the heart of Ghana with its historic forts, lively art scene, and welcoming culture.",
       images: [
-        "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGFmcmljYXxlbnwwfHwwfHx8MA%3D%3D",
+        "https://img.freepik.com/premium-photo/aerial-drone-photo-city-bangkok-thailand-sunset_51530-1312.jpg?ga=GA1.1.640371070.1737806957&semt=ais_hybrid",
       ],
     },
     {
@@ -355,7 +355,7 @@ export function PopularDestinations() {
       description:
         "Explore the vibrant city of Lagos with its bustling markets, stunning beaches, and rich cultural heritage.",
       images: [
-        "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGFmcmljYXxlbnwwfHwwfHx8MA%3D%3D",
+        "https://img.freepik.com/premium-photo/aerial-view-victoria-island-lagos-nigeria_662214-312907.jpg?ga=GA1.1.640371070.1737806957&semt=ais_hybrid",
       ],
     },
     {
@@ -364,7 +364,7 @@ export function PopularDestinations() {
       description:
         "Experience the charm of Nairobi with its unique blend of wildlife, culture, and modernity.",
       images: [
-        "https://images.unsplash.com/photo-1543746746-46047c4f4bb0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHRyYXZlbCUyMHRvdXJpc218ZW58MHx8MHx8fDA%3D",
+        "https://img.freepik.com/free-photo/beautiful-bildings-with-lights-hong-kong_181624-44526.jpg?ga=GA1.1.640371070.1737806957&semt=ais_hybrid",
       ],
     },
     {
@@ -373,7 +373,7 @@ export function PopularDestinations() {
       description:
         "Unwind in Dar es Salaam, a city offering stunning beaches, vibrant markets, and rich history.",
       images: [
-        "https://images.unsplash.com/photo-1543746746-46047c4f4bb0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHRyYXZlbCUyMHRvdXJpc218ZW58MHx8MHx8fDA%3D",
+        "https://img.freepik.com/free-photo/giraffes-herd-savannah_155003-6490.jpg?ga=GA1.1.640371070.1737806957&semt=ais_hybrid",
       ],
     },
     {
@@ -382,7 +382,7 @@ export function PopularDestinations() {
       description:
         "Witness the beauty and transformation of Kigali, a city known for its cleanliness and resilience.",
       images: [
-        "https://images.unsplash.com/photo-1543746746-46047c4f4bb0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHRyYXZlbCUyMHRvdXJpc218ZW58MHx8MHx8fDA%3D",
+        "https://img.freepik.com/free-photo/cityscape-bucharest-road-with-moving-cars-multiple-residential-buildings-clear-sky-view-from-drone-romania_1268-16363.jpg?ga=GA1.1.640371070.1737806957&semt=ais_hybrid",
       ],
     },
     {
@@ -391,7 +391,7 @@ export function PopularDestinations() {
       description:
         "Discover Kampala, a city full of life, culture, and breathtaking landscapes in Uganda.",
       images: [
-        "https://images.unsplash.com/photo-1672889255276-4f34588ac93c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHRyYXZlbCUyMHRvdXJpc218ZW58MHx8MHx8fDA%3D",
+        "https://img.freepik.com/premium-photo/city-waterfront-against-cloudy-sky_1048944-30428834.jpg?ga=GA1.1.640371070.1737806957&semt=ais_hybrid",
       ],
     },
     {
@@ -400,7 +400,7 @@ export function PopularDestinations() {
       description:
         "Explore Lusaka, a growing city with vibrant markets and a gateway to Zambia's natural wonders.",
       images: [
-        "https://images.unsplash.com/photo-1667377532685-7048d322143e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dHJhdmVsJTIwdG91cmlzbXxlbnwwfHwwfHx8MA%3D%3D",
+        "https://img.freepik.com/free-photo/waterfall-middle-cliffs-with-trees-plants-sunny-day_181624-2315.jpg?ga=GA1.1.640371070.1737806957&semt=ais_hybrid",
       ],
     },
     {
@@ -409,7 +409,7 @@ export function PopularDestinations() {
       description:
         "Discover the cultural richness and vibrant art scene of Harare, Zimbabwe's capital city.",
       images: [
-        "https://images.unsplash.com/photo-1672889255276-4f34588ac93c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHRyYXZlbCUyMHRvdXJpc218ZW58MHx8MHx8fDA%3D",
+        "https://img.freepik.com/premium-photo/cityscape-view-point-pattaya-beaches-thailand_53526-260.jpg?ga=GA1.1.640371070.1737806957&semt=ais_hybrid",
       ],
     },
     {
@@ -418,7 +418,7 @@ export function PopularDestinations() {
       description:
         "Enjoy the breathtaking landscapes and vibrant culture of Cape Town, South Africa's jewel.",
       images: [
-        "https://images.unsplash.com/photo-1491555103944-7c647fd857e6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHRyYXZlbCUyMHRvdXJpc218ZW58MHx8MHx8fDA%3D",
+        "https://img.freepik.com/premium-photo/scenic-view-sea-against-clear-blue-sky_1048944-25096874.jpg?ga=GA1.1.640371070.1737806957&semt=ais_hybrid",
       ],
     },
     {
@@ -427,7 +427,7 @@ export function PopularDestinations() {
       description:
         "Discover the unique blend of German heritage and African traditions in Windhoek.",
       images: [
-        "https://images.unsplash.com/photo-1491555103944-7c647fd857e6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHRyYXZlbCUyMHRvdXJpc218ZW58MHx8MHx8fDA%3D",
+        "https://img.freepik.com/premium-photo/group-women-himba-tribe-are-walking-through-desert-national-clothes_265142-9999.jpg?ga=GA1.1.640371070.1737806957&semt=ais_hybrid",
       ],
     },
     {
@@ -436,7 +436,7 @@ export function PopularDestinations() {
       description:
         "Relax in Libreville, a city offering beautiful beaches and a laid-back atmosphere.",
       images: [
-        "https://images.unsplash.com/photo-1491555103944-7c647fd857e6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHRyYXZlbCUyMHRvdXJpc218ZW58MHx8MHx8fDA%3D",
+        "https://img.freepik.com/free-photo/closeup-goteik-viaduct-railway-myanmar_181624-40061.jpg?ga=GA1.1.640371070.1737806957&semt=ais_hybrid",
       ],
     },
   ];
@@ -482,27 +482,27 @@ export function PopularDestinations() {
     currentDestination.images[0];
 
   return (
-    <div className="bg-white py-16">
-      <div className="mx-auto max-w-screen-2xl px-8 text-center">
-        <h1 className="text-6xl font-serif font-extrabold tracking-tight text-green-800">
+    <div className="bg- py-16 sm:py-24 lg:py-32">
+      <div className="mx-auto max-w-screen-xl px-8 text-center">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-extrabold tracking-tight text-green">
           Our Top Destinations
         </h1>
-        <p className="mt-4 text-lg text-gray-600 font-serif">
+        <p className="mt-4 text-lg sm:text-xl text-gray-950 font-serif">
           Explore the beauty and diversity of these amazing destinations across
           Africa.
         </p>
       </div>
 
-      <div className="mx-auto max-w-screen-2xl px-8 mt-16">
-        <div className="relative flex items-center justify-between bg-black text-white py-16 px-12 rounded-3xl shadow-2xl lg:px-32 lg:py-20">
-          <div className="max-w-lg text-center lg:text-left lg:max-w-xl lg:w-1/2">
-            <h2 className="text-5xl font-extrabold">
+      <div className="mx-auto max-w-screen-2xl px-8 mt-16 lg:mt-24">
+        <div className="relative flex flex-col lg:flex-row items-center justify-between bg-black text-white py-8 sm:py-16 lg:py-20 px-6 sm:px-12 lg:px-32 rounded-3xl shadow-2xl transition-transform duration-300 ease-in-out transform hover:scale-105">
+          <div className="text-center lg:text-left lg:w-1/2">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white">
               {currentDestination.name}
             </h2>
-            <p className="mt-4 text-lg text-gray-300">
+            <p className="mt-4 text-lg sm:text-xl text-gray-300">
               {currentDestination.description}
             </p>
-            <div className="mt-8 flex justify-center gap-x-8 lg:justify-start">
+            <div className="mt-8 flex justify-center lg:justify-start gap-x-8">
               <button
                 onClick={goToPrevious}
                 className="rounded-lg bg-white px-6 py-3 text-lg font-semibold text-gray-900 shadow-md hover:bg-gray-100 transition duration-300 transform hover:scale-105"
@@ -517,11 +517,11 @@ export function PopularDestinations() {
               </button>
             </div>
           </div>
-          <div className="relative w-full max-w-full mx-auto lg:w-1/2 h-96">
+          <div className="relative w-full max-w-full mx-auto lg:w-1/2 mt-8 lg:mt-0 h-64 sm:h-80 lg:h-96">
             <img
               src={currentImage}
               alt={currentDestination.name}
-              className="w-full h-full object-cover rounded-2xl shadow-xl"
+              className="w-full h-full object-cover rounded-2xl shadow-xl transition duration-500 ease-in-out transform hover:scale-105"
             />
           </div>
         </div>
@@ -820,9 +820,9 @@ export default function Home() {
       <Partners />
       <Testimonials />
       <Steps />
-      <InfoSection />
-      <Newsletter />
+      {/* <InfoSection /> */}
       <AirplaneCard />
+      <Newsletter />
       {/* <Footer /> */}
     </div>
   );
