@@ -11,9 +11,6 @@ import {
 import Newsletter from "@/components/layout/Newsletter";
 import Image from "next/image";
 import Link from "next/link";
-import Navbar from "../components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
-import AfricaMap from "@/components/layout/Map";
 
 export function HeroSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -37,50 +34,56 @@ export function HeroSection() {
 
   return (
     <section className="relative w-full h-screen overflow-hidden">
+      {/* Image Slider */}
       <div className="absolute inset-0 w-full h-full flex transition-transform duration-1000 ease-in-out">
         {images.map((image, index) => (
           <div
             key={index}
-            className="w-full h-full flex-shrink-0"
-            style={{
-              transform: `translateX(-${currentIndex * 100}%)`,
-              transition: "transform 1s ease-in-out",
-            }}
+            className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ${
+              index === currentIndex ? "opacity-100" : "opacity-0"
+            }`}
           >
-            <div className="relative w-full h-full">
-              <Image
-                src={image}
-                alt={`Travel Image ${index + 1}`}
-                layout="fill" 
-                objectFit="cover" 
-              // className="w-full h-full object-cover rounded-2xl shadow-xl"
-              className="opacity-100"
-                priority
-              />
-            </div>
+            <Image
+              src={image}
+              alt={`Travel Image ${index + 1}`}
+              layout="fill"
+              objectFit="cover"
+              priority
+            />
           </div>
         ))}
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-transparent opacity-90"></div>
+      {/* Overlay for Better Readability */}
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
 
-      <div className="absolute inset-0 flex justify-start items-center text-left text-white z-10 px-4 sm:px-6 lg:px-16 xl:px-24 lg:pl-32">
-        <div className="max-w-3xl space-y-6">
-          <h1 className="text-5xl sm:text-7xl font-extrabold tracking-tight leading-tight sm:leading-tight drop-shadow-lg">
-            Explore Your Dream Destinations with Us
-          </h1>
-          <p className="text-lg sm:text-xl font-medium opacity-90 leading-relaxed">
-            We offer customized travel experiences that cater to your
-            preferences. Discover unforgettable destinations with ease and
-            luxury.
-          </p>
-          <Link
-            href="/accounts/sign-up"
-            className="inline-block bg-green-600 text-white px-8 py-4 rounded-xl font-semibold text-xl sm:text-2xl hover:bg-green-700 transition-all duration-300 transform hover:scale-105"
-          >
-            Get Started
-          </Link>
-        </div>
+      {/* Hero Content */}
+      <div className="absolute inset-0 flex flex-col justify-center items-start text-white z-10 px-6 sm:px-10 lg:px-24 max-w-3xl">
+        <h1 className="text-4xl sm:text-6xl font-extrabold leading-tight drop-shadow-lg">
+          Explore Your Dream <br /> Destinations with Us
+        </h1>
+        <p className="text-lg sm:text-xl font-medium opacity-90 mt-4 leading-relaxed">
+          Discover customized travel experiences tailored to your desires.
+          Embark on unforgettable adventures with ease and luxury.
+        </p>
+        <Link
+          href="/accounts/sign-up"
+          className="mt-6 inline-block bg-green-600 text-white px-8 py-4 rounded-xl font-semibold text-lg sm:text-2xl shadow-lg transition-all duration-300 transform hover:scale-105 hover:bg-green-700"
+        >
+          Get Started
+        </Link>
+      </div>
+
+      {/* Dots Navigation */}
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
+        {images.map((_, index) => (
+          <div
+            key={index}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              index === currentIndex ? "bg-white w-5" : "bg-white/50"
+            }`}
+          />
+        ))}
       </div>
     </section>
   );
@@ -100,7 +103,7 @@ export function InfoSection() {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          <div className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out">
+          <div className="bp-8 rounded-2xl shadow-md hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out">
             <div className="flex justify-center items-center mb-6">
               <FaMapMarkerAlt size={48} className="text-green-600 mb-4" />
             </div>
@@ -119,7 +122,7 @@ export function InfoSection() {
             </a>
           </div>
 
-          <div className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out">
+          <div className="p-8 rounded-2xl shadow-md hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out">
             <div className="flex justify-center items-center mb-6">
               <FaUserAlt size={48} className="text-blue-600 mb-4" />
             </div>
@@ -138,7 +141,7 @@ export function InfoSection() {
             </a>
           </div>
 
-          <div className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out">
+          <div className="p-8 rounded-2xl shadow-md hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out">
             <div className="flex justify-center items-center mb-6">
               <FaSuitcaseRolling size={48} className="text-red-600 mb-4" />
             </div>
@@ -178,11 +181,8 @@ export function KeyFeaturesSection() {
   return (
     <section className="bg-gradient-to-b from-gray-50 to-white py-24 px-6 sm:px-12 lg:px-24">
       <div className="max-w-7xl mx-auto text-center">
-        <h3 className="text-4xl font-serif font-bold text-green-800 mb-16">
-          Why Travel with Ecotra?
-        </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
-          <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <div className=" p-8 rounded-2xl hover:shadow-xl transition-shadow duration-300">
             <div className="bg-green-900 w-16 h-16 flex items-center justify-center rounded-full mb-6 mx-auto">
               <span className="text-green-900 text-3xl font-bold">🌱</span>
             </div>
@@ -195,7 +195,7 @@ export function KeyFeaturesSection() {
               communities.
             </p>
           </div>
-          <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <div className=" p-8 rounded-2xl hover:shadow-xl transition-shadow duration-300">
             <div className="bg-green-900 w-16 h-16 flex items-center justify-center rounded-full mb-6 mx-auto">
               <span className="text-green-600 text-3xl font-bold">🌍</span>
             </div>
@@ -208,7 +208,7 @@ export function KeyFeaturesSection() {
               itineraries.
             </p>
           </div>
-          <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <div className="p-8 rounded-2xl hover:shadow-xl transition-shadow duration-300">
             <div className="bg-green-900 w-16 h-16 flex items-center justify-center rounded-full mb-6 mx-auto">
               <span className="text-green-600 text-3xl font-bold">🤝</span>
             </div>
@@ -622,7 +622,7 @@ export function Steps() {
   ];
 
   return (
-    <div className="bg-black text-white py-24">
+    <div className="bg-neutral-50 text-white py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <h2 className="text-center text-4xl font-serif text-green-600 mb-16">
           3 Easy Steps
@@ -631,7 +631,7 @@ export function Steps() {
           {steps.map((step, index) => (
             <div
               key={index}
-              className="flex flex-col items-center bg-white p-8 rounded-lg shadow-xl transform hover:scale-105 hover:shadow-2xl transition-all duration-300"
+              className="flex flex-col items-center  p-8 rounded-lg shadow-x transform hover:scale-105 hover:shadow-2xl transition-all duration-300"
             >
               <div className="text-6xl text-green-600 mb-6">{step.icon}</div>
               <h3 className="text-xl font-semibold text-gray-900 mb-4">
@@ -675,7 +675,7 @@ export function Testimonials() {
       name: "Michael Adams",
       position: "CEO of BrightTech",
       image:
-      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?crop=faces&fit=crop&w=256&h=256&q=80",
+        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?crop=faces&fit=crop&w=256&h=256&q=80",
     },
     {
       id: 4,
@@ -775,17 +775,13 @@ export function Testimonials() {
   );
 }
 
-
-
-
 export function AirplaneCard() {
   return (
     <div className="flex flex-col md:flex-row items-center justify-between h-screen bg-white p-8">
-      {/* Plane Image Section */}
       <div className="w-full md:w-4/6 flex justify-center">
-        <div className="relative w-full max-w-4xl aspect-video rounded-l-3xl overflow-hidden shadow-2xl border-4 border-green-200">
+        <div className="relative w-full max-w-4xl aspect-video rounded-l-3xl overflow-hidden shadow-2xl">
           <Image
-            src="/plane.jpg" // Replace with your plane image path
+            src="/plane.jpg"
             alt="Airplane"
             layout="fill"
             objectFit="cover"
@@ -795,7 +791,6 @@ export function AirplaneCard() {
         </div>
       </div>
 
-      {/* Text Section */}
       <div className="w-full md:w-2/6 flex flex-col items-center md:items-start text-center md:text-left mt-10 md:mt-0 px-6 space-y-6">
         <h1 className="text-5xl md:text-6xl font-extrabold text-green-800 leading-tight">
           Explore New Horizons
@@ -813,24 +808,10 @@ export function AirplaneCard() {
   );
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 export default function Home() {
   return (
     <div className="font-sans">
-      <Navbar />
+      {/* <Navbar /> */}
       <HeroSection />
       <Services />
       <KeyFeaturesSection />
@@ -842,7 +823,7 @@ export default function Home() {
       <InfoSection />
       <Newsletter />
       <AirplaneCard />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
