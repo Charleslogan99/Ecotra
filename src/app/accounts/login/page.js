@@ -6,7 +6,7 @@ import Translator from "@/components/layout/Translator";
 
 const InputField = ({ label, id, type, value, onChange, placeholder }) => (
   <div>
-    <label htmlFor={id} className="block text-lg font-medium text-gray-50">
+    <label htmlFor={id} className="block text-base sm:text-lg font-medium text-gray-50">
       {label}
     </label>
     <input
@@ -31,7 +31,7 @@ const PasswordField = ({
   onChange,
 }) => (
   <div>
-    <label htmlFor={id} className="block text-lg font-medium text-gray-50">
+    <label htmlFor={id} className="block text-base sm:text-lg font-medium text-gray-50">
       {label}
     </label>
     <div className="relative">
@@ -68,31 +68,29 @@ export default function Login() {
       className="flex min-h-screen font-serif flex-col items-center text-gray-500 justify-center bg-cover bg-center bg-no-repeat py-10 px-4 sm:px-6 lg:px-8"
       style={{
         backgroundImage: "url('/bgimage.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
       }}
     >
       <div className="absolute top-4 right-4 sm:top-6 sm:right-6 z-50">
         <Translator />
       </div>
 
-      <div className="w-full mt-16 max-w-xl space-y-8 bg-black bg-opacity-100 p-12 shadow-2xl rounded-lg">
-
+      <div className="w-full max-w-md space-y-8 bg-black bg-opacity-80 p-8 sm:p-12 shadow-2xl rounded-lg">
         <div className="text-center">
           <a href="/">
             <Image
               alt="Ecotra"
               src="/logo.png"
-              width={200}
-              height={100}
+              width={180}
+              height={90}
               className="mx-auto"
             />
           </a>
 
-          <h2 className="text-4xl font-semibold text-gray-100">Login</h2>
-          <p className="mt-2 text-lg text-gray-400">
+          <h2 className="text-3xl sm:text-4xl font-semibold text-gray-100">Login</h2>
+          <p className="mt-2 text-sm sm:text-lg text-gray-400">
             To get access to all your dashboards
-            {/* <p className=" text-green-600 hover:text-green-500">
-            Login with your account
-            </p> */}
           </p>
         </div>
 
@@ -114,7 +112,7 @@ export default function Login() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <p className="text-right">
+          <p className="text-right text-sm sm:text-base">
             <a
               href="/accounts/forgotpassword"
               className="text-green-600 hover:text-green-500 font-medium"
@@ -125,12 +123,12 @@ export default function Login() {
 
           <button
             type="submit"
-            className="mt-6 w-full rounded-md bg-green-600 px-4 py-2 text-lg font-medium text-black hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+            className="mt-6 w-full rounded-md bg-green-600 px-4 py-2 text-base sm:text-lg font-medium text-black hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
           >
             Login
           </button>
-          <div className="flex justify-between">
-            <p className="mt-4 text-md text-gray-400">
+          <div className="flex flex-col sm:flex-row justify-between mt-4">
+            <p className="text-sm sm:text-base text-gray-400">
               Need help?{" "}
               <a
                 href="mailto:support@ecotra.com"
@@ -139,7 +137,7 @@ export default function Login() {
                 Contact Support
               </a>
             </p>
-            <p className="mt-4 text-md text-gray-400 text-start">
+            <p className="text-sm sm:text-base text-gray-400 text-start mt-2 sm:mt-0">
               No account?{" "}
               <a
                 href="/accounts/sign-up"
@@ -151,7 +149,7 @@ export default function Login() {
           </div>
         </form>
 
-        <p className="mt-8 text-center text-md text-gray-500">
+        <p className="mt-8 text-center text-sm sm:text-md text-gray-500">
           &copy; 2025 Ecotra. All Rights Reserved.
         </p>
       </div>

@@ -1,18 +1,30 @@
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaWhatsapp, FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import {
+  FaPhoneAlt,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaWhatsapp,
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+  FaLinkedinIn,
+} from "react-icons/fa";
 
 export default function Contact() {
   return (
     <section className="max-w-7xl mx-auto px-6 py-24 text-gray-800">
-      <h2 className="text-5xl font-extrabold text-green-800 text-center mb-12">Contact Us</h2>
+      <h2 className="text-5xl font-extrabold text-green-800 text-center mb-12">
+        Contact Us
+      </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-        {/* Contact Info */}
         <div className="space-y-8">
           <div className="flex items-center space-x-6">
             <FaPhoneAlt className="text-3xl text-green-700" />
             <div>
               <p className="text-xl font-semibold text-gray-800">Call Us</p>
-              <p className="text-lg text-gray-600">+1 (800) 123-4567</p>
+              <a href="tel:+18001234567" className="text-lg text-gray-600">
+                +1 (800) 123-4567
+              </a>
             </div>
           </div>
 
@@ -20,7 +32,12 @@ export default function Contact() {
             <FaEnvelope className="text-3xl text-green-700" />
             <div>
               <p className="text-xl font-semibold text-gray-800">Email Us</p>
-              <p className="text-lg text-gray-600">contact@ecotra.com</p>
+              <a
+                href="mailto:contact@ecotra.com"
+                className="text-lg text-gray-600"
+              >
+                contact@ecotra.com
+              </a>
             </div>
           </div>
 
@@ -28,7 +45,9 @@ export default function Contact() {
             <FaMapMarkerAlt className="text-3xl text-green-700" />
             <div>
               <p className="text-xl font-semibold text-gray-800">Visit Us</p>
-              <p className="text-lg text-gray-600">123 Green Street, EcoCity, EC</p>
+              <p className="text-lg text-gray-600">
+                123 Green Street, EcoCity, EC
+              </p>
             </div>
           </div>
 
@@ -36,18 +55,30 @@ export default function Contact() {
             <FaWhatsapp className="text-3xl text-green-700" />
             <div>
               <p className="text-xl font-semibold text-gray-800">Chat Us</p>
-              <p className="text-lg text-gray-600">+1 (932) 836-2738</p>
+              <a
+                href="https://wa.me/19328362738"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-lg text-gray-600"
+              >
+                +1 (932) 836-2738
+              </a>
             </div>
           </div>
         </div>
 
         {/* Contact Form */}
         <div>
-          <form className="bg-white p-10 rounded-lg shadow-md space-y-8">
+          <form className="bg-white p-6 sm:p-10 rounded-lg shadow-md space-y-8">
             <div className="flex flex-col space-y-6">
-              <div className="flex gap-8">
-                <div className="w-1/2">
-                  <label htmlFor="name" className="text-lg font-medium text-gray-700">Full Name</label>
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-8">
+                <div className="w-full sm:w-1/2">
+                  <label
+                    htmlFor="name"
+                    className="text-lg font-medium text-gray-700"
+                  >
+                    Full Name
+                  </label>
                   <input
                     type="text"
                     id="name"
@@ -56,8 +87,13 @@ export default function Contact() {
                     required
                   />
                 </div>
-                <div className="w-1/2">
-                  <label htmlFor="email" className="text-lg font-medium text-gray-700">Email Address</label>
+                <div className="w-full sm:w-1/2">
+                  <label
+                    htmlFor="email"
+                    className="text-lg font-medium text-gray-700"
+                  >
+                    Email Address
+                  </label>
                   <input
                     type="email"
                     id="email"
@@ -67,8 +103,14 @@ export default function Contact() {
                   />
                 </div>
               </div>
+
               <div>
-                <label htmlFor="message" className="text-lg font-medium text-gray-700">Your Message</label>
+                <label
+                  htmlFor="message"
+                  className="text-lg font-medium text-gray-700"
+                >
+                  Your Message
+                </label>
                 <textarea
                   id="message"
                   name="message"
@@ -77,6 +119,7 @@ export default function Contact() {
                   required
                 ></textarea>
               </div>
+
               <div className="flex justify-center">
                 <button
                   type="submit"
@@ -92,10 +135,13 @@ export default function Contact() {
 
       {/* Follow Us Section */}
       <div className="mt-16 text-center">
-        <h3 className="text-4xl font-extrabold text-green-800 mb-6">Follow Us</h3>
+        <h3 className="text-4xl font-extrabold text-green-800 mb-6">
+          Follow Us
+        </h3>
         <p className="text-lg text-gray-600 mb-12 max-w-3xl mx-auto">
-          Stay connected with us on our social media channels for updates, news, and special offers.
-          Join the Ecotra community and be part of the travel revolution!
+          Stay connected with us on our social media channels for updates, news,
+          and special offers. Join the Ecotra community and be part of the
+          travel revolution!
         </p>
 
         <div className="flex justify-center space-x-12">
@@ -133,7 +179,6 @@ export default function Contact() {
           </a>
         </div>
       </div>
-     
     </section>
   );
 }

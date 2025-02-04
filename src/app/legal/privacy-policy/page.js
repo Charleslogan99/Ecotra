@@ -112,7 +112,7 @@ const PrivacyPolicy = () => {
               <div className="mt-4 text-lg text-gray-700">
                 If you have any questions about our Privacy Policy or how we handle your personal data, please contact us at:
                 <br />
-                <a href="mailto:support@ecotra.com" className="text-blue-600 hover:text-blue-800">support@ecotra.com</a>
+                <a href="mailto:support@ecotra.com" className="text-green-600 hover:text-green-800">support@ecotra.com</a>
               </div>
             </section>
           </div>

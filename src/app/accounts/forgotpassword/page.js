@@ -1,12 +1,12 @@
 "use client";
 import React, { useState } from "react";
-import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import Image from "next/image";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import Translator from "@/components/layout/Translator";
 
 const InputField = ({ label, id, type, value, onChange, placeholder }) => (
   <div>
-    <label htmlFor={id} className="block text-lg font-medium text-gray-50">
+    <label htmlFor={id} className="block text-base sm:text-lg font-medium text-gray-50">
       {label}
     </label>
     <input
@@ -27,13 +27,12 @@ export default function ForgotPassword() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     console.log("Forgot password email sent to:", email);
   };
 
   return (
     <div
-      className="flex min-h-screen font-serif flex-col items-center text-gray-500 justify-center bg-cover bg-center bg-no-repeat py-10 px-4 sm:px-6 lg:px-8"
+      className="flex min-h-screen font-serif flex-col items-center text-gray-500 justify-center bg-cover bg-center bg-no-repeat py-10 px-6 sm:px-8 lg:px-10"
       style={{
         backgroundImage: "url('/bgimage.jpg')",
       }}
@@ -42,26 +41,25 @@ export default function ForgotPassword() {
         <Translator />
       </div>
 
-      <div className="w-full mt-16 max-w-xl space-y-8 bg-black bg-opacity-100 p-12 shadow-2xl rounded-lg">
-
+      <div className="w-full max-w-md space-y-8 bg-black bg-opacity-70 p-8 sm:p-10 shadow-2xl rounded-lg">
         <div className="text-center">
           <a href="/">
             <Image
               alt="Ecotra"
               src="/logo.png"
-              width={200}
-              height={100}
+              width={180}
+              height={90}
               className="mx-auto"
             />
           </a>
 
-          <h2 className="text-3xl font-serif text-gray-100">Confirm your email</h2>
-          <p className="mt-2 text-lg text-gray-400">
+          <h2 className="text-2xl sm:text-3xl font-semibold text-gray-100">Confirm your email</h2>
+          <p className="mt-2 text-sm sm:text-lg text-gray-400">
             Enter your email address to receive a password reset link
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="mt-8 space-y-6">
+        <form onSubmit={handleSubmit} className="mt-6 space-y-6">
           <InputField
             label="Email Address"
             id="email"
@@ -77,9 +75,9 @@ export default function ForgotPassword() {
           >
             Send Reset Link
           </button>
+
           <div className="text-center">
-            
-            <p className="mt-4 text-md text-gray-400">
+            <p className="mt-4 text-sm sm:text-base text-gray-400">
               Remembered your password?{" "}
               <a
                 href="/accounts/login"
@@ -91,7 +89,7 @@ export default function ForgotPassword() {
           </div>
         </form>
 
-        <p className="mt-8 text-center text-md text-gray-500">
+        <p className="mt-8 text-center text-sm sm:text-md text-gray-500">
           &copy; 2025 Ecotra. All Rights Reserved.
         </p>
       </div>

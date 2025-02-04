@@ -8,6 +8,7 @@ import {
   FaMapMarkerAlt,
   FaEnvelope,
 } from "react-icons/fa";
+import { FaGooglePlay, FaApple } from "react-icons/fa";  // Import Google Play and Apple Store icons
 
 const Footer = () => {
   return (
@@ -122,37 +123,60 @@ const Footer = () => {
           </div>
         </div>
 
-        <hr className="my-12 border-gray-50" />
+        <hr className="my-12 border-green-600" />
 
         <div className="flex flex-col sm:flex-row justify-between items-center">
           <div className="text-lg text-gray-50 mb-4 sm:mb-0">
             &copy; Ecotra 2025 All rights reserved
           </div>
-          <div className="flex space-x-6 justify-center">
-            <Link
-              href="https://facebook.com"
-              className="text-gray-50 hover:text-green-600 transition"
-            >
-              <FaFacebookF className="w-8 h-8" />
-            </Link>
-            <Link
-              href="https://instagram.com"
-              className="text-gray-50 hover:text-green-600 transition"
-            >
-              <FaInstagram className="w-8 h-8" />
-            </Link>
-            <Link
-              href="https://twitter.com"
-              className="text-gray-50 hover:text-green-600 transition"
-            >
-              <FaTwitter className="w-8 h-8" />
-            </Link>
-            <Link
-              href="https://linkedin.com"
-              className="text-gray-50 hover:text-green-600 transition"
-            >
-              <FaLinkedinIn className="w-8 h-8" />
-            </Link>
+          <div className="flex flex-col space-y-4 justify-center items-center">
+            {/* Added "Follow Us" header */}
+            <div className="font-semibold text-2xl text-gray-50 mb-4">Follow Us</div>
+            <div className="flex space-x-6 justify-center">
+              <Link
+                href="https://facebook.com"
+                className="text-gray-50 hover:text-green-600 transition"
+              >
+                <FaFacebookF className="w-8 h-8" />
+              </Link>
+              <Link
+                href="https://instagram.com"
+                className="text-gray-50 hover:text-green-600 transition"
+              >
+                <FaInstagram className="w-8 h-8" />
+              </Link>
+              <Link
+                href="https://twitter.com"
+                className="text-gray-50 hover:text-green-600 transition"
+              >
+                <FaTwitter className="w-8 h-8" />
+              </Link>
+              <Link
+                href="https://linkedin.com"
+                className="text-gray-50 hover:text-green-600 transition"
+              >
+                <FaLinkedinIn className="w-8 h-8" />
+              </Link>
+            </div>
+          </div>
+          <div className="flex flex-col space-y-4 justify-center items-center mt-6 sm:mt-0">
+            {/* Added "Download Our App" header */}
+            <div className="font-semibold text-2xl text-gray-50 mb-4">Download Our App</div>
+            <div className="flex space-x-6 justify-center">
+              <Link
+                // href="https://play.google.com"
+                href="/accounts/dashboard"
+                className="text-gray-50 hover:text-green-600 transition"
+              >
+                <FaGooglePlay className="w-8 h-8 text-green-600" />
+              </Link>
+              <Link
+                href="https://www.apple.com/app-store/"
+                className="text-gray-50 hover:text-green-600 transition"
+              >
+                <FaApple className="w-8 h-8 text-green-600" />
+              </Link>
+            </div>
           </div>
         </div>
       </div>

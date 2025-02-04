@@ -31,7 +31,7 @@ const Translator = () => {
   return (
     <div
       id="google_translate_element"
-      className="bg-black text-white p-px z-50 shadow-md"
+      className="bg-black text-white p-1 z-50 shadow-md"
     ></div>
   );
 };

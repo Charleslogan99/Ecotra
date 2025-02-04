@@ -1,12 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import PhoneInput from "react-phone-number-input";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import PhoneInput from "react-phone-input-2";
-// import "react-phone-input-2/lib/style.css";
 import Image from "next/image";
-import Select from "react-select";
-import useCountries from "react-select-country-list";
 import Translator from "@/components/layout/Translator";
+import 'react-phone-number-input/style.css';  // Import the styles for PhoneInput
 
 const InputField = ({ label, id, type, value, onChange, placeholder }) => (
   <div>
@@ -21,7 +20,7 @@ const InputField = ({ label, id, type, value, onChange, placeholder }) => (
       onChange={onChange}
       placeholder={placeholder}
       required
-      className="mt-1 block w-full rounded-md border border-gray-600 px-4 py-3  text-gray-100 placeholder-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500 bg-transparent focus:border-green-500 shadow-sm sm:text-lg"
+      className="mt-1 block w-full rounded-md border border-gray-600 px-4 py-3 text-gray-100 placeholder-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500 bg-transparent focus:border-green-500 shadow-sm sm:text-lg"
     />
   </div>
 );
@@ -67,13 +66,31 @@ export default function SignUp() {
   const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState("");
   const [selectedCountry, setSelectedCountry] = useState(null);
+  const [countries, setCountries] = useState([]);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const countries = useCountries();
+  // Fetch country data on component mount
+  useEffect(() => {
+    axios.get("https://restcountries.com/v3.1/all")
+      .then((response) => {
+        const countryOptions = response.data.map(country => ({
+          label: country.name.common,
+          value: country.cca2
+        }));
+
+        // Sort countries alphabetically by name
+        countryOptions.sort((a, b) => a.label.localeCompare(b.label));
+
+        setCountries(countryOptions);
+      })
+      .catch((error) => {
+        console.error("Error fetching country data:", error);
+      });
+  }, []);
 
   return (
     <div
@@ -86,7 +103,7 @@ export default function SignUp() {
         <Translator />
       </div>
 
-      <div className="w-full mt-16 max-w-xl space-y-8 bg-black bg-opacity-80 p-12 shadow-2xl rounded-lg">
+      <div className="w-full max-w-lg space-y-8 bg-black bg-opacity-80 p-6 sm:p-8 lg:p-12 shadow-2xl rounded-lg">
         <div className="text-center">
           <a href="/">
             <Image
@@ -107,7 +124,7 @@ export default function SignUp() {
         </div>
 
         <form className="mt-8 space-y-6">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <InputField
               label="First Name"
               id="firstName"
@@ -133,24 +150,19 @@ export default function SignUp() {
             >
               Country
             </label>
-            <Select
+            <select
               id="country"
-              options={countries.getData()}
               value={selectedCountry}
-              onChange={setSelectedCountry}
-              className="mt-1 text-gray-600"
-              placeholder="-- Select your country --"
-              styles={{
-                control: (base) => ({
-                  ...base,
-                  borderColor: "#4b5563",
-                  backgroundColor: "transparent",
-                  "&:hover": {
-                    borderColor: "#d1d5db",
-                  },
-                }),
-              }}
-            />
+              onChange={(e) => setSelectedCountry(e.target.value)}
+              className="mt-1 block w-full rounded-md border border-gray-600 px-4 py-3 text-gray-100 placeholder-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500 bg-transparent focus:border-green-500 shadow-sm sm:text-lg"
+            >
+              <option value="">-- Select your country --</option>
+              {countries.map((country) => (
+                <option key={country.value} value={country.value}>
+                  {country.label}
+                </option>
+              ))}
+            </select>
           </div>
 
           <div>
@@ -158,18 +170,21 @@ export default function SignUp() {
               htmlFor="phoneNumber"
               className="block text-lg font-medium text-gray-50"
             >
-              {/* Phone Number */}
+              Phone Number
             </label>
             <PhoneInput
-              country={selectedCountry ? selectedCountry.value.toLowerCase() : "us"}
+              id="phoneNumber"
+              country={selectedCountry ? selectedCountry.toLowerCase() : "us"}
               value={phoneNumber}
-              onChange={(phone) => setPhoneNumber(phone)}
-              className="mt-1 block w-full"
-              inputClass="w-full bg-transparent rounded-md border border-gray-600 px-4 py-3 focus:border-green-500 focus:ring-green-500 sm:text-sm"
-              buttonClass="bg-transparent border border-gray-900 rounded-l-md"
-              dropdownClass="custom-dropdown"
-              enableSearch={true}
-              placeholder="Enter your phone number"
+              onChange={setPhoneNumber}
+              className="mt-1 block w-full rounded-md border border-gray-600 px-4 py-3 text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 bg-transparent focus:border-green-500 shadow-lg sm:text-lg"
+              style={{
+                background: "#111",  // Dark background
+                borderRadius: "8px",  // Matching rounded corners
+                border: "1px solid #4CAF50",  // Green border
+                paddingLeft: "40px",  // Space for the flag icon
+                transition: "all 0.3s ease-in-out",  // Smooth transition
+              }}
             />
           </div>
 

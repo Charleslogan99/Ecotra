@@ -4,90 +4,55 @@ import { useState, useEffect } from "react";
 import {
   FaArrowLeft,
   FaArrowRight,
-  FaMapMarkerAlt,
-  FaUserAlt,
-  FaSuitcaseRolling,
+  // FaMapMarkerAlt,
+  // FaUserAlt,
+  // FaSuitcaseRolling,
 } from "react-icons/fa";
 import Newsletter from "@/components/layout/Newsletter";
 import Image from "next/image";
 import Link from "next/link";
 
+
 export function HeroSection() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const images = [
-    "/hero1.jpg",
-    "/hero2.jpg",
-    "/hero3.jpg",
-    "/hero4.jpg",
-    "/hero5.jpg",
-    "/hero6.jpg",
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [images.length]);
-
   return (
-    <section className="relative w-full h-screen overflow-hidden">
-      {/* Image Slider */}
-      <div className="absolute inset-0 w-full h-full flex transition-transform duration-1000 ease-in-out">
-        {images.map((image, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ${
-              index === currentIndex ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            <Image
-              src={image}
-              alt={`Travel Image ${index + 1}`}
-              layout="fill"
-              objectFit="cover"
-              priority
-            />
-          </div>
-        ))}
+    <section className="relative w-full h-[65vh] md:h-[90vh] sm:h-[90vh] overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 w-full h-full">
+        <Image
+          src="/hero2.jpg"
+          alt="Travel Destination"
+          layout="fill"
+          objectFit="cover"
+          priority
+        />
       </div>
 
-      {/* Overlay for Better Readability */}
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
 
-      {/* Hero Content */}
-      <div className="absolute inset-0 flex flex-col justify-center items-start text-white z-10 px-6 sm:px-10 lg:px-24 max-w-3xl">
+      {/* Content */}
+      <div className="absolute left-0 lg:left-20 inset-0 flex flex-col justify-center items-start text-white z-10 px-6 sm:px-10 lg:px-24 max-w-4xl">
         <h1 className="text-4xl sm:text-6xl font-extrabold leading-tight drop-shadow-lg">
-          Explore Your Dream <br /> Destinations with Us
+          Explore the Best <br /> Destinations in Africa with Us
         </h1>
         <p className="text-lg sm:text-xl font-medium opacity-90 mt-4 leading-relaxed">
-          Discover customized travel experiences tailored to your desires.
-          Embark on unforgettable adventures with ease and luxury.
+          We offer unique travel experiences that suit your interests and
+          preference. Discover Africa as an ecotourist, where you would Explore,
+          Enjoy, and Conserve.
         </p>
         <Link
           href="/accounts/sign-up"
-          className="mt-6 inline-block bg-green-600 text-white px-8 py-4 rounded-xl font-semibold text-lg sm:text-2xl shadow-lg transition-all duration-300 transform hover:scale-105 hover:bg-green-700"
+          className="mt-6 inline-block bg-green-600 text-black px-8 py-4 rounded-xl font-semibold text-lg sm:text-2xl shadow-lg transition-all duration-300 transform hover:scale-105 hover:bg-green-700"
         >
           Get Started
         </Link>
       </div>
-
-      {/* Dots Navigation */}
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
-        {images.map((_, index) => (
-          <div
-            key={index}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentIndex ? "bg-white w-5" : "bg-white/50"
-            }`}
-          />
-        ))}
-      </div>
     </section>
   );
 }
+
+
+
 
 // export function InfoSection() {
 //   return (
@@ -448,7 +413,7 @@ export function PopularDestinations() {
     const destinationInterval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % destinations.length);
       setCurrentImageIndex(0);
-    }, 6000);
+    }, 10000);
 
     return () => clearInterval(destinationInterval);
   }, [destinations.length]);
@@ -482,46 +447,45 @@ export function PopularDestinations() {
     currentDestination.images[0];
 
   return (
-    <div className="bg- py-16 sm:py-24 lg:py-32">
-      <div className="mx-auto max-w-screen-xl px-8 text-center">
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-extrabold tracking-tight text-green">
-          Our Top Destinations
+    <div className="py-16 sm:py-24 lg:py-32 bg-zinc-5">
+      <div className="mx-auto max-w-screen-2xl px-8 text-center text-white">
+        <h1 className="text-5xl font-serif font-semibold tracking-tight text-black">
+        Our Top Eco-Destinations
         </h1>
-        <p className="mt-4 text-lg sm:text-xl text-gray-950 font-serif">
-          Explore the beauty and diversity of these amazing destinations across
-          Africa.
+        <p className="mt-4 text-lg sm:text-xl text-black font-serif opacity-80">
+        Explore the beauty of Africa and experience it's rich diversity spread across various Countries
         </p>
       </div>
 
-      <div className="mx-auto max-w-screen-2xl px-8 mt-16 lg:mt-24">
-        <div className="relative flex flex-col lg:flex-row items-center justify-between bg-black text-white py-8 sm:py-16 lg:py-20 px-6 sm:px-12 lg:px-32 rounded-3xl shadow-2xl transition-transform duration-300 ease-in-out transform hover:scale-105">
-          <div className="text-center lg:text-left lg:w-1/2">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white">
+      <div className="mx-auto max-w-screen-xl px-8 mt-16 lg:mt-24">
+        <div className="relative flex flex-col lg:flex-row items-center justify-between bg-white text-black py-8 sm:py-16 lg:py-20 px-6 sm:px-12 lg:px-32 rounded-3xl shadow-2xl transition-transform duration-300 ease-in-out transform hovr:scale-105">
+          <div className="text-center lg:text-left lg:w-1/2 space-y-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-black">
               {currentDestination.name}
             </h2>
-            <p className="mt-4 text-lg sm:text-xl text-gray-300">
+            <p className="text-lg sm:text-xl text-gray-600">
               {currentDestination.description}
             </p>
             <div className="mt-8 flex justify-center lg:justify-start gap-x-8">
               <button
                 onClick={goToPrevious}
-                className="rounded-lg bg-white px-6 py-3 text-lg font-semibold text-gray-900 shadow-md hover:bg-gray-100 transition duration-300 transform hover:scale-105"
+                className="rounded-lg bg-gray-800 px-6 py-3 text-lg font-semibold text-white shadow-lg hover:bg-green-700 transition duration-300 transform hover:scale-105"
               >
                 Previous
               </button>
               <button
                 onClick={goToNext}
-                className="rounded-lg bg-white px-6 py-3 text-lg font-semibold text-gray-900 shadow-md hover:bg-gray-100 transition duration-300 transform hover:scale-105"
+                className="rounded-lg bg-gray-800 px-6 py-3 text-lg font-semibold text-white shadow-lg hover:bg-green-700 transition duration-300 transform hover:scale-105"
               >
                 Next
               </button>
             </div>
           </div>
-          <div className="relative w-full max-w-full mx-auto lg:w-1/2 mt-8 lg:mt-0 h-64 sm:h-80 lg:h-96">
+          <div className="relative w-full max-w-full mx-auto lg:w-1/2 mt-8 lg:mt-0 h-64 sm:h-80 lg:h-96 overflow-hidden rounded-2xl">
             <img
               src={currentImage}
               alt={currentDestination.name}
-              className="w-full h-full object-cover rounded-2xl shadow-xl transition duration-500 ease-in-out transform hover:scale-105"
+              className="w-full h-full object-cover rounded-2xl shadow-xl transition-all duration-500 ease-in-out transform hover:scale-110"
             />
           </div>
         </div>
@@ -534,7 +498,7 @@ export function Partners() {
   return (
     <div className="bg-gradient-to-r from-gray-50 to-gray-100 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <h2 className="text-center text-4xl font-extrabold text-gray-900 mb-16">
+        <h2 className="text-center text-4xl font-bold text-gray-900 mb-16">
           Trusted by Africa’s Leading Airlines
         </h2>
         <div className="mx-auto grid max-w-lg grid-cols-2 items-center gap-12 sm:max-w-xl sm:grid-cols-3 lg:mx-0 lg:max-w-none lg:grid-cols-5 lg:gap-x-16">
@@ -718,7 +682,7 @@ export function Testimonials() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-white text-black py-16">
+    <section className="relative m-2 overflow-hidden bg-white text-black py-16">
       <h1 className="text-center text-4xl font-serif font-medium mb-12">
         Customer Testimonials
       </h1>
@@ -777,45 +741,51 @@ export function Testimonials() {
 
 export function AirplaneCard() {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between h-screen bg-white p-8">
-      <div className="w-full md:w-4/6 flex justify-center">
-        <div className="relative w-full max-w-4xl aspect-video rounded-l-3xl overflow-hidden shadow-2xl">
+    <div className="flex flex-col lg:flex-row items-center justify-between h-full  lg:h-[80vh] bg-white p-10 sm:p-8">
+      {/* Image Section */}
+      <div className="w-full lg:w-1/2 flex justify-center lg:pr-8 mb-6 lg:mb-0">
+        <div className="relative w-full max-w-2xl aspect-video rounded-2xl overflow-hidden shadow-lg">
           <Image
             src="/plane.jpg"
             alt="Airplane"
             layout="fill"
             objectFit="cover"
             priority
-            className="rounded-l-3xl"
+            className="rounded-2xl"
           />
         </div>
       </div>
 
-      <div className="w-full md:w-2/6 flex flex-col items-center md:items-start text-center md:text-left mt-10 md:mt-0 px-6 space-y-6">
-        <h1 className="text-5xl md:text-6xl font-extrabold text-green-800 leading-tight">
+      {/* Text Section */}
+      <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left px-4 sm:px-6 space-y-6">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-green-800 leading-snug">
           Explore New Horizons
         </h1>
-        <p className="text-lg md:text-xl text-gray-700 font-serif">
-          Discover the joy of flying with unmatched comfort and luxury. Your
-          journey to extraordinary destinations begins here. Let's create
-          memories that will last a lifetime.
+        <p className="text-base sm:text-lg lg:text-xl text-gray-700 font-serif">
+          Discover the joy of flying with unmatched comfort and luxury. Your journey to extraordinary destinations begins here.
         </p>
-        <button className="px-8 py-4 bg-green-600 text-white text-lg font-semibold rounded-md shadow-md hover:bg-green-700 transition duration-300 ease-in-out">
+        <Link  href="/bookflight">
+        <button className="px-6 sm:px-8 py-3 sm:py-4 bg-green-600 text-white text-base sm:text-lg font-semibold rounded-lg shadow-md hover:bg-green-700 transition duration-300 ease-in-out">
           Book Your Flight
         </button>
+        </Link>
       </div>
     </div>
   );
 }
 
+
+
+
+
+
 export default function Home() {
   return (
     <div className="font-sans">
-      {/* <Navbar /> */}
       <HeroSection />
-      <Services />
       <KeyFeaturesSection />
       <Cta />
+      <Services />
       <PopularDestinations />
       <Partners />
       <Testimonials />
@@ -823,7 +793,6 @@ export default function Home() {
       {/* <InfoSection /> */}
       <AirplaneCard />
       <Newsletter />
-      {/* <Footer /> */}
     </div>
   );
 }
