@@ -3,22 +3,21 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaInstagram,
-  FaLinkedinIn,
-} from "react-icons/fa";
+import { usePathname } from "next/navigation";
+import { FaTimes } from "react-icons/fa";
 import { motion } from "framer-motion";
 import Translator from "./Translator";
-import { FaTimes } from "react-icons/fa";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  // const [dropdownOpen, setDropdownOpen] = useState(false);
+  const pathname = usePathname();
 
   const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
+    setMenuOpen((prev) => !prev);
+  };
+
+  const closeMenu = () => {
+    setMenuOpen(false);
   };
 
   return (
@@ -26,7 +25,7 @@ export default function Navbar() {
       <Translator />
       <nav className="bg-white shadow-lg w-full top-0 transition-all duration-300">
         <div className="max-w-screen-2xl mx-auto px-6 sm:px-10 lg:px-16 flex justify-between items-center h-20">
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center" onClick={closeMenu}>
             <Image
               src="/logo.png"
               alt="Travel Agency Logo"
@@ -47,7 +46,11 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-gray-800 text-lg font-medium hover:text-green-600 transition-all duration-300"
+                className={`text-lg font-medium transition-all duration-300 ${
+                  pathname === item.href
+                    ? "text-green-600"
+                    : "text-gray-800 hover:text-green-600"
+                }`}
               >
                 {item.name}
               </Link>
@@ -55,22 +58,18 @@ export default function Navbar() {
           </div>
 
           <div className="hidden lg:flex space-x-6">
-            {[
-              { Icon: FaFacebookF, url: "https://www.facebook.com" },
-              { Icon: FaTwitter, url: "https://www.twitter.com" },
-              { Icon: FaInstagram, url: "https://www.instagram.com" },
-              { Icon: FaLinkedinIn, url: "https://www.linkedin.com" },
-            ].map((social, index) => (
-              <Link
-                key={index}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-800 hover:text-green-600"
-              >
-                <social.Icon className="w-6 h-6" />
-              </Link>
-            ))}
+            <Link
+              href="/accounts/sign-up"
+              className="px-4 py-2 text-black bg-green-600 rounded-lg hover:bg-green-700 transition-all duration-300"
+            >
+              Sign Up
+            </Link>
+            <Link
+              href="/accounts/login"
+              className="px-4 py-2 text-green-600 border border-green-600 rounded-lg hover:bg-green-600 hover:text-white transition-all duration-300"
+            >
+              Login
+            </Link>
           </div>
 
           <button
@@ -106,19 +105,17 @@ export default function Navbar() {
             className="fixed inset-0 bg-white z-50 flex flex-col items-center justify-between"
           >
             <div className="flex justify-between items-center w-full p-4">
-              <Link href="/" className="flex items-center">
+              <Link href="/" className="flex items-center" onClick={closeMenu}>
                 <Image
                   src="/logo.png"
-                  alt="Ecotra Logo"
+                  alt="Travel Agency Logo"
                   width={150}
                   height={50}
                   className="object-contain"
                 />
               </Link>
-              <button
-                onClick={toggleMenu}
-                className="text-gray-700 text-2xl font-extralight"
-              >
+
+              <button onClick={toggleMenu} className="text-gray-700 text-2xl">
                 <FaTimes className="h-6 w-6 opacity-90" />
               </button>
             </div>
@@ -135,32 +132,28 @@ export default function Navbar() {
                   key={item.name}
                   href={item.href}
                   className="text-2xl text-gray-800 hover:text-green-600 transition-all duration-300"
-                  onClick={toggleMenu}
+                  onClick={closeMenu}
                 >
                   {item.name}
                 </Link>
               ))}
             </div>
 
-            {/* Social Icons */}
-            <div className="flex space-x-20 mb-12">
-              {[
-                { Icon: FaFacebookF, url: "https://www.facebook.com" },
-                { Icon: FaTwitter, url: "https://www.twitter.com" },
-                { Icon: FaInstagram, url: "https://www.instagram.com" },
-                { Icon: FaLinkedinIn, url: "https://www.linkedin.com" },
-              ].map((social, index) => (
-                <Link
-                  key={index}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-800 hover:text-green-600"
-                  onClick={toggleMenu}
-                >
-                  <social.Icon className="w-7 h-7" />
-                </Link>
-              ))}
+            <div className="flex space-x-6 mb-12">
+              <Link
+                href="/accounts/sign-up"
+                className="px-6 py-3 text-black bg-green-600 rounded-lg hover:bg-green-700 transition-all duration-300"
+                onClick={closeMenu}
+              >
+                Sign Up
+              </Link>
+              <Link
+                href="/accounts/login"
+                className="px-6 py-3 text-green-600 border border-green-600 rounded-lg hover:bg-green-600 hover:text-white transition-all duration-300"
+                onClick={closeMenu}
+              >
+                Login
+              </Link>
             </div>
           </motion.div>
         )}

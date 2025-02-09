@@ -1,146 +1,69 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import {
-  FaArrowLeft,
-  FaArrowRight,
-  // FaMapMarkerAlt,
-  // FaUserAlt,
-  // FaSuitcaseRolling,
-} from "react-icons/fa";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import Newsletter from "@/components/layout/Newsletter";
 import Image from "next/image";
 import Link from "next/link";
 
+const images = [
+  "/images/others/ecotra1.jpg",
+  "/images/others/ecotra2.jpg",
+  "/images/others/ecotra9.jpg",
+  "/images/others/ecotra14.jpg",
+];
 
 export function HeroSection() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative w-full h-[65vh] md:h-[90vh] sm:h-[90vh] overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0 w-full h-full">
-        <Image
-          src="/hero2.jpg"
-          alt="Travel Destination"
-          layout="fill"
-          objectFit="cover"
-          priority
-        />
+      {/* Image Slider */}
+      <div
+        className="absolute inset-0 w-full h-full flex transition-transform duration-1000 ease-in-out"
+        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+      >
+        {images.map((src, index) => (
+          <div key={index} className="w-full h-full flex-shrink-0 relative">
+            <Image
+              src={src}
+              alt="Travel Destination"
+              fill
+              className="object-cover brightness-95"
+              priority={index === 0}
+            />
+          </div>
+        ))}
       </div>
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/50"></div>
 
-      {/* Content */}
       <div className="absolute left-0 lg:left-20 inset-0 flex flex-col justify-center items-start text-white z-10 px-6 sm:px-10 lg:px-24 max-w-4xl">
         <h1 className="text-4xl sm:text-6xl font-extrabold leading-tight drop-shadow-lg">
           Explore the Best <br /> Destinations in Africa with Us
         </h1>
         <p className="text-lg sm:text-xl font-medium opacity-90 mt-4 leading-relaxed">
           We offer unique travel experiences that suit your interests and
-          preference. Discover Africa as an ecotourist, where you would Explore,
-          Enjoy, and Conserve.
+          preferences. Discover Africa as an ecotourist—Explore, Enjoy, and
+          Conserve.
         </p>
-        <Link
+        <a
           href="/accounts/sign-up"
-          className="mt-6 inline-block bg-green-600 text-black px-8 py-4 rounded-xl font-semibold text-lg sm:text-2xl shadow-lg transition-all duration-300 transform hover:scale-105 hover:bg-green-700"
+          className="mt-6 inline-block bg-green-600 text-black px-8 py-4 rounded-xl font-semibold text-lg sm:text-2xl shadow-lg transition-transform duration-300 hover:scale-105 hover:bg-green-700 hover:shadow-2xl"
         >
           Get Started
-        </Link>
+        </a>
       </div>
     </section>
   );
 }
-
-
-
-
-// export function InfoSection() {
-//   return (
-//     <section className="bg-gray-100 py-20 px-6 sm:px-12 lg:px-24">
-//       <div className="max-w-7xl mx-auto text-center">
-//         <h2 className="text-4xl sm:text-6xl font-serif text-gray-800 leading-tight mb-6">
-//           Unlock the Adventure of a Lifetime
-//         </h2>
-//         <p className="text-gray-600 text-xl sm:text-lg mb-12 max-w-2xl mx-auto">
-//           Join thousands of satisfied travelers who’ve experienced the best of
-//           customized travel. From exotic destinations to curated experiences,
-//           we’ve got it all covered.
-//         </p>
-
-//         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-//           <div className="bp-8 rounded-2xl shadow-md hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out">
-//             <div className="flex justify-center items-center mb-6">
-//               <FaMapMarkerAlt size={48} className="text-green-600 mb-4" />
-//             </div>
-//             <h3 className="text-3xl font-semibold text-gray-800 mb-4">
-//               Personalized Itineraries
-//             </h3>
-//             <p className="text-gray-600 mb-6 text-lg">
-//               Whether you're into adventure or relaxation, we’ll customize your
-//               trip to match your needs and interests. You decide the pace!
-//             </p>
-//             <a
-//               href="/about"
-//               className="bg-green-600 text-white px-8 py-4 rounded-md font-semibold text-lg hover:bg-green-700 transition-all duration-300 transform hover:scale-105"
-//             >
-//               Learn More
-//             </a>
-//           </div>
-
-//           <div className="p-8 rounded-2xl shadow-md hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out">
-//             <div className="flex justify-center items-center mb-6">
-//               <FaUserAlt size={48} className="text-blue-600 mb-4" />
-//             </div>
-//             <h3 className="text-3xl font-semibold text-gray-800 mb-4">
-//               Expert Guides
-//             </h3>
-//             <p className="text-gray-600 mb-6 text-lg">
-//               Our local guides know the hidden gems and will ensure you have the
-//               best experience possible, every step of the way.
-//             </p>
-//             <a
-//               href="/about"
-//               className="bg-blue-600 text-white px-8 py-4 rounded-md font-semibold text-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105"
-//             >
-//               Learn More
-//             </a>
-//           </div>
-
-//           <div className="p-8 rounded-2xl shadow-md hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out">
-//             <div className="flex justify-center items-center mb-6">
-//               <FaSuitcaseRolling size={48} className="text-red-600 mb-4" />
-//             </div>
-//             <h3 className="text-3xl font-semibold text-gray-800 mb-4">
-//               Stress-Free Travel
-//             </h3>
-//             <p className="text-gray-600 mb-6 text-lg">
-//               From airport transfers to bookings, we handle all the details so
-//               you can focus on enjoying your vacation without the hassle.
-//             </p>
-//             <a
-//               href="/about"
-//               className="bg-red-600 text-white px-8 py-4 rounded-md font-semibold text-lg hover:bg-red-700 transition-all duration-300 transform hover:scale-105"
-//             >
-//               Learn More
-//             </a>
-//           </div>
-//         </div>
-
-//         <div className="mt-12">
-//           <p className="text-black text-lg sm:text-xl font-semibold mb-6">
-//             Ready to get started on your next adventure?
-//           </p>
-//           <a
-//             href="/accounts/sign-up"
-//             className="inline-block bg-gradient-to-r from-green-600 to-green-700 text-white px-8 py-4 rounded-md font-bold text-lg hover:from-green-700 hover:to-green-800 transition-all duration-300 transform hover:scale-105"
-//           >
-//             Sign Up Today
-//           </a>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
 
 export function KeyFeaturesSection() {
   return (
@@ -247,16 +170,18 @@ export function Services() {
   ];
 
   return (
-    <section
-      className="relative py-16 px-6"
-      style={{
-        backgroundImage:
-          'url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 1440 320%27%3E%3Cpath fill=%27%23047857%27 fill-opacity=%271%27 d=%27M0,224L48,197.3C96,171,192,117,288,122.7C384,128,480,192,576,197.3C672,203,768,149,864,128C960,107,1056,117,1152,144C1248,171,1344,213,1392,234.7L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z%27%3E%3C/path%3E%3C/svg%3E")',
-        backgroundSize: "cover",
-        backgroundPosition: "top",
-      }}
-    >
-      <div className="max-w-7xl mx-auto text-center">
+    <section className="relative py-24 px-6 bg-gradient-to-b from-green-50 to-white overflow-hidden">
+      {/* Elegant Top-Notch SVG Background */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23047857' fill-opacity='0.15' d='M0,64L48,74.7C96,85,192,107,288,106.7C384,107,480,85,576,85.3C672,85,768,107,864,128C960,149,1056,171,1152,165.3C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'/%3E%3C/svg%3E")`,
+          backgroundSize: "cover",
+          backgroundPosition: "top",
+        }}
+      ></div>
+
+      <div className="max-w-7xl mx-auto text-center relative z-10">
         <h2 className="text-5xl font-serif text-green-800 mb-8">
           Our Services
         </h2>
@@ -289,119 +214,200 @@ export function PopularDestinations() {
   const destinations = [
     {
       id: 1,
-      name: "Gaborone, Botswana",
+      name: "Algeria",
       description:
-        "Explore the thriving capital of Botswana, known for its wildlife and rich cultural history.",
+        "Discover the rich history and diverse landscapes of Algeria, from the Sahara Desert to the Mediterranean coast.",
       images: [
-        "https://img.freepik.com/free-photo/elephants-savannah_167946-123.jpg?ga=GA1.1.640371070.1737806957&semt=ais_hybrid",
+        "https://img.freepik.com/free-photo/sahara-desert-landscape_181624-25200.jpg",
       ],
     },
     {
       id: 2,
-      name: "Praia, Cape Verde",
+      name: "Angola",
       description:
-        "Enjoy the serene beaches and vibrant culture of Praia, the capital of Cape Verde.",
+        "Experience the stunning waterfalls, wildlife, and vibrant culture of Angola.",
       images: [
-        "https://img.freepik.com/free-photo/high-angle-shot-boats-sea-cityscape_181624-44810.jpg?ga=GA1.1.640371070.1737806957&semt=ais_hybrid",
+        "https://img.freepik.com/free-photo/breathtaking-view-waterfall-surrounded-by-lush-greenery-sunlight_181624-13210.jpg",
       ],
     },
     {
       id: 3,
-      name: "Accra, Ghana",
+      name: "Botswana",
       description:
-        "Discover the heart of Ghana with its historic forts, lively art scene, and welcoming culture.",
+        "Explore the natural beauty of Botswana, home to the Okavango Delta and abundant wildlife.",
       images: [
-        "https://img.freepik.com/premium-photo/aerial-drone-photo-city-bangkok-thailand-sunset_51530-1312.jpg?ga=GA1.1.640371070.1737806957&semt=ais_hybrid",
+        "https://img.freepik.com/free-photo/elephants-savannah_167946-123.jpg",
       ],
     },
     {
       id: 4,
-      name: "Lagos, Nigeria",
+      name: "Cape Verde",
       description:
-        "Explore the vibrant city of Lagos with its bustling markets, stunning beaches, and rich cultural heritage.",
+        "Relax on the beautiful beaches of Cape Verde and enjoy its vibrant music scene.",
       images: [
-        "https://img.freepik.com/premium-photo/aerial-view-victoria-island-lagos-nigeria_662214-312907.jpg?ga=GA1.1.640371070.1737806957&semt=ais_hybrid",
+        "https://img.freepik.com/free-photo/high-angle-shot-boats-sea-cityscape_181624-44810.jpg",
       ],
     },
     {
       id: 5,
-      name: "Nairobi, Kenya",
+      name: "Egypt",
       description:
-        "Experience the charm of Nairobi with its unique blend of wildlife, culture, and modernity.",
+        "Uncover the mysteries of ancient Egypt, from the pyramids to the Nile River.",
       images: [
-        "https://img.freepik.com/free-photo/beautiful-bildings-with-lights-hong-kong_181624-44526.jpg?ga=GA1.1.640371070.1737806957&semt=ais_hybrid",
+        "https://img.freepik.com/free-photo/pyramids-giza_181624-26310.jpg",
       ],
     },
     {
       id: 6,
-      name: "Dar es Salaam, Tanzania",
+      name: "Gabon",
       description:
-        "Unwind in Dar es Salaam, a city offering stunning beaches, vibrant markets, and rich history.",
+        "Experience the lush rainforests and stunning coastline of Gabon.",
       images: [
-        "https://img.freepik.com/free-photo/giraffes-herd-savannah_155003-6490.jpg?ga=GA1.1.640371070.1737806957&semt=ais_hybrid",
+        "https://img.freepik.com/free-photo/tropical-beach-landscape_181624-40400.jpg",
       ],
     },
     {
       id: 7,
-      name: "Kigali, Rwanda",
+      name: "Ghana",
       description:
-        "Witness the beauty and transformation of Kigali, a city known for its cleanliness and resilience.",
+        "Discover the cultural heritage and beautiful beaches of Ghana.",
       images: [
-        "https://img.freepik.com/free-photo/cityscape-bucharest-road-with-moving-cars-multiple-residential-buildings-clear-sky-view-from-drone-romania_1268-16363.jpg?ga=GA1.1.640371070.1737806957&semt=ais_hybrid",
+        "https://img.freepik.com/premium-photo/aerial-drone-photo-city-bangkok-thailand-sunset_51530-1312.jpg",
       ],
     },
     {
       id: 8,
-      name: "Kampala, Uganda",
+      name: "Kenya",
       description:
-        "Discover Kampala, a city full of life, culture, and breathtaking landscapes in Uganda.",
+        "Embark on a safari adventure in Kenya and witness its incredible wildlife.",
       images: [
-        "https://img.freepik.com/premium-photo/city-waterfront-against-cloudy-sky_1048944-30428834.jpg?ga=GA1.1.640371070.1737806957&semt=ais_hybrid",
+        "https://img.freepik.com/free-photo/beautiful-bildings-with-lights-hong-kong_181624-44526.jpg",
       ],
     },
     {
       id: 9,
-      name: "Lusaka, Zambia",
+      name: "Malawi",
       description:
-        "Explore Lusaka, a growing city with vibrant markets and a gateway to Zambia's natural wonders.",
+        "Enjoy the tranquil beauty of Lake Malawi and the warm hospitality of its people.",
       images: [
-        "https://img.freepik.com/free-photo/waterfall-middle-cliffs-with-trees-plants-sunny-day_181624-2315.jpg?ga=GA1.1.640371070.1737806957&semt=ais_hybrid",
+        "https://img.freepik.com/free-photo/lake-sunset_181624-45120.jpg",
       ],
     },
     {
       id: 10,
-      name: "Harare, Zimbabwe",
+      name: "Mauritius",
       description:
-        "Discover the cultural richness and vibrant art scene of Harare, Zimbabwe's capital city.",
+        "Relax in paradise on the breathtaking beaches of Mauritius.",
       images: [
-        "https://img.freepik.com/premium-photo/cityscape-view-point-pattaya-beaches-thailand_53526-260.jpg?ga=GA1.1.640371070.1737806957&semt=ais_hybrid",
+        "https://img.freepik.com/free-photo/tropical-paradise-island_181624-13300.jpg",
       ],
     },
     {
       id: 11,
-      name: "Cape Town, South Africa",
+      name: "Morocco",
       description:
-        "Enjoy the breathtaking landscapes and vibrant culture of Cape Town, South Africa's jewel.",
+        "Experience the bustling souks, stunning deserts, and rich culture of Morocco.",
       images: [
-        "https://img.freepik.com/premium-photo/scenic-view-sea-against-clear-blue-sky_1048944-25096874.jpg?ga=GA1.1.640371070.1737806957&semt=ais_hybrid",
+        "https://img.freepik.com/free-photo/marrakech-market-morocco_181624-14040.jpg",
       ],
     },
     {
       id: 12,
-      name: "Windhoek, Namibia",
+      name: "Mozambique",
       description:
-        "Discover the unique blend of German heritage and African traditions in Windhoek.",
+        "Explore the pristine beaches and marine life of Mozambique.",
       images: [
-        "https://img.freepik.com/premium-photo/group-women-himba-tribe-are-walking-through-desert-national-clothes_265142-9999.jpg?ga=GA1.1.640371070.1737806957&semt=ais_hybrid",
+        "https://img.freepik.com/free-photo/beach-dunes-landscape_181624-21000.jpg",
       ],
     },
     {
       id: 13,
-      name: "Libreville, Gabon",
+      name: "Namibia",
       description:
-        "Relax in Libreville, a city offering beautiful beaches and a laid-back atmosphere.",
+        "Marvel at the stunning dunes of the Namib Desert and the unique landscapes of Namibia.",
       images: [
-        "https://img.freepik.com/free-photo/closeup-goteik-viaduct-railway-myanmar_181624-40061.jpg?ga=GA1.1.640371070.1737806957&semt=ais_hybrid",
+        "https://img.freepik.com/free-photo/desert-sand-dunes-namibia_181624-27100.jpg",
+      ],
+    },
+    {
+      id: 14,
+      name: "Nigeria",
+      description:
+        "Discover Nigeria's bustling cities, rich culture, and beautiful landscapes.",
+      images: [
+        "https://img.freepik.com/premium-photo/aerial-view-victoria-island-lagos-nigeria_662214-312907.jpg",
+      ],
+    },
+    {
+      id: 15,
+      name: "Rwanda",
+      description:
+        "Explore the breathtaking landscapes and gorilla trekking experiences in Rwanda.",
+      images: [
+        "https://img.freepik.com/free-photo/cityscape-bucharest-road-with-moving-cars-multiple-residential-buildings-clear-sky-view-from-drone-romania_1268-16363.jpg",
+      ],
+    },
+    {
+      id: 16,
+      name: "Sao Tome and Principe",
+      description:
+        "Relax on the serene islands of Sao Tome and Principe, a hidden gem in Africa.",
+      images: [
+        "https://img.freepik.com/free-photo/tropical-island-view_181624-40010.jpg",
+      ],
+    },
+    {
+      id: 17,
+      name: "South Africa",
+      description:
+        "Experience the diverse landscapes and vibrant culture of South Africa.",
+      images: [
+        "https://img.freepik.com/premium-photo/scenic-view-sea-against-clear-blue-sky_1048944-25096874.jpg",
+      ],
+    },
+    {
+      id: 18,
+      name: "Tanzania",
+      description:
+        "Discover the beauty of Tanzania, home to Mount Kilimanjaro and Serengeti National Park.",
+      images: [
+        "https://img.freepik.com/free-photo/giraffes-herd-savannah_155003-6490.jpg",
+      ],
+    },
+    {
+      id: 19,
+      name: "Tunisia",
+      description:
+        "Experience the rich history and Mediterranean charm of Tunisia.",
+      images: [
+        "https://img.freepik.com/free-photo/mediterranean-coast-tunisia_181624-27000.jpg",
+      ],
+    },
+    {
+      id: 20,
+      name: "Uganda",
+      description:
+        "Explore the diverse wildlife and stunning landscapes of Uganda.",
+      images: [
+        "https://img.freepik.com/premium-photo/city-waterfront-against-cloudy-sky_1048944-30428834.jpg",
+      ],
+    },
+    {
+      id: 21,
+      name: "Zambia",
+      description:
+        "Visit Zambia, home to the breathtaking Victoria Falls and abundant wildlife.",
+      images: [
+        "https://img.freepik.com/free-photo/waterfall-middle-cliffs-with-trees-plants-sunny-day_181624-2315.jpg",
+      ],
+    },
+    {
+      id: 22,
+      name: "Zimbabwe",
+      description:
+        "Experience the natural beauty and rich culture of Zimbabwe.",
+      images: [
+        "https://img.freepik.com/premium-photo/cityscape-view-point-pattaya-beaches-thailand_53526-260.jpg",
       ],
     },
   ];
@@ -417,7 +423,6 @@ export function PopularDestinations() {
 
     return () => clearInterval(destinationInterval);
   }, [destinations.length]);
-
   useEffect(() => {
     const imageInterval = setInterval(() => {
       setCurrentImageIndex((prevImageIndex) => {
@@ -427,7 +432,7 @@ export function PopularDestinations() {
     }, 5000);
 
     return () => clearInterval(imageInterval);
-  }, [currentIndex, destinations]);
+  }, [currentIndex]);
 
   const goToNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % destinations.length);
@@ -450,20 +455,21 @@ export function PopularDestinations() {
     <div className="py-16 sm:py-24 lg:py-32 bg-zinc-5">
       <div className="mx-auto max-w-screen-2xl px-8 text-center text-white">
         <h1 className="text-5xl font-serif font-semibold tracking-tight text-black">
-        Our Top Eco-Destinations
+          Our Top Eco-Destinations
         </h1>
         <p className="mt-4 text-lg sm:text-xl text-black font-serif opacity-80">
-        Explore the beauty of Africa and experience it's rich diversity spread across various Countries
+          Explore the beauty of Africa and experience it's rich diversity spread
+          across various Countries
         </p>
       </div>
 
       <div className="mx-auto max-w-screen-xl px-8 mt-16 lg:mt-24">
-        <div className="relative flex flex-col lg:flex-row items-center justify-between bg-white text-black py-8 sm:py-16 lg:py-20 px-6 sm:px-12 lg:px-32 rounded-3xl shadow-2xl transition-transform duration-300 ease-in-out transform hovr:scale-105">
+        <div className="relative flex flex-col lg:flex-row items-center justify-between bg-black text-white py-8 sm:py-16 lg:py-20 px-6 sm:px-12 lg:px-32 rounded-3xl shadow-2xl transition-transform duration-300 ease-in-out transform hovr:scale-105">
           <div className="text-center lg:text-left lg:w-1/2 space-y-6">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-black">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white">
               {currentDestination.name}
             </h2>
-            <p className="text-lg sm:text-xl text-gray-600">
+            <p className="text-lg sm:text-xl text-gray-400">
               {currentDestination.description}
             </p>
             <div className="mt-8 flex justify-center lg:justify-start gap-x-8">
@@ -498,65 +504,53 @@ export function Partners() {
   return (
     <div className="bg-gradient-to-r from-gray-50 to-gray-100 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <h2 className="text-center text-4xl font-bold text-gray-900 mb-16">
-          Trusted by Africa’s Leading Airlines
+        <h2 className="text-center text-5xl font-bold text-gray-900 mb-4 md:text-6xl">
+          Our Partner Airlines
         </h2>
-        <div className="mx-auto grid max-w-lg grid-cols-2 items-center gap-12 sm:max-w-xl sm:grid-cols-3 lg:mx-0 lg:max-w-none lg:grid-cols-5 lg:gap-x-16">
-          <div className="flex justify-center items-center transition-transform duration-500 ease-in-out transform hover:scale-110">
-            <img
-              alt="Air Peace"
-              src="https://flyairpeace.com/wp-content/uploads/2024/05/logo.webp"
-              width={158}
-              height={48}
-              className="max-h-12 w-full object-contain"
-            />
-          </div>
-          <div className="flex justify-center items-center transition-transform duration-500 ease-in-out transform hover:scale-110">
-            <img
-              alt="Ethiopian Airlines"
-              src="https://www.ethiopianairlines.com/images/default-source/default-album/icons/et-logo.png"
-              width={158}
-              height={48}
-              className="max-h-12 w-full object-contain"
-            />
-          </div>
-          <div className="flex justify-center items-center transition-transform duration-500 ease-in-out transform hover:scale-110">
-            <img
-              alt="Zambia Airways"
-              src="https://www.zambia-airways.com/Cms_Data/Sites/ZambiaAirways/Files/zambia-logo.png"
-              width={158}
-              height={48}
-              className="max-h-12 w-full object-contain"
-            />
-          </div>
-          {/* <div className="flex justify-center items-center transition-transform duration-500 ease-in-out transform hover:scale-110">
-            <img
-              alt="Zambia Airways"
-              // src="https://www.zambia-airways.com/Cms_Data/Sites/ZambiaAirways/Files/zambia-logo.png"
-              src="https://res.cloudinary.com/diapyzzws/image/upload/v1682565809/Website%20Images/paystackLogoColoured.svg"
-              width={158}
-              height={48}
-              className="max-h-12 w-full object-contain"
-            />
-          </div> */}
-          <div className="flex justify-center items-center transition-transform duration-500 ease-in-out transform hover:scale-110">
-            <img
-              alt="Airtrfx"
-              src="https://assets.airtrfx.com/media-em/wb/logos/wb-large-default.png?width=170&quality=80&fit=crop&format=auto&opt=true"
-              width={158}
-              height={48}
-              className="max-h-12 w-full object-contain"
-            />
-          </div>
-          <div className="flex justify-center items-center transition-transform duration-500 ease-in-out transform hover:scale-110">
-            <img
-              alt="South African Airways"
-              src="https://www.flysaa.com/saa-airways-theme/airways/images/logo.png"
-              width={158}
-              height={48}
-              className="max-h-12 w-full object-contain"
-            />
-          </div>
+        <p className="text-center text-md mb-8">
+          When you travel with us, you get the best deals in terms of flight
+          prices. Ecotra believes only in providing outstanding services, and
+          our partner airlines ensure you get the best travel experience.
+        </p>
+        <div
+          className="mx-auto grid max-w-lg grid-cols-2 items-center gap-12 sm:max-w-xl sm:grid-cols-3 
+                        lg:mx-0 lg:max-w-none lg:grid-cols-5 lg:gap-x-16 mt-12"
+        >
+          {[
+            {
+              alt: "Air Peace",
+              src: "https://flyairpeace.com/wp-content/uploads/2024/05/logo.webp",
+            },
+            {
+              alt: "Ethiopian Airlines",
+              src: "https://www.ethiopianairlines.com/images/default-source/default-album/icons/et-logo.png",
+            },
+            {
+              alt: "Zambia Airways",
+              src: "https://www.zambia-airways.com/Cms_Data/Sites/ZambiaAirways/Files/zambia-logo.png",
+            },
+            {
+              alt: "Airtrfx",
+              src: "https://assets.airtrfx.com/media-em/wb/logos/wb-large-default.png?width=170&quality=80&fit=crop&format=auto&opt=true",
+            },
+            {
+              alt: "South African Airways",
+              src: "https://www.flysaa.com/saa-airways-theme/airways/images/logo.png",
+            },
+          ].map((airline, index) => (
+            <div
+              key={index}
+              className="flex justify-center items-center p-4 transition-transform duration-500 ease-in-out transform hover:scale-110"
+            >
+              <img
+                alt={airline.alt}
+                src={airline.src}
+                width={158}
+                height={48}
+                className="max-h-12 w-full object-contain"
+              />
+            </div>
+          ))}
         </div>
       </div>
     </div>
@@ -683,13 +677,16 @@ export function Testimonials() {
 
   return (
     <section className="relative m-2 overflow-hidden bg-white text-black py-16">
-      <h1 className="text-center text-4xl font-serif font-medium mb-12">
+      <h1 className="text-center text-4xl font-serif font-medium mb-3">
         Customer Testimonials
       </h1>
+      <p className="text-center text-xl text-gray-600 font-serif mb-12">
+        What are people saying about us
+      </p>
 
-      <div className="max-w-2xl mx-auto text-center">
+      <div className="max-w-5xl  mx-auto text-center">
         <div className="relative overflow-hidden rounded-xl shadow-lg">
-          <div className="p-8 bg-green-700 text-lg font-light relative">
+          <div className="p-8 sm:p-32 bg-gray-950 text-white text-lg font-light relative">
             <svg
               className="absolute top-0 left-0 transform -translate-x-5 -translate-y-5 w-20 h-20 text-white opacity-30"
               xmlns="http://www.w3.org/2000/svg"
@@ -709,7 +706,7 @@ export function Testimonials() {
               />
               <div className="text-lg font-semibold">
                 <p>{testimonials[currentIndex].name}</p>
-                <p className="text-sm font-sans text-gray-200">
+                <p className="text-sm font-sans text-green-700">
                   {testimonials[currentIndex].position}
                 </p>
               </div>
@@ -720,7 +717,7 @@ export function Testimonials() {
           <div className="absolute top-1/2 left-0 transform -translate-y-1/2 pl-4">
             <button
               onClick={goToPreviousTestimonial}
-              className="p-2 bg-black text-white rounded-full hover:bg-gray-600 transition duration-300"
+              className="p-2 bg-green-700 text-white rounded-full hover:bg-gray-600 transition duration-300"
             >
               <FaArrowLeft size={20} />
             </button>
@@ -728,7 +725,7 @@ export function Testimonials() {
           <div className="absolute top-1/2 right-0 transform -translate-y-1/2 pr-4">
             <button
               onClick={goToNextTestimonial}
-              className="p-2 bg-black text-white rounded-full hover:bg-gray-600 transition duration-300"
+              className="p-2 bg-green-700 text-white rounded-full hover:bg-gray-600 transition duration-300"
             >
               <FaArrowRight size={20} />
             </button>
@@ -738,46 +735,6 @@ export function Testimonials() {
     </section>
   );
 }
-
-export function AirplaneCard() {
-  return (
-    <div className="flex flex-col lg:flex-row items-center justify-between h-full  lg:h-[80vh] bg-white p-10 sm:p-8">
-      {/* Image Section */}
-      <div className="w-full lg:w-1/2 flex justify-center lg:pr-8 mb-6 lg:mb-0">
-        <div className="relative w-full max-w-2xl aspect-video rounded-2xl overflow-hidden shadow-lg">
-          <Image
-            src="/plane.jpg"
-            alt="Airplane"
-            layout="fill"
-            objectFit="cover"
-            priority
-            className="rounded-2xl"
-          />
-        </div>
-      </div>
-
-      {/* Text Section */}
-      <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left px-4 sm:px-6 space-y-6">
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-green-800 leading-snug">
-          Explore New Horizons
-        </h1>
-        <p className="text-base sm:text-lg lg:text-xl text-gray-700 font-serif">
-          Discover the joy of flying with unmatched comfort and luxury. Your journey to extraordinary destinations begins here.
-        </p>
-        <Link  href="/bookflight">
-        <button className="px-6 sm:px-8 py-3 sm:py-4 bg-green-600 text-white text-base sm:text-lg font-semibold rounded-lg shadow-md hover:bg-green-700 transition duration-300 ease-in-out">
-          Book Your Flight
-        </button>
-        </Link>
-      </div>
-    </div>
-  );
-}
-
-
-
-
-
 
 export default function Home() {
   return (
@@ -790,8 +747,6 @@ export default function Home() {
       <Partners />
       <Testimonials />
       <Steps />
-      {/* <InfoSection /> */}
-      <AirplaneCard />
       <Newsletter />
     </div>
   );

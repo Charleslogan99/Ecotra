@@ -20,7 +20,7 @@ const roboto = Roboto({
 export default function RootLayout({ children }) {
   const pathname = usePathname();
 
-  const hiddenRoutes = ["/accounts/login", "/accounts/sign-up", "/accounts/dashboard"];
+  const hiddenRoutes = ["/accounts/login", "/accounts/sign-up", "/accounts/dashboard", "/accounts/forgotpassword"];
 
   return (
     <html lang="en">
@@ -45,7 +45,7 @@ export default function RootLayout({ children }) {
   <meta name="twitter:card" content="summary_large_image" />
 
   {/* Favicon */}
-  <link rel="icon" href="/ECOTRA.png" type="image/png" />
+  <link rel="icon" href="/logo.png" type="image/png" />
 
 </head>
 

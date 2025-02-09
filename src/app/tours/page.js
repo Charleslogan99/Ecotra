@@ -3,19 +3,53 @@
 import Link from "next/link";
 import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Tours() {
+  const images = [
+    "/images/others/ecotra17.jpg",
+    "/images/others/ecotra18.jpg",
+    "/images/others/ecotra19.jpg",
+    "/images/others/ecotra20.jpg",
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000); 
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="bg-green-50 text-gray-900">
-      {/* Hero Section */}
-      <section
-        className="relative h-[80vh] bg-cover bg-center flex items-center justify-center"
-        style={{
-          backgroundImage:
-            "url('https://img.freepik.com/premium-photo/midsection-woman-car-against-sky_1048944-28609448.jpg?ga=GA1.1.640371070.1737806957&semt=ais_hybrid')",
-        }}
-      >
+      <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
+        {/* Image Slideshow */}
+        <div className="absolute inset-0">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentIndex}
+              className="absolute inset-0 w-full h-full"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1 }}
+            >
+              <Image
+                src={images[currentIndex]}
+                alt="Eco Tour"
+                fill
+                className="object-cover"
+                priority
+              />
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
         <div className="absolute inset-0 bg-black opacity-40"></div>
+
         <div className="relative z-10 text-center px-4">
           <h1 className="text-6xl lg:text-7xl font-extrabold text-white drop-shadow-lg">
             Explore Our Eco Tours
@@ -31,7 +65,6 @@ export default function Tours() {
         </div>
       </section>
 
-      {/* Featured Tours Section */}
       <section id="featured-tours" className="py-20 bg-white">
         <div className="max-w-screen-xl mx-auto px-6 text-center">
           <h2 className="text-4xl font-extrabold text-green-900">Featured Eco Tours</h2>
@@ -86,7 +119,6 @@ export default function Tours() {
         </div>
       </section>
 
-      {/* Call to Action Section */}
       <section className="bg-green-900 text-white py-20">
         <div className="max-w-screen-xl mx-auto px-6 text-center">
           <h2 className="text-4xl font-extrabold">Ready to Book Your Next Adventure?</h2>

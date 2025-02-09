@@ -8,7 +8,7 @@ import {
   FaMapMarkerAlt,
   FaEnvelope,
 } from "react-icons/fa";
-import { FaGooglePlay, FaApple } from "react-icons/fa";  // Import Google Play and Apple Store icons
+import { FaGooglePlay, FaApple } from "react-icons/fa";  
 
 const Footer = () => {
   return (
@@ -130,7 +130,6 @@ const Footer = () => {
             &copy; Ecotra 2025 All rights reserved
           </div>
           <div className="flex flex-col space-y-4 justify-center items-center">
-            {/* Added "Follow Us" header */}
             <div className="font-semibold text-2xl text-gray-50 mb-4">Follow Us</div>
             <div className="flex space-x-6 justify-center">
               <Link
@@ -160,7 +159,6 @@ const Footer = () => {
             </div>
           </div>
           <div className="flex flex-col space-y-4 justify-center items-center mt-6 sm:mt-0">
-            {/* Added "Download Our App" header */}
             <div className="font-semibold text-2xl text-gray-50 mb-4">Download Our App</div>
             <div className="flex space-x-6 justify-center">
               <Link
