@@ -1,10 +1,9 @@
 import Image from "next/image";
-import { Partners } from "../page";
 
 export function TeamSection() {
   const teamMembers = [
     {
-      name: "Peter Okoro",
+      name: "James Miles",
       role: "Founder & CEO",
       image: "/images/others/ecotra1.jpg",
       description:
@@ -29,7 +28,9 @@ export function TeamSection() {
   return (
     <section className="py-16 bg-gray-0">
       <div className="container mx-auto px-4 text-center">
-        <h2 className="text-6xl font-serif text-gray-800 mb-12">Meet Our Team</h2>
+        <h2 className="text-6xl font-serif text-gray-800 mb-12">
+          Meet Our Team
+        </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
           {teamMembers.map((member, index) => (
@@ -39,9 +40,13 @@ export function TeamSection() {
                 alt={member.name}
                 className="w-40 h-40 rounded-full object-cover shadow-lg transform transition-transform duration-300 hover:scale-105"
               />
-              <h3 className="text-2xl font-semibold text-gray-900 mt-4">{member.name}</h3>
+              <h3 className="text-2xl font-semibold text-gray-900 mt-4">
+                {member.name}
+              </h3>
               <p className="text-green-600 font-medium">{member.role}</p>
-              <p className="text-gray-700 mt-3 max-w-sm">{member.description}</p>
+              <p className="text-gray-700 mt-3 max-w-sm">
+                {member.description}
+              </p>
             </div>
           ))}
         </div>
@@ -49,7 +54,6 @@ export function TeamSection() {
     </section>
   );
 }
-
 
 export function CommunityLivelihood() {
   return (
@@ -66,8 +70,15 @@ export function CommunityLivelihood() {
 
           <div className="bg-white/80 backdrop-blur-lg p-10 lg:p-14 rounded-3xl shadow-2xl border border-gray-300">
             <p className="text-xl lg:text-2xl text-gray-800 leading-relaxed">
-            As much as we take environmental conservation seriously, we also consider the livelihood of the host communities you visit. By travelling with us, you are impacting positively in the lives of those who make your travel experience awesome. We address issues such as human-wildlife conflict, solid waste management, and ecosystem services that improve the health and wellbeing of local communities. To achieve this, we partner with community based and international organizations, as well as local governments in countries of our destinations.
- 
+              As much as we take environmental conservation seriously, we also
+              consider the livelihood of the host communities you visit. By
+              travelling with us, you are impacting positively in the lives of
+              those who make your travel experience awesome. We address issues
+              such as human-wildlife conflict, solid waste management, and
+              ecosystem services that improve the health and wellbeing of local
+              communities. To achieve this, we partner with community based and
+              international organizations, as well as local governments in
+              countries of our destinations.  
             </p>
           </div>
         </div>
@@ -75,7 +86,6 @@ export function CommunityLivelihood() {
     </section>
   );
 }
-
 
 export function WhyTravelWithUs() {
   const travelBenefits = [
@@ -101,7 +111,6 @@ export function WhyTravelWithUs() {
         {travelBenefits.map((item, index) => (
           <div key={index} className="mb-16">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-20">
-
               {item.images.map((img, imgIndex) => (
                 <div
                   key={imgIndex}
@@ -123,7 +132,9 @@ export function WhyTravelWithUs() {
               <h3 className="text-4xl font-bold text- text-green-700 mb-8">
                 {item.title}
               </h3>
-              <p className="text-gray-700 text-xl leading-relaxed">{item.desc}</p>
+              <p className="text-gray-700 text-xl leading-relaxed">
+                {item.desc}
+              </p>
             </div>
           </div>
         ))}
@@ -132,8 +143,6 @@ export function WhyTravelWithUs() {
     </section>
   );
 }
-
-
 
 export default function About() {
   return (
@@ -157,7 +166,6 @@ export default function About() {
           </p>
         </div>
       </div>
-
       <section className="relative py-32 bg-gray-50 text-center overflow-hidden">
         <div className="absolute inset-0 bg-[url('/waves-pattern.svg')] bg-cover bg-center opacity-10 pointer-events-none"></div>
 
@@ -176,7 +184,15 @@ export default function About() {
           </blockquote>
 
           <p className="text-gray-800 text-xl leading-relaxed mt-10">
-          At Ecotra, we recognize the abundant gifts of beauty that Mother Earth and Nature has blessed us with, and we seek to ensure that travelers and people from all over the world gain this experience in terms of exploration. We are a certified travel company with its corporate Headquarters in the United States of America and Nigeria. Known for its great expertise in ecotourism and environmental conservation, Ecotra is fully involved in travel and environmental consultancy, and the organization of multi-national travels and tourism between the world and several destinations in Africa.
+            At Ecotra, we recognize the abundant gifts of beauty that Mother
+            Earth and Nature has blessed us with, and we seek to ensure that
+            travelers and people from all over the world gain this experience in
+            terms of exploration. We are a certified travel company with its
+            corporate Headquarters in the United States of America and Nigeria.
+            Known for its great expertise in ecotourism and environmental
+            conservation, Ecotra is fully involved in travel and environmental
+            consultancy, and the organization of multi-national travels and
+            tourism between the world and several destinations in Africa.
           </p>
 
           <p className="text-gray-800 text-xl mt-6 leading-relaxed">
@@ -213,23 +229,32 @@ export default function About() {
               Our Mission
             </h2>
             <p className="text-lg lg:text-2xl text-gray-700 leading-relaxed lg:leading-loose">
-            Our mission statement is simple: To widely promote sustainable tourism in several African destinations aimed at addressing tourist demands, exposing tourists to unique African cultures, conserving the environment of tourist destinations, and improving the livelihood of the host communities. Our Motto which is <span className="text-green-600 font-bold">"Explore, Enjoy, Conserve"</span> is not just a statement by us, but rather our environmental idealogy. Whether it’s exploring the lush rainforests of São Tomé and Príncipe, embarking on wildlife safaris in Tanzania, eating the jollof rice from Nigeria, or immersing yourself in various African traditions, we prioritize responsible tourism that leaves a positive footprint and creates unforgettable experiences.
- 
+              Our mission statement is simple: To widely promote sustainable
+              tourism in several African destinations aimed at addressing
+              tourist demands, exposing tourists to unique African cultures,
+              conserving the environment of tourist destinations, and improving
+              the livelihood of the host communities. Our Motto which is{" "}
+              <span className="text-green-600 font-bold">
+                "Explore, Enjoy, Conserve"
+              </span>{" "}
+              is not just a statement by us, but rather our environmental
+              idealogy. Whether it’s exploring the lush rainforests of São Tomé
+              and Príncipe, embarking on wildlife safaris in Tanzania, eating
+              the jollof rice from Nigeria, or immersing yourself in various
+              African traditions, we prioritize responsible tourism that leaves
+              a positive footprint and creates unforgettable experiences.  
             </p>
           </div>
         </div>
       </section>
-    <section className="py-12 bg-gray-100">
-      <WhyTravelWithUs />
-    </section>
+      <section className="py-12 bg-gray-100">
+        <WhyTravelWithUs />
+      </section>
 
-    
       <section className="bg-gray-100">
         <TeamSection />
       </section>
-      <section className="py-12 bg-gray-100">
-        <Partners />
-      </section>
+     
     </div>
   );
 }
