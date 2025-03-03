@@ -27,8 +27,8 @@ export function TeamSection() {
 
   return (
     <section className="py-16 bg-gray-0">
-      <div className="container mx-auto px-4 text-center">
-        <h2 className="text-6xl font-serif text-gray-800 mb-12">
+      <div className="container mx-auto px-4">
+        <h2 className="text-6xl font-serif text-center text-gray-800 mb-12">
           Meet Our Team
         </h2>
 
@@ -60,13 +60,13 @@ export function CommunityLivelihood() {
     <section className="relative flex items-center justify-center min-h-full py-20 overflow-hidden w-full">
       <div className="absolute inset-0 bg-[url('/subtle-pattern.svg')] opacity-20 pointer-events-none"></div>
 
-      <div className="w-full max-w-screen-xl mx-auto px-12 lg:px-20 gap-24 items-center justify-center text-center lg:text-left relative z-10">
+      <div className="w-full max-w-screen-xl mx-auto px-12 lg:px-20 gap-24 items-center justify-center  lg:text-left relative z-10">
         <div className="space-y-8">
           <h2 className="text-5xl lg:text-7xl font-extrabold text-gray-900 leading-tight">
             Community Livelihood
           </h2>
 
-          <div className="w-32 h-1 bg-gradient-to-r from-green-500 to-green-700 rounded-full mx-auto lg:mx-0"></div>
+          <div className="w-32 h-1  bg-gradient-to-r from-green-500 to-green-700 rounded-full mx-auto lg:mx-0"></div>
 
           <div className="bg-white/80 backdrop-blur-lg p-10 lg:p-14 rounded-3xl shadow-2xl border border-gray-300">
             <p className="text-xl lg:text-2xl text-gray-800 leading-relaxed">
@@ -91,48 +91,48 @@ export function WhyTravelWithUs() {
   const travelBenefits = [
     {
       title: "Environmental Conservation First",
-      desc: "We are commited to protecting and preserving the beautiful environment visited by our ecotourists. For each trip with Ecotra, a certain percentage of revenue generated from our ecotourists is allocated to funding conservation projects in host communities. To achieve this, we partner with community based and international organizations across all our country destinations to fund these numerous conservation projects. Our conservation projects include anti-poaching, wetland restoration, habitat restoration, reforestation and afforestation. The beauty of nature is a treasure for everyone to protect jealously, and Ecotra champions this cause passionately. Like the famous Kenyan environmentalist Wangari Maathai said - We owe it to ourselves and to the next generation to conserve the environment so that we can bequeath our children a sustainable world that benefits all. '",
+      desc: "We are committed to protecting and preserving the beautiful environment visited by our ecotourists. For each trip with Ecotra, a certain percentage of revenue generated from our ecotourists is allocated to funding conservation projects in host communities. To achieve this, we partner with community-based and international organizations across all our country destinations to fund these numerous conservation projects. Our conservation projects include anti-poaching, wetland restoration, habitat restoration, reforestation, and afforestation. The beauty of nature is a treasure for everyone to protect, and Ecotra champions this cause passionately. Like the famous Kenyan environmentalist Wangari Maathai said - 'We owe it to ourselves and to the next generation to conserve the environment so that we can bequeath our children a sustainable world that benefits all.'",
       images: ["/images/others/ecotra7.jpg", "/images/others/ecotra8.jpg"],
     },
     {
       title: "Unique Travel Experience",
-      desc: "We believe in creating life time memories for our ecotourists. By travelling with us, you not only experience the beauty of nature, you also get to engage with local cultures. As much as environmental education is important to us for our tourists, cultural education is also part of our idea. Be it food, music, clothing, nightlife or dance, Ecotra got you.",
+      desc: "We believe in creating lifetime memories for our ecotourists. By traveling with us, you not only experience the beauty of nature, you also get to engage with local cultures. As much as environmental education is important to us for our tourists, cultural education is also part of our idea. Be it food, music, clothing, nightlife, or dance, Ecotra got you.",
       images: ["/images/others/ecotra10.jpg", "/images/others/ecotra11.jpg"],
     },
   ];
 
   return (
-    <section className="py-32">
-      <div className="max-w-7xl mx-auto px-8 text-center">
-        <h2 className="text-5xl font-extrabold text-gray-950 mb-16">
+    <section className="py-32 bg-gray-50">
+      <div className="max-w-6xl mx-auto px-6 lg:px-12 text-center">
+        <h2 className="text-5xl lg:text-6xl font-serif text-gray-900 mb-16">
           Why Travel With Us?
         </h2>
 
         {travelBenefits.map((item, index) => (
-          <div key={index} className="mb-16">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-20">
+          <div key={index} className="mb-24">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
               {item.images.map((img, imgIndex) => (
                 <div
                   key={imgIndex}
-                  className="relative h-80 w-full overflow-hidden rounded-3xl shadow-lg"
+                  className="relative h-80 w-full overflow-hidden rounded-3xl shadow-xl"
                 >
                   <Image
                     src={img}
                     alt={item.title}
                     layout="fill"
                     objectFit="cover"
-                    className="transition-transform duration-500 hover:scale-105"
+                    className="transition-transform duration-500 hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                 </div>
               ))}
             </div>
 
-            <div className="mt-8 text-left bg-whit p-8  rounded-3xl shado-xl">
-              <h3 className="text-4xl font-bold text- text-green-700 mb-8">
+            <div className="mt-12 text-left bg-white p-10 lg:p-12 rounded-3xl shadow-2xl">
+              <h3 className="text-4xl font-bold text-green-700 mb-6">
                 {item.title}
               </h3>
-              <p className="text-gray-700 text-xl leading-relaxed">
+              <p className="text-gray-700 text-lg lg:text-xl leading-relaxed">
                 {item.desc}
               </p>
             </div>
@@ -143,6 +143,7 @@ export function WhyTravelWithUs() {
     </section>
   );
 }
+
 
 export default function About() {
   return (
@@ -156,27 +157,27 @@ export default function About() {
           priority
           className="brightness-75"
         />
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+        <div className="absolute inset-0 flex flex-col items-center justify-center px-6">
           <h1 className="text-white text-4xl md:text-7xl font-extrabold drop-shadow-xl leading-tight">
             Explore Africa Sustainably
           </h1>
-          <p className="text-gray-200 text-lg mt-4 max-w-2xl">
+          <p className="text-gray-200 text-xl mt-4 max-w-2xl">
             Experience breathtaking destinations while preserving the planet for
             future generations.
           </p>
         </div>
       </div>
-      <section className="relative py-32 bg-gray-50 text-center overflow-hidden">
+      <section className="relative py-32 bg-gray-50 overflow-hidden">
         <div className="absolute inset-0 bg-[url('/waves-pattern.svg')] bg-cover bg-center opacity-10 pointer-events-none"></div>
 
         <div className="max-w-5xl mx-auto px-8 relative z-10 animate-fadeInSlow">
-          <h2 className="text-5xl lg:text-6xl font-serif text-gray-900 mb-8 tracking-tight">
+          <h2 className="text-5xl lg:text-6xl font-serif  text-center text-gray-900 mb-8 tracking-tight">
             About Us
           </h2>
 
           <div className="w-16 h-1 bg-green-600 mx-auto rounded-full animate-slideIn"></div>
 
-          <blockquote className="mt-10 text-2xl lg:text-3xl font-serif italic text-gray-700 bg-white/70 backdrop-blur-lg px-6 py-5 rounded-xl shadow-lg inline-block animate-fadeInSlow border-l-4 border-green-600">
+          <blockquote className="mt-10 text-2xl lg:text-3xl font-serif italic  text-center text-gray-700 bg-white/70 backdrop-blur-lg px-6 py-5 rounded-xl shadow-lg inline-block animate-fadeInSlow border-l-4 border-green-600">
             “On Earth, there is no heaven, but there are pieces of it.”
             <span className="block text-lg font-medium mt-3">
               — Jules Renard
@@ -206,7 +207,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="relative py-12 bg-gradient-to-b from-white to-[#f0f9ff] text-center overflow-hidden">
+      <section className="relative py-12 bg-gradient-to-b from-white to-[#f0f9ff]  overflow-hidden">
         <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-10 pointer-events-none"></div>
 
         <div className="absolute -top-10 right-0 w-32 h-32 bg-[url('/images/leaf.svg')] bg-contain bg-no-repeat opacity-20"></div>
@@ -214,7 +215,8 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-center relative z-10">
           <div className="relative w-full h-80 lg:h-[550px] rounded-2xl shadow-2xl overflow-hidden group">
             <Image
-              src="/images/others/ecotra3.jpg"
+              // src="/images/others/ecotra3.jpg"
+              src="/junk/mission.jpg"
               alt="Sustainable Tourism"
               layout="fill"
               objectFit="cover"
@@ -224,8 +226,8 @@ export default function About() {
             <div className="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent"></div>
           </div>
 
-          <div className="text-center animate-fadeIn">
-            <h2 className="text-5xl lg:text-6xl font-extrabold text-gray-900 mb-8 leading-tight">
+          <div className=" animate-fadeIn">
+            <h2 className="text-5xl lg:text-6xl font-serif text-gray-900 mb-8 leading-tight">
               Our Mission
             </h2>
             <p className="text-lg lg:text-2xl text-gray-700 leading-relaxed lg:leading-loose">

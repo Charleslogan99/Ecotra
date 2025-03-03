@@ -1,38 +1,247 @@
 "use client";
-import { useState, useMemo } from "react";
-import { useDebounce } from "use-debounce";
+import { useRef } from "react";
+import {
+  FaArrowLeft,
+  FaArrowRight,
+} from "react-icons/fa";
+import Image from "next/image";
 import Link from "next/link";
-import { PopularDestinations } from "../page";
+
+const destinations = [
+  {
+    name: "Algeria",
+    image: "/images/destinations/Algeria.avif",
+    details:
+      "Discover the vast Sahara, ancient Roman ruins, and bustling markets in Algiers.",
+    link: "/destinations/algeria",
+  },
+  {
+    name: "Angola",
+    image: "/images/destinations/Angola.avif",
+    details:
+      "Experience Angola’s vibrant culture, stunning beaches, and rich history in Luanda.",
+    link: "/destinations/angola",
+  },
+  {
+    name: "Botswana",
+    image: "/images/destinations/Botswana.avif",
+    details:
+      "A unique inland delta teeming with wildlife, perfect for safari adventures.",
+    link: "/destinations/botswana",
+  },
+  {
+    name: "Cape Verde",
+    image: "/images/destinations/Capeverde.avif",
+    details:
+      "Enjoy Cape Verde’s capital with its beautiful beaches, Creole culture, and music.",
+    link: "/destinations/cape-verde",
+  },
+  {
+    name: "Egypt",
+    image: "/images/destinations/Egypt.avif",
+    details:
+      "Explore the Great Pyramids, Sphinx, and the rich history of ancient Egypt.",
+    link: "/destinations/egypt",
+  },
+  {
+    name: "Gabon",
+    image: "/images/destinations/Gabon.avif",
+    details:
+      "Discover Gabon’s rainforests, national parks, and beautiful Atlantic coastline.",
+    link: "/destinations/gabon",
+  },
+  {
+    name: "Ghana",
+    image: "/images/destinations/Ghana.avif",
+    details:
+      "Experience Ghana’s warm hospitality, cultural heritage, and vibrant nightlife.",
+    link: "/destinations/ghana",
+  },
+  {
+    name: "Kenya",
+    image: "/images/destinations/Kenya.avif",
+    details:
+      "A world-renowned safari destination with breathtaking wildlife migrations.",
+    link: "/destinations/kenya",
+  },
+  {
+    name: "Malawi",
+    image: "/images/destinations/Malawi.avif",
+    details:
+      "A tropical paradise with crystal-clear waters and diverse aquatic life.",
+    link: "/destinations/malawi",
+  },
+  {
+    name: "Mauritius",
+    image: "/images/destinations/Mauritius.avif",
+    details:
+      "A beautiful island nation known for its beaches, lagoons, and diverse culture.",
+    link: "/destinations/mauritius",
+  },
+  {
+    name: "Morocco",
+    image: "/images/destinations/Morocco.avif",
+    details:
+      "Explore colorful souks, palaces, and gardens in Morocco’s enchanting city.",
+    link: "/destinations/morocco",
+  },
+  {
+    name: "Mozambique",
+    image: "/images/destinations/Mozambique.avif",
+    details: "A paradise of white sandy beaches and marine biodiversity.",
+    link: "/destinations/mozambique",
+  },
+  {
+    name: "Namibia",
+    image: "/images/destinations/Namibia.jpg",
+    details: "Discover the striking red dunes of the Namib Desert.",
+    link: "/destinations/namibia",
+  },
+  {
+    name: "Nigeria",
+    image: "/images/destinations/Nigeria.jpg",
+    details:
+      "Experience Nigeria’s bustling metropolis with its rich culture and nightlife.",
+    link: "/destinations/nigeria",
+  },
+  {
+    name: "Rwanda",
+    image: "/images/destinations/Rwanda.avif",
+    details:
+      "A clean and green city, known for its history, nature, and gorilla trekking.",
+    link: "/destinations/rwanda",
+  },
+  {
+    name: "São Tomé and Príncipe",
+    image: "/images/destinations/Saotome.avif",
+    details:
+      "A hidden gem with stunning beaches, forests, and cocoa plantations.",
+    link: "/destinations/sao-tome",
+  },
+  {
+    name: "South Africa",
+    image: "/images/destinations/Southafrica.avif",
+    details:
+      "A breathtaking coastal city with Table Mountain and vibrant culture.",
+    link: "/destinations/south-africa",
+  },
+  {
+    name: "Tanzania",
+    image: "/images/destinations/Tanzania.avif",
+    details: "One of Africa’s greatest wildlife conservation areas.",
+    link: "/destinations/tanzania",
+  },
+  {
+    name: "Tunisia",
+    image: "/images/destinations/Tunisia.jpg",
+    details: "A blend of ancient ruins and Mediterranean charm.",
+    link: "/destinations/tunisia",
+  },
+  {
+    name: "Uganda",
+    image: "/images/destinations/Uganda.avif",
+    details: "The heart of Uganda’s cultural and natural attractions.",
+    link: "/destinations/uganda",
+  },
+  {
+    name: "Zambia",
+    image: "/images/destinations/Zambia.avif",
+    details: "One of the world’s largest and most spectacular waterfalls.",
+    link: "/destinations/zambia",
+  },
+  {
+    name: "Zimbabwe",
+    image: "/images/destinations/Zimbabwe.avif",
+    details: "Zimbabwe’s largest national park, home to diverse wildlife.",
+    link: "/destinations/zimbabwe",
+  },
+];
+
+export function PopularDestinations() {
+  const scrollRef = useRef(null);
+
+  const handleScroll = (direction) => {
+    if (scrollRef.current) {
+      const { scrollLeft, clientWidth } = scrollRef.current;
+      const scrollAmount = clientWidth * 0.8;
+      scrollRef.current.scrollTo({
+        left: direction === "left" ? scrollLeft - scrollAmount : scrollLeft + scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  return (
+    <div className="relative max-w-screen-xl mx-auto px-6 py-20">
+      <div className="flex justify-between items-center mb-6">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">
+          Popular Destinations
+        </h2>
+        <div className="flex gap-4">
+          <button
+            className="bg-gray-950 text-green-500 p-3 rounded-full shadow-lg hover:bg-gray-900 transition"
+            onClick={() => handleScroll("left")}
+          >
+            <FaArrowLeft size={20} />
+          </button>
+          <button
+            className="bg-gray-950 text-green-500 p-3 rounded-full shadow-lg hover:bg-gray-900 transition"
+            onClick={() => handleScroll("right")}
+          >
+            <FaArrowRight size={20} />
+          </button>
+        </div>
+      </div>
+
+      {/* Scrollable container */}
+      <div className="relative overflow-hidden">
+        <div
+          ref={scrollRef}
+          className="flex gap-6 overflow-x-auto scroll-smooth scrollbar-hide"
+        >
+          {destinations.map((destination, index) => (
+            <div key={index} className="w-full sm:w-[50%] lg:w-[25%] flex-shrink-0">
+
+              <DestinationCard destination={destination} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const DestinationCard = ({ destination }) => {
+  return (
+    <Link href={`/destinations/${destination.name.toLowerCase().replace(/\s+/g, "-")}`} passHref>
+      <div className="h-[450px] flex flex-col rounded-lg overflow-hidden cursor-pointer transition transform hover:scale-105">
+        <Image
+          src={destination.image}
+          alt={destination.name}
+          width={400}
+          height={350}
+          className="object-cover w-full h-[320px]"
+          priority={true}
+        />
+        <div className="p-4">
+          <h2 className="text-lg font-semibold">{destination.name}</h2>
+          <p className="text-gray-600">{destination.details}</p>
+        </div>
+      </div>
+    </Link>
+  );
+};
 
 export default function Destinations() {
-  const [search, setSearch] = useState("");
-  const [debouncedSearch] = useDebounce(search, 500); 
-
-  const destinations = useMemo(
-    () => [
-      { name: "Lagos, Nigeria", description: "The city of lights, known for its art, fashion, and culture.", imageUrl: "/images/lagos.jpg", link: "/destinations/lagos" },
-      { name: "Tokyo", description: "A bustling metropolis with modern and traditional architecture.", imageUrl: "/images/tokyo.jpg", link: "/destinations/tokyo" },
-      { name: "New York", description: "The city that never sleeps, home to iconic landmarks and theaters.", imageUrl: "/images/nyc.jpg", link: "/destinations/nyc" },
-      { name: "Sydney", description: "Famous for its stunning opera house and beautiful beaches.", imageUrl: "/images/sydney.jpg", link: "/destinations/sydney" },
-      { name: "Dubai", description: "A city of innovation, luxury shopping, and towering skyscrapers.", imageUrl: "/images/dubai.jpg", link: "/destinations/dubai" },
-      { name: "London", description: "Home to history, culture, and world-famous landmarks like Big Ben.", imageUrl: "/images/london.jpg", link: "/destinations/london" },
-    ],
-    []
-  );
-
-  const filteredDestinations = useMemo(
-    () =>
-      destinations.filter((destination) =>
-        destination.name.toLowerCase().includes(debouncedSearch.toLowerCase())
-      ),
-    [debouncedSearch, destinations]
-  );
+ 
 
   return (
     <div className="font-sans bg-gray-50 min-h-screen">
       <div className="relative">
-        <img
+        <Image
           src="/images/others/ecotra5.jpg"
+          width={400}
+          height={100}
           alt="Explore Destinations"
           className="w-full h-[600px] object-cover shadow-lg"
           loading="lazy"
@@ -45,47 +254,6 @@ export default function Destinations() {
         </div>
       </div>
 
-      <div className="mt-10 flex justify-center">
-        <input
-          type="text"
-          className="w-full sm:w-1/2 p-4 rounded-xl border-2 border-gray-300 shadow-md focus:outline-none focus:ring-1 focus:ring-green-500 text-lg"
-          placeholder="Search destinations"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-      </div>
-
-      {/* <div className="mt-12 p-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-        {filteredDestinations.map(({ name, description, imageUrl, link }) => (
-          <div
-            key={name}
-            className="relative rounded-3xl overflow-hidden shadow-lg group hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
-          >
-            <img
-              src={imageUrl}
-              alt={name}
-              loading="lazy"
-              className="w-full h-[320px] object-cover group-hover:opacity-90 rounded-t-3xl"
-            />
-
-            <div className="absolute inset-0 bg-black opacity-40 group-hover:opacity-0 transition-opacity duration-300"></div>
-
-            <div className="absolute inset-0 flex items-center justify-center text-white font-semibold text-xl sm:text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <p className="text-center px-4">{name}</p>
-            </div>
-
-            <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black to-transparent rounded-b-3xl transition-all duration-300">
-              <p className="text-white text-sm sm:text-base">{description}</p>
-            </div>
-
-            <Link href={link}>
-              <span className="absolute bottom-4 right-4 text-indigo-500 font-semibold text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                Learn More
-              </span>
-            </Link>
-          </div>
-        ))}
-      </div> */}
       <PopularDestinations />
     </div>
   );

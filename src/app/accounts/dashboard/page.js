@@ -1,143 +1,334 @@
 "use client";
-
-import { useState, useMemo, useCallback } from "react";
-import dynamic from "next/dynamic";
-import Link from "next/link";
-import Image from "next/image";
-import { memo } from "react";
+import Translator from "@/components/layout/Translator";
+import { useState, useEffect } from "react";
 import {
-  FaBars, FaTimes, FaPlaneDeparture, FaUsers, FaDollarSign,
-  FaCalendarAlt, FaHome, FaBook, FaUser, FaLeaf, FaMountain,
-  FaGlobe, FaLock, FaSignOutAlt, FaTrophy
+  FaBars,
+  FaTimes,
+  FaBell,
+  FaMapMarkedAlt,
+  FaUser,
+  FaSignOutAlt,
+  FaCalendarCheck,
+  FaClipboardList,
+  FaGlobeAmericas,
+  FaPlaneDeparture,
+  FaDollarSign,
+  FaHistory,
+  FaStar,
+  FaHome,
+  FaSave,
 } from "react-icons/fa";
 
-const Translator = dynamic(() => import("@/components/layout/Translator"), { ssr: false });
-
-const Dashboard = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const username = "Piroo";
-
-  const toggleSidebar = useCallback(() => setIsSidebarOpen(prev => !prev), []);
-
-  const navLinks = useMemo(() => ([
-    { href: "/dashboard", icon: FaHome, label: "Dashboard" },
-    { href: "/bookings", icon: FaBook, label: "My Bookings" },
-    { href: "/profile", icon: FaUser, label: "Profile" },
-    { href: "/eco-tourism", icon: FaLeaf, label: "Eco-Tourism" },
-    { href: "/tours", icon: FaMountain, label: "Eco Tours" },
-    { href: "/sustainable-destinations", icon: FaGlobe, label: "Destinations" },
-    { href: "/change-password", icon: FaLock, label: "Change Password" },
-    { href: "/accounts/login", icon: FaSignOutAlt, label: "Logout" },
-  ]), []);
-
-  const quickActions = useMemo(() => ([
-    { href: "/book", label: "Book a Trip" },
-    { href: "/bookings", label: "View My Bookings" },
-    { href: "/profile", label: "Manage Profile" },
-  ]), []);
-
-  const destinations = useMemo(() => ([
-    { title: "Paris, France", image: "/plane.jpg" },
-    { title: "Bali, Indonesia", image: "/hero3.jpg" },
-    { title: "Dubai, UAE", image: "/hero4.jpg" },
-  ]), []);
-
-  return (
-    <div className="flex flex-col min-h-screen bg-gray-50 font-sans">
-      <header className="bg-white shadow-md px-6 py-4 flex justify-between items-center fixed top-0 w-full z-40 md:px-10 h-16">
-        <Link href="/accounts/dashboard">
-          <Image src="/logo.png" alt="Ecotra Logo" width={150} height={50} priority />
-        </Link>
-        <button onClick={toggleSidebar} className="md:hidden text-2xl text-gray-700 hover:text-green-600 transition">
-          {isSidebarOpen ? <FaTimes /> : <FaBars />}
-        </button>
-      </header>
-
-      <div className="flex flex-1 mt-16">
-        <aside className={`bg-white shadow-lg p-6 transition-transform duration-300 fixed top-16 left-0 w-64 h-full z-10 md:static md:w-1/5 ${
-          isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-        } md:translate-x-0 overflow-y-auto`} style={{ maxHeight: "calc(100vh - 4rem)" }}>
-          <Translator />
-          <nav className="mt-6 space-y-4">
-            {navLinks.map(({ href, icon, label }) => (
-              <NavLink key={href} href={href} icon={icon} label={label} />
-            ))}
-          </nav>
-        </aside>
-
-        <main className="flex-1 p-8 w-full md:pl-12">
-          <h1 className="text-3xl font-bold text-gray-900">Welcome, {username}! 👋</h1>
-          <p className="text-gray-600 mb-8">Here's a quick overview of your dashboard.</p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            <StatCard icon={FaPlaneDeparture} title="Upcoming Trips" value="3" />
-            <StatCard icon={FaDollarSign} title="Total Spend" value="$5,230" />
-            <StatCard icon={FaCalendarAlt} title="Recent Bookings" value="8" />
-            <StatCard icon={FaTrophy} title="Points Gained" value="105" />
-          </div>
-
-          <Section title="Quick Actions">
-            <div className="flex flex-wrap gap-4">
-              {quickActions.map(({ href, label }) => (
-                <ActionButton key={href} href={href} label={label} />
-              ))}
-            </div>
-          </Section>
-
-          <Section title="Recommended Destinations">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-              {destinations.map(({ title, image }) => (
-                <DestinationCard key={title} title={title} image={image} />
-              ))}
-            </div>
-          </Section>
-        </main>
-      </div>
-    </div>
-  );
+const user = {
+  name: "Tom Cook",
+  email: "tom@example.com",
+  imageUrl:
+    "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
 };
 
-const NavLink = memo(({ href, icon: Icon, label }) => (
-  <Link href={href} className="flex items-center gap-4 p-3 rounded-lg text-gray-700 hover:bg-green-100 transition">
-    <span className="p-2 bg-green-100 rounded-lg shadow-md">
-      <Icon className="text-2xl text-green-600" />
-    </span>
-    <span className="font-medium">{label}</span>
-  </Link>
-));
+const username = "Piroo";
 
-const StatCard = memo(({ icon: Icon, title, value }) => (
-  <div className="bg-white p-6 rounded-xl shadow-md flex items-center gap-6 hover:shadow-lg transition">
-    <span className="p-3 bg-green-100 rounded-full shadow">
-      <Icon className="text-green-600 text-4xl" />
-    </span>
-    <div>
-      <h3 className="text-lg font-semibold text-gray-800">{title}</h3>
-      <p className="text-2xl font-bold text-gray-900">{value}</p>
+const destinations = [
+  {
+    name: "Kigali, Rwanda",
+    image: "https://source.unsplash.com/600x400/?bali",
+  },
+  {
+    name: "Harare, Zimbabwe",
+    image: "https://source.unsplash.com/600x400/?paris",
+  },
+  {
+    name: "Lagos, Nigeria",
+    image: "https://source.unsplash.com/600x400/?santorini",
+  },
+];
+
+const navigation = [
+  { name: "Overview", href: "/dashboard/overview", icon: <FaHome /> },
+  {
+    name: "Book a Tour",
+    href: "/dashboard/book-trip",
+    icon: <FaCalendarCheck />,
+  },
+  {
+    name: "Manage Bookings",
+    href: "/dashboard/manage-bookings",
+    icon: <FaClipboardList />,
+  },
+];
+
+export default function TravelDashboard() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [profileMenuOpen, setProfileMenuOpen] = useState(false);
+  const [notificationsOpen, setNotificationsOpen] = useState(false);
+  const [savedTripsOpen, setSavedTripsOpen] = useState(false);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (!event.target.closest(".profile-menu")) {
+        setProfileMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-gray-100 font-serif">
+      <nav className="bg-black py-2 px-6 shadow-md flex items-center justify-between relative h-24">
+        <div className="flex items-center space-x-4">
+          <button
+            className="text-white md:hidden focus:outline-none"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            {menuOpen ? (
+              <FaTimes className="w-6 h-6" />
+            ) : (
+              <FaBars className="w-6 h-6" />
+            )}
+          </button>
+          <img
+            src="/logo.png"
+            alt="Ecotra"
+            width={150}
+            height={60}
+            className="object-contain"
+          />
+        </div>
+
+        <div className="hidden md:flex space-x-8 text-lg">
+          {navigation.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              className="flex items-center text-green-700 hover:text-gray-300 text-xl"
+            >
+              {item.icon} <span className="ml-2 text-blue-50">{item.name}</span>
+            </a>
+          ))}
+        </div>
+
+        <div className="flex items-center space-x-4 relative">
+          <button
+            className="text-white relative"
+            onClick={() => setSavedTripsOpen(true)}
+          >
+            <FaSave className="w-6 h-6" />
+          </button>
+          <button
+            className="text-white relative"
+            onClick={() => setNotificationsOpen(true)}
+          >
+            <FaBell className="w-6 h-6" />
+          </button>
+          <div className="relative profile-menu">
+            <img
+              src={user.imageUrl}
+              alt="User Profile"
+              width={40}
+              height={40}
+              className="rounded-full border-2 border-white cursor-pointer"
+              onClick={() => setProfileMenuOpen(!profileMenuOpen)}
+            />
+            {profileMenuOpen && (
+              <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50 border border-gray-200">
+                <a
+                  href="/profile"
+                  className="flex items-center px-4 py-2 text-gray-800 hover:bg-gray-200"
+                >
+                  <FaUser className="mr-2 text-green-600" /> View Profile
+                </a>
+                <button className="flex items-center w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200">
+                  <FaSignOutAlt className="mr-2 text-red-600" /> Log Out
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      </nav>
+      {/* <div>
+    <Translator />
+</div> */}
+      {menuOpen && (
+        <div className="md:hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 z-50 flex flex-col items-center justify-center p-6">
+          <button
+            className="text-white absolute top-4 right-6"
+            onClick={() => setMenuOpen(false)}
+          >
+            <FaTimes className="w-6 h-6" />
+          </button>
+
+          <div className="flex flex-col space-y-6 w-full items-center">
+            {navigation.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className="flex items-center text-white text-lg py-2"
+                onClick={() => setMenuOpen(false)}
+              >
+                {item.icon} <span className="ml-3">{item.name}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <main className="p-8 space-y-16 bg-gray-50 min-h-screen">
+        <div className="text-3xl font-semibold py-2">
+          <h1>Hello {username} !</h1>
+          <p className="text-base font-light text-gray-600">
+            Here's an Overview of your Account
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 ">
+          {[
+            {
+              icon: <FaPlaneDeparture className="text-blue-600 text-5xl" />,
+              title: "Upcoming Trips",
+              value: "3 trips planned",
+              details: "Next trip: Paris on March 15",
+              buttonText: "View Details",
+            },
+            {
+              icon: <FaDollarSign className="text-green-600 text-5xl" />,
+              title: "Total Spend",
+              value: "$2,300 this year",
+              details: "Last booking: $450 on Jan 25",
+              buttonText: "View Report",
+            },
+            {
+              icon: <FaHistory className="text-purple-600 text-5xl" />,
+              title: "Recent Bookings",
+              value: "Last trip: Bali",
+              details: "Hotel: The Grand Resort",
+              buttonText: "Manage Bookings",
+            },
+            {
+              icon: <FaStar className="text-yellow-500 text-5xl" />,
+              title: "Points Gained",
+              value: "1,250 reward points",
+              details: "Redeemable for hotel discounts",
+              buttonText: "Redeem Now",
+            },
+          ].map((item, index) => (
+            <div
+              key={index}
+              className="p-10 bg-whit rounded-3xl shadow-xl flex flex-col items-center text-center space-y-6 transition-all duration-300 hover:shadow-2xl"
+            >
+              <div className="p-4 bg-gray-100 rounded-full">{item.icon}</div>
+              <h2 className="text-2xl font-semibold text-gray-800">
+                {item.title}
+              </h2>
+              <p className="text-lg font-medium text-gray-600">{item.value}</p>
+              <p className="text-gray-500">{item.details}</p>
+              <button className="mt-4 bg-green-600 text-black px-6 py-3 rounded-lg font-sans hover:bg-green-700 transition">
+                {item.buttonText}
+              </button>
+            </div>
+          ))}
+        </div>
+
+        <div className="p-10 rounded-3xl bg-opacity-50 backdrop-blur-lg">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6">
+            Quick Actions
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: <FaCalendarCheck className="text-blue-600 text-5xl" />,
+                label: "Book a Tour",
+                link: "/dashboard/book-trip",
+              },
+              {
+                icon: <FaMapMarkedAlt className="text-green-600 text-5xl" />,
+                label: "Explore Destinations",
+                link: "/dashboard/destinations",
+              },
+              {
+                icon: <FaUser className="text-purple-600 text-5xl" />,
+                label: "Manage Profile",
+                link: "/dashboard/profile",
+              },
+            ].map((action, index) => (
+              <a
+                key={index}
+                href={action.link}
+                className="bg-white p-8 rounded-2xl shadow-md flex flex-col items-center space-y-4 hover:shadow-lg transition"
+              >
+                {action.icon}
+                <span className="text-lg font-semibold text-gray-800">
+                  {action.label}
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div className="p-10 rounded-3xl shadow-xl bg-white bg-opacity-50 backdrop-blur-lg">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6">
+            Recent Activity
+          </h2>
+          <ul className="space-y-6">
+            {[
+              { activity: "Booked a trip to London", time: "2 hours ago" },
+              { activity: "Redeemed 500 reward points", time: "Yesterday" },
+              { activity: "Updated profile information", time: "3 days ago" },
+            ].map((item, index) => (
+              <li
+                key={index}
+                className="flex justify-between text-gray-600 border-b pb-4 last:border-none"
+              >
+                <span className="font-medium">{item.activity}</span>
+                <span className="text-sm text-gray-500">{item.time}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </main>
+      {notificationsOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-80">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-lg font-semibold">Notifications</h3>
+              <button
+                onClick={() => setNotificationsOpen(false)}
+                className="text-gray-600 hover:text-gray-900"
+              >
+                <FaTimes className="size-5" />
+              </button>
+            </div>
+            <p className="text-gray-600">No new notifications</p>
+          </div>
+        </div>
+      )}
+      {savedTripsOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-lg w-96 shadow-lg">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-xl font-semibold">Saved Trips</h2>
+              <button
+                className="text-gray-600 hover:text-red-600"
+                onClick={() => setSavedTripsOpen(false)}
+              >
+                <FaTimes className="w-5 h-5" />
+              </button>
+            </div>
+
+            <ul className="space-y-2">
+              {destinations.map((dest, index) => (
+                <li
+                  key={index}
+                  className="p-2 border-b last:border-none text-gray-800"
+                >
+                  {dest.name}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
     </div>
-  </div>
-));
-
-const ActionButton = memo(({ href, label }) => (
-  <Link href={href} className="bg-green-600 text-white px-5 py-3 rounded-lg shadow-md hover:bg-green-700 transition">
-    {label}
-  </Link>
-));
-
-const DestinationCard = memo(({ title, image }) => (
-  <div className="relative rounded-xl overflow-hidden shadow-lg group">
-    <Image src={image} alt={title} width={500} height={300} className="w-full h-48 object-cover" />
-    <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-      <h3 className="text-white text-lg font-bold">{title}</h3>
-    </div>
-  </div>
-));
-
-const Section = memo(({ title, children }) => (
-  <div className="bg-white p-6 rounded-xl shadow-md mb-6">
-    <h2 className="text-xl font-semibold mb-4 text-gray-900">{title}</h2>
-    {children}
-  </div>
-));
-
-export default Dashboard;
+  );
+}

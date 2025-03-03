@@ -7,76 +7,86 @@ import {
   FaLinkedinIn,
   FaMapMarkerAlt,
   FaEnvelope,
+  FaGooglePlay,
+  FaApple,
 } from "react-icons/fa";
-import { FaGooglePlay, FaApple } from "react-icons/fa";  
 
 const Footer = () => {
   return (
-    <div className="bg-black pt-20 pb-16">
-      <div className="max-w-screen-2xl mx-auto px-6">
-        <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-4 gap-16">
-          <div className="flex justify-center items-center">
-            <Link href="/" className="flex items-center space-x-3">
+    <footer className="bg-black pt-20 pb-16 text-gray-50">
+      <div className="max-w-screen-2xl mx-auto px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-16">
+          {/* Logo Section */}
+          <div className="flex justify-center lg:justify-start items-center">
+            <Link href="/">
               <Image
                 src="/logo.png"
                 alt="Ecotra Travel Agency"
                 width={200}
                 height={100}
-                className="object-contain"
+                className="object-contain cursor-pointer"
               />
             </Link>
           </div>
 
+          {/* Company Info */}
           <div className="flex flex-col space-y-6">
-            <div className="font-semibold text-2xl text-gray-50 mb-4">
-              Company
-            </div>
-            <ul className="space-y-4 text-gray-50 text-lg">
+            <h3 className="font-semibold text-2xl mb-4">Company</h3>
+            <ul className="space-y-3 text-lg">
               <li>
                 <Link href="/about" className="hover:text-green-600 transition">
                   About Ecotra
                 </Link>
               </li>
             </ul>
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-3">
               <FaMapMarkerAlt className="text-green-600 text-xl" />
-              <p className="text-gray-50 text-lg hover:text-green-500">
-                123 Main St, Anytown, USA 12345
+              <p className="hover:text-green-500 transition">
+                202 N Cedar Ave Ste 1 <br />
+                <span className="block">Owatonna MN 55060 USA</span>
               </p>
             </div>
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-3">
               <FaEnvelope className="text-green-600 text-xl" />
-              <a
-                href="mailto:support@ecotra.com"
-                className="text-gray-50 hover:text-green-500 text-lg"
+              <Link
+                href="mailto:support@ecotra.org"
+                className="hover:text-green-500 transition"
               >
-                support@ecotra.com
-              </a>
+                support@ecotra.org
+              </Link>
             </div>
           </div>
 
+          {/* Navigation */}
           <div className="flex flex-col space-y-6">
-            <div className="font-semibold text-2xl text-gray-50 mb-4">
-              Navigation
-            </div>
-            <ul className="space-y-4 text-gray-50 text-lg">
+            <h3 className="font-semibold text-2xl mb-4">Navigation</h3>
+            <ul className="space-y-3 text-lg">
               <li>
                 <Link href="/" className="hover:text-green-600 transition">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-green-600 transition">
+                <Link
+                  href="/contact"
+                  className="hover:text-green-600 transition"
+                >
                   Contact
                 </Link>
               </li>
               <li>
-                <Link href="/accounts/login" className="hover:text-green-600 transition">
+                <Link
+                  href="/accounts/login"
+                  className="hover:text-green-600 transition"
+                >
                   Sign in
                 </Link>
               </li>
               <li>
-                <Link href="/accounts/sign-up" className="hover:text-green-600 transition">
+                <Link
+                  href="/accounts/sign-up"
+                  className="hover:text-green-600 transition"
+                >
                   Sign up
                 </Link>
               </li>
@@ -86,7 +96,10 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/destinations" className="hover:text-green-600 transition">
+                <Link
+                  href="/destinations"
+                  className="hover:text-green-600 transition"
+                >
                   Destinations
                 </Link>
               </li>
@@ -98,17 +111,16 @@ const Footer = () => {
             </ul>
           </div>
 
+          {/* Legal */}
           <div className="flex flex-col space-y-6">
-            <div className="font-semibold text-2xl text-gray-50 mb-4">
-              Legal
-            </div>
-            <ul className="space-y-4 text-gray-50 text-lg">
+            <h3 className="font-semibold text-2xl mb-4">Legal</h3>
+            <ul className="space-y-3 text-lg">
               <li>
                 <Link
                   href="/legal/terms"
                   className="hover:text-green-600 transition"
                 >
-                  Terms & Conditions
+                  Terms &amp; Conditions
                 </Link>
               </li>
               <li>
@@ -123,62 +135,68 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Divider */}
         <hr className="my-12 border-green-600" />
 
-        <div className="flex flex-col sm:flex-row justify-between items-center">
-          <div className="text-lg text-gray-50 mb-4 sm:mb-0">
-            &copy; Ecotra 2025 All rights reserved
+        {/* Bottom Section */}
+        <div className="flex flex-col lg:flex-row justify-between items-center gap-8">
+          {/* Left Column */}
+          <div className="text-lg text-center lg:text-left">
+            &copy; Ecotra 2025. All rights reserved.
           </div>
-          <div className="flex flex-col space-y-4 justify-center items-center">
-            <div className="font-semibold text-2xl text-gray-50 mb-4">Follow Us</div>
-            <div className="flex space-x-6 justify-center">
+
+          {/* Middle Column: Follow Us */}
+          <div className="flex flex-col items-center text-center">
+            <h3 className="font-semibold text-2xl mb-2">Follow Us</h3>
+            <div className="flex space-x-8">
               <Link
                 href="https://facebook.com"
-                className="text-gray-50 hover:text-green-600 transition"
+                className="hover:text-green-600 transition"
               >
-                <FaFacebookF className="w-8 h-8" />
+                <FaFacebookF className="w-6 h-6" />
               </Link>
               <Link
                 href="https://instagram.com"
-                className="text-gray-50 hover:text-green-600 transition"
+                className="hover:text-green-600 transition"
               >
-                <FaInstagram className="w-8 h-8" />
+                <FaInstagram className="w-6 h-6" />
               </Link>
               <Link
                 href="https://twitter.com"
-                className="text-gray-50 hover:text-green-600 transition"
+                className="hover:text-green-600 transition"
               >
-                <FaTwitter className="w-8 h-8" />
+                <FaTwitter className="w-6 h-6" />
               </Link>
               <Link
                 href="https://linkedin.com"
-                className="text-gray-50 hover:text-green-600 transition"
+                className="hover:text-green-600 transition"
               >
-                <FaLinkedinIn className="w-8 h-8" />
+                <FaLinkedinIn className="w-6 h-6" />
               </Link>
             </div>
           </div>
-          <div className="flex flex-col space-y-4 justify-center items-center mt-6 sm:mt-0">
-            <div className="font-semibold text-2xl text-gray-50 mb-4">Download Our App</div>
-            <div className="flex space-x-6 justify-center">
+
+          {/* Right Column: Download Our App */}
+          <div className="flex flex-col items-center text-center">
+            <h3 className="font-semibold text-2xl mb-2">Download Our App</h3>
+            <div className="flex space-x-8">
               <Link
-                // href="https://play.google.com"
                 href="/accounts/dashboard"
-                className="text-gray-50 hover:text-green-600 transition"
+                className="hover:text-green-600 transition"
               >
-                <FaGooglePlay className="w-8 h-8 text-green-600" />
+                <FaGooglePlay className="w-6 h-6 text-green-600" />
               </Link>
               <Link
                 href="https://www.apple.com/app-store/"
-                className="text-gray-50 hover:text-green-600 transition"
+                className="hover:text-green-600 transition"
               >
-                <FaApple className="w-8 h-8 text-green-600" />
+                <FaApple className="w-6 h-6 text-green-600" />
               </Link>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 

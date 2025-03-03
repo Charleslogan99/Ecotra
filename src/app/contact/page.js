@@ -134,8 +134,8 @@ export default function Contact() {
       </div>
 
       {/* Follow Us Section */}
-      <div className="mt-16 text-center">
-        <h3 className="text-4xl font-extrabold text-green-800 mb-6">
+      <div className="mt-16">
+        <h3 className="text-4xl text-center font-extrabold text-green-800 mb-6">
           Follow Us
         </h3>
         <p className="text-lg text-gray-600 mb-12 max-w-3xl mx-auto">
