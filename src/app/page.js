@@ -11,6 +11,8 @@ import { HeroSection } from "@/components/layout/HeroSection";
 import { SpecialTours } from "@/components/layout/SpecialTours";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { PopularDestinations } from "./destinations/page";
+import { Partners } from "@/components/layout/Partners";
 
 export function KeyFeaturesSection() {
   const { ref, inView } = useInView({ threshold: 0.2 });
@@ -20,19 +22,19 @@ export function KeyFeaturesSection() {
       id: 1,
       icon: "🌱",
       title: "Sustainable Tourism",
-      text: "A portion of our revenue directly supports conservation projects, ensuring your travel positively impacts the environment and local communities.",
+      text: "A portion of revenue generated from our ecotourists is channeled to funding conservation projects in all our tavel destinations. At Ecotra we prioritize environmental conservation and protection as much as we prioritize the fun experience of our Ecotourists. We ensure that your travel positively impacts the environment and local communities that host you.",
     },
     {
       id: 2,
       icon: "🌍",
       title: "Diverse Destinations",
-      text: "From the savannahs of Kenya to the beaches of Cape Verde, explore Africa’s hidden treasures with guided tours and customized itineraries.",
+      text: "Whether from the deserts of North Africa to the grasslands of Southern Africa, the savannahs of East Africa or to the tropical rainforests of West Africa, Ecotra offers unique travel packages that take you to the best destinations in Africa. As an ecotourist, you not only explore and enjoy, you also get the best of environmental and cultural education. Travel with Ecotra today and explore Africa’s wonderful destinations with guided tours and customized itineraries.",
     },
     {
       id: 3,
       icon: "🤝",
       title: "Expert Partnerships",
-      text: "Travel with confidence through partnerships with leading airlines, embassies, and NGOs, ensuring a seamless experience from start to finish.",
+      text: "At Ecotra, we collaborate with top-tier airlines, local guides, NGO’s, and other travel experts to give you memorable travel experiences. Our trusted partners ensure that every trip is enriched with insider knowledge and seamless logistics. With our expert partnerships, you can travel confidently with Ecotra knowing that your experience would be a remarkable one, and a Win for the environment.",
     },
   ];
 
@@ -53,7 +55,7 @@ export function KeyFeaturesSection() {
                 delay: index * 0.2,
                 ease: "easeOut",
               }}
-              className="p-8 rounded-2xl hover:shadow-xl transition-shadow duration-300"
+              className="p-8 rounded-2xl hover:shadow-md transition-shadow duration-300"
             >
               <div className="bg-green-900 w-16 h-16 flex items-center justify-center rounded-full mb-6 mx-auto">
                 <span className="text-green-600 text-3xl font-bold">
@@ -79,11 +81,10 @@ export function Cta() {
     <section className="bg-black py-24  text-white">
       <div className="max-w-5xl mx-auto px-6">
         <h3 className="text-4xl font-extrabold mb-6 text-center leading-tight tracking-wide">
-          Ready to Explore Africa Responsibly?
+          Ready to Explore Africa?
         </h3>
         <p className="text-lg mb-12 max-w-2xl mx-auto">
-          Join us in promoting sustainable tourism while enjoying the beauty of
-          Africa. Let’s conserve nature and uplift communities together.
+        Join us in promoting ecotourism, while also enjoying the beautiful wonders of Africa, conserving nature and uplifting communities together.
         </p>
         <div className="flex items-center justify-center">
           <a
@@ -98,62 +99,8 @@ export function Cta() {
   );
 }
 
-export function Partners() {
-  return (
-    <div className="bg-gradient-to-r from-gray-50 to-gray-100 py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <h2 className="text-center text-5xl font-bold text-gray-900 mb-4 md:text-6xl">
-          Our Partner Airlines
-        </h2>
-        <p className="text-lg mb-8">
-          When you travel with us, you get the best deals in terms of flight
-          prices. Ecotra believes only in providing outstanding services, and
-          our partner airlines ensure you get the best travel experience.
-        </p>
-        <div
-          className="mx-auto grid max-w-lg grid-cols-2 items-center gap-12 sm:max-w-xl sm:grid-cols-3 
-                        lg:mx-0 lg:max-w-none lg:grid-cols-5 lg:gap-x-16 mt-12"
-        >
-          {[
-            {
-              alt: "Air Peace",
-              src: "https://flyairpeace.com/wp-content/uploads/2024/05/logo.webp",
-            },
-            {
-              alt: "Ethiopian Airlines",
-              src: "https://www.ethiopianairlines.com/images/default-source/default-album/icons/et-logo.png",
-            },
-            {
-              alt: "Zambia Airways",
-              src: "https://www.zambia-airways.com/Cms_Data/Sites/ZambiaAirways/Files/zambia-logo.png",
-            },
-            {
-              alt: "Airtrfx",
-              src: "https://assets.airtrfx.com/media-em/wb/logos/wb-large-default.png?width=170&quality=80&fit=crop&format=auto&opt=true",
-            },
-            {
-              alt: "South African Airways",
-              src: "https://www.flysaa.com/saa-airways-theme/airways/images/logo.png",
-            },
-          ].map((airline, index) => (
-            <div
-              key={index}
-              className="flex justify-center items-center p-4 transition-transform duration-500 ease-in-out transform hover:scale-110"
-            >
-              <img
-                alt={airline.alt}
-                src={airline.src}
-                width={158}
-                height={48}
-                className="max-h-12 w-full object-contain"
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
+
+
 
 export function Steps() {
   const steps = [
@@ -218,7 +165,7 @@ export function Steps() {
               viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
               whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
-              className="flex flex-col items-center p-8 rounded-lg shadow-md bg-white text-gray-900"
+              className="flex flex-col items-center p-8 rounded-lg  text-gray-900"
               style={{ willChange: "transform, opacity" }}
             >
               <div className="text-6xl text-green-600 mb-6">{step.icon}</div>
@@ -243,7 +190,7 @@ export default function Home() {
       <Cta />
       <Services />
       <Stats />
-      {/* <PopularDestinations /> */}
+      <PopularDestinations />
       <Steps />
       <Testimonials />
       <Partners />

@@ -18,7 +18,7 @@ import {
   FaHome,
   FaSave,
 } from "react-icons/fa";
-
+import Image from "next/image";
 const user = {
   name: "Tom Cook",
   email: "tom@example.com",
@@ -148,32 +148,38 @@ export default function TravelDashboard() {
           </div>
         </div>
       </nav>
-      {/* <div>
-    <Translator />
-</div> */}
+   
       {menuOpen && (
-        <div className="md:hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 z-50 flex flex-col items-center justify-center p-6">
-          <button
-            className="text-white absolute top-4 right-6"
-            onClick={() => setMenuOpen(false)}
-          >
-            <FaTimes className="w-6 h-6" />
-          </button>
+  <div className="md:hidden fixed top-0 left-0 w-full h-full bg-black  z-50 flex flex-col p-6">
+    <div className="flex justify-between items-center w-full px-6">
+      <Image 
+        src="/logo.png" 
+        alt="Logo" 
+        width={100} 
+        height={100} 
+        className="rounded-full border w-20 h-20 lg:w-32 lg:h-32" 
+      />
+      <button className="text-white" onClick={() => setMenuOpen(false)}>
+        <FaTimes className="w-6 h-6" />
+      </button>
+    </div>
 
-          <div className="flex flex-col space-y-6 w-full items-center">
-            {navigation.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="flex items-center text-white text-lg py-2"
-                onClick={() => setMenuOpen(false)}
-              >
-                {item.icon} <span className="ml-3">{item.name}</span>
-              </a>
-            ))}
-          </div>
-        </div>
-      )}
+    {/* Navigation Links Centered */}
+    <div className="flex flex-1 flex-col justify-center items-center space-y-6 w-full">
+      {navigation.map((item) => (
+        <a
+          key={item.name}
+          href={item.href}
+          className="flex items-center text-white text-lg py-2"
+          onClick={() => setMenuOpen(false)}
+        >
+          {item.icon} <span className="ml-3">{item.name}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+)}
+
 
       <main className="p-8 space-y-16 bg-gray-50 min-h-screen">
         <div className="text-3xl font-semibold py-2">
@@ -207,7 +213,7 @@ export default function TravelDashboard() {
             },
             {
               icon: <FaStar className="text-yellow-500 text-5xl" />,
-              title: "Points Gained",
+              title: "My Eco-Points",
               value: "1,250 reward points",
               details: "Redeemable for hotel discounts",
               buttonText: "Redeem Now",
@@ -332,3 +338,5 @@ export default function TravelDashboard() {
     </div>
   );
 }
+
+

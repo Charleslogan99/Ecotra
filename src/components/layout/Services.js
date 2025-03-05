@@ -7,28 +7,28 @@ const services = [
     id: 1,
     title: "Flight Bookings",
     description:
-      "Book domestic and international flights at the best prices with Ecotra Travel Agency.",
+      "When you book a tour with us, it includes a return flight ticket with one of our trusted partner airlines.",
     icon: "✈️",
   },
   {
     id: 2,
-    title: "Hotel Reservations",
+    title: "Accomodation",
     description:
-      "Find and reserve the perfect hotel for your travel destination worldwide.",
+      "We also cater for lodging at our various travel destinations. Your comfort is of importance to us.",
     icon: "🏨",
   },
   {
     id: 3,
     title: "Tour Packages",
     description:
-      "Explore our customized tour packages designed to give you an unforgettable experience.",
+      "Explore our customized tour packages with unique features that are designed to suit your travel interests and give you an unforgettable experience.",
     icon: "🌍",
   },
   {
     id: 4,
     title: "Travel Insurance",
     description:
-      "Stay safe with our comprehensive travel insurance plans tailored for travelers.",
+      "Your trip with Ecotra is protected with a comprehensive travel insurance plan. We provide flexible packages that protect you from unforeseen circumstances and enable you travel confidently.",
     icon: "🛡️",
   },
 ];
@@ -74,8 +74,7 @@ const Services = () => {
           transition={{ delay: 0.2 }}
           viewport={{ once: false, amount: 0.3 }}
         >
-          At Ecotra Travel Agency, we offer a range of services to make your
-          travel experience seamless and enjoyable.
+         At Ecotra, we specialize in crafting memorable travel experiences that suit your unique preferences. Our expert travel consultants handle everything for you from start to finish in order to ensure a seamless journey.
         </motion.p>
 
         {/* Services Grid */}

@@ -61,7 +61,7 @@ export function HeroSection() {
           Conserve.
         </p>
         <a
-          href="/accounts/sign-up"
+          href="/destinations"
           className="mt-6 inline-block bg-green-600 text-black px-8 py-4 rounded-xl font-semibold text-lg sm:text-2xl shadow-lg transition-transform duration-300 hover:scale-105 hover:bg-green-700 hover:shadow-2xl"
         >
           Get Started

@@ -41,7 +41,7 @@ export function SpecialTours() {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          Special Tours
+          Eco-Travel Specials
         </motion.h2>
         <motion.p
           className="text-lg text-gray-600 max-w-2xl mx-auto mb-12 md:text-center"
@@ -49,7 +49,7 @@ export function SpecialTours() {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
         >
-          Discover exclusive travel experiences curated just for you.
+         Explore our unique tavel packages curated based on your interests and career
         </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

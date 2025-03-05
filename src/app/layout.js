@@ -18,7 +18,9 @@ export default function RootLayout({ children }) {
     "/accounts/sign-up",
     "/accounts/dashboard",
     "/accounts/forgotpassword",
-    "",
+    "/admin",
+    "/admin/users",
+    "/admin/bookings",
   ];
 
   return (

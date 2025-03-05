@@ -36,7 +36,7 @@ export default function Contact() {
                 href="mailto:contact@ecotra.com"
                 className="text-lg text-gray-600"
               >
-                contact@ecotra.com
+                support@ecotra.org
               </a>
             </div>
           </div>
@@ -45,8 +45,9 @@ export default function Contact() {
             <FaMapMarkerAlt className="text-3xl text-green-700" />
             <div>
               <p className="text-xl font-semibold text-gray-800">Visit Us</p>
-              <p className="text-lg text-gray-600">
-                123 Green Street, EcoCity, EC
+              <p className="hover:text-green-500 transition">
+                202 N Cedar Ave Ste 1 <br />
+                <span className="block">Owatonna MN 55060 USA</span>
               </p>
             </div>
           </div>

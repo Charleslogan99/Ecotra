@@ -187,7 +187,7 @@ const Footer = () => {
                 <FaGooglePlay className="w-6 h-6 text-green-600" />
               </Link>
               <Link
-                href="https://www.apple.com/app-store/"
+                href="/admin"
                 className="hover:text-green-600 transition"
               >
                 <FaApple className="w-6 h-6 text-green-600" />

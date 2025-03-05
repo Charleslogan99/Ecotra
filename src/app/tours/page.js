@@ -60,7 +60,8 @@ export function AllTours() {
   }, [sortBy]);
 
   return (
-    <section className="max-w-7xl h-screen mx-auto py-32 px-6">
+    <section className="max-w-7xl mx-auto py-24 px-6">
+      {/* Header and Sorting */}
       <div className="flex flex-col md:flex-row justify-between items-center">
         <h2 className="text-4xl font-bold text-gray-800">Popular Tours</h2>
         <select
@@ -76,53 +77,54 @@ export function AllTours() {
         </select>
       </div>
 
-      <div className="relative mt-8">
+      {/* Tour Cards Section */}
+      <div className="relative mt-10">
         <div className="flex space-x-6 overflow-x-auto scrollbar-hide scroll-smooth snap-x snap-mandatory">
           {sortedTours.map((tour) => (
-           <div
-           key={tour.id}
-           className="min-w-[320px] md:min-w-[400px] bg-whit border border-gray-200 rounded-3xl shadow-l hover:shadow-2xl transition-transform transform hover:scale-[1.03] overflow-hidden"
-         >
-           {/* Image with Overlay */}
-           <div className="relative">
-             <img
-               src={tour.image}
-               alt={tour.name}
-               loading="lazy"
-               className="w-full h-56 md:h-64 object-cover rounded-t-3xl"
-             />
-             <div className="absolute inset-0 bg-black bg-opacity-10 rounded-t-3xl"></div>
-           </div>
-         
-           {/* Tour Details */}
-           <div className="p-6 space-y-3">
-             <h3 className="text-xl font-bold text-gray-800">{tour.name}</h3>
-             
-             {/* Location */}
-             <p className="flex items-center text-gray-500 text-sm">
-               📍 {tour.location}
-             </p>
-         
-             {/* Price */}
-             <p className="text-2xl font-semibold text-green-600">{tour.price}</p>
-         
-             {/* Duration */}
-             <p className="flex items-center text-gray-500 text-sm">
-               ⏳ {tour.duration}
-             </p>
-         
-             {/* Rating */}
-             <p className="flex items-center text-yellow-500 font-semibold text-sm">
-               <FaStar className="mr-1 text-lg" /> {tour.rating} / 5
-             </p>
-         
-             {/* Book Now Button */}
-             <button className="mt-4 w-full bg-green-600 text-white py-3 rounded-full font-medium hover:bg-green-700 transition-transform transform hover:scale-105">
-               Book Now
-             </button>
-           </div>
-         </div>
-         
+            <div
+              key={tour.id}
+              className="min-w-[320px] md:min-w-[400px] bg-white border border-gray-200 rounded-3xl shadow-lg hover:shadow-2xl transition-transform transform hover:scale-[1.03] overflow-hidden"
+            >
+              {/* Image Section */}
+              <div className="relative w-full h-56 md:h-64">
+                <Image
+                  src={tour.image}
+                  alt={tour.name}
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-t-3xl"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-10 rounded-t-3xl"></div>
+              </div>
+
+              {/* Tour Details */}
+              <div className="p-6 space-y-3">
+                <h3 className="text-xl font-bold text-gray-800">{tour.name}</h3>
+
+                {/* Location */}
+                <p className="flex items-center text-gray-500 text-sm">
+                  📍 {tour.location}
+                </p>
+
+                {/* Price */}
+                <p className="text-2xl font-semibold text-green-600">{tour.price}</p>
+
+                {/* Duration */}
+                <p className="flex items-center text-gray-500 text-sm">
+                  ⏳ {tour.duration}
+                </p>
+
+                {/* Rating */}
+                <p className="flex items-center text-yellow-500 font-semibold text-sm">
+                  <FaStar className="mr-1 text-lg" /> {tour.rating} / 5
+                </p>
+
+                {/* Book Now Button */}
+                <button className="mt-4 w-full bg-green-600 text-white py-3 rounded-full font-medium hover:bg-green-700 transition-transform transform hover:scale-105">
+                  Book Now
+                </button>
+              </div>
+            </div>
           ))}
         </div>
       </div>
@@ -149,6 +151,7 @@ export default function Tours() {
 
   return (
     <div className="bg-gray-50 min-h-screen">
+      {/* Hero Section */}
       <section className="relative h-[60vh] lg:h-[100vh] w-full">
         <Image
           src={heroImages[currentImage]}
@@ -164,9 +167,13 @@ export default function Tours() {
           </h1>
         </div>
       </section>
+
+      {/* Tours Section */}
       <section>
         <AllTours />
       </section>
+
+      {/* Special Offers Section */}
       <section className="max-w-9xl mx-auto py-20 px-6 bg-zinc-900 text-white text-center">
         <h2 className="text-4xl font-semibold mb-6">Special Offers & Discounts</h2>
         <p className="text-gray-400 text-lg">Save up to 30% on selected tours! Limited time offers available.</p>

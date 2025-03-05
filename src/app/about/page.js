@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+
 export function TeamSection() {
   const teamMembers = [
     {
@@ -16,13 +17,6 @@ export function TeamSection() {
       description:
         "Jane brings extensive expertise in operations and logistics, ensuring that every aspect of our services runs smoothly. Her strategic mindset and dedication to efficiency help streamline processes, making travel planning effortless for our customers.",
     },
-    {
-      name: "Michael Johnson",
-      role: "Head of Customer Experience",
-      image: "/images/others/ecotra1.jpg",
-      description:
-        "Michael is committed to providing world-class customer support. With a background in hospitality and travel services, he ensures that every traveler enjoys a seamless and memorable journey with us.",
-    },
   ];
 
   return (
@@ -32,19 +26,23 @@ export function TeamSection() {
           Meet Our Team
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap">
           {teamMembers.map((member, index) => (
             <div key={index} className="flex flex-col items-center">
-              <img
-                src={member.image}
-                alt={member.name}
-                className="w-40 h-40 rounded-full object-cover shadow-lg transform transition-transform duration-300 hover:scale-105"
-              />
-              <h3 className="text-2xl font-semibold text-gray-900 mt-4">
+              <div className="w-40 h-40 relative">
+                <Image
+                  src={member.image}
+                  alt={member.name}
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-full shadow-lg transform transition-transform duration-300 hover:scale-105"
+                />
+              </div>
+              <h3 className="text-3xl font-semibold text-gray-900 mt-4">
                 {member.name}
               </h3>
-              <p className="text-green-600 font-medium">{member.role}</p>
-              <p className="text-gray-700 mt-3 max-w-sm">
+              <p className="text-green-700 text-md font-medium">{member.role}</p>
+              <p className="text-gray-700 mt-3 text-lg max-w-sm">
                 {member.description}
               </p>
             </div>
@@ -60,15 +58,15 @@ export function CommunityLivelihood() {
     <section className="relative flex items-center justify-center min-h-full py-20 overflow-hidden w-full">
       <div className="absolute inset-0 bg-[url('/subtle-pattern.svg')] opacity-20 pointer-events-none"></div>
 
-      <div className="w-full max-w-screen-xl mx-auto px-12 lg:px-20 gap-24 items-center justify-center  lg:text-left relative z-10">
+      <div className="w-full max-w-screen-xl mx-auto px-6 lg:px-20 gap-24 items-center justify-center  lg:text-left relative z-10">
         <div className="space-y-8">
-          <h2 className="text-5xl lg:text-7xl font-extrabold text-gray-900 leading-tight">
+          <h2 className="text-3xl lg:text-7xl font-extrabold text-gray-900 leading-tight">
             Community Livelihood
           </h2>
 
-          <div className="w-32 h-1  bg-gradient-to-r from-green-500 to-green-700 rounded-full mx-auto lg:mx-0"></div>
+          <div className="w-32 h-1  bg-gradient-to-r from-green-500 to-green-700 rounded-full mx-aut lg:mx-0"></div>
 
-          <div className="bg-white/80 backdrop-blur-lg p-10 lg:p-14 rounded-3xl shadow-2xl border border-gray-300">
+          <div className=" backdrop-blur-lg p-10 lg:p-14 rounded-3xl shadow-sm border border-gray-300">
             <p className="text-xl lg:text-2xl text-gray-800 leading-relaxed">
               As much as we take environmental conservation seriously, we also
               consider the livelihood of the host communities you visit. By
@@ -128,11 +126,11 @@ export function WhyTravelWithUs() {
               ))}
             </div>
 
-            <div className="mt-12 text-left bg-white p-10 lg:p-12 rounded-3xl shadow-2xl">
+            <div className="mt-12 text-left  p-6 lg:p-12 rounded-3xl shadow-sm">
               <h3 className="text-4xl font-bold text-green-700 mb-6">
                 {item.title}
               </h3>
-              <p className="text-gray-700 text-lg lg:text-xl leading-relaxed">
+              <p className="text-gray-700 text-xl lg:text-xl leading-relaxed">
                 {item.desc}
               </p>
             </div>
@@ -175,7 +173,7 @@ export default function About() {
             About Us
           </h2>
 
-          <div className="w-16 h-1 bg-green-600 mx-auto rounded-full animate-slideIn"></div>
+          <div className="w-52 h-1 bg-green-600 mx-auto rounded-full animate-slideIn"></div>
 
           <blockquote className="mt-10 text-2xl lg:text-3xl font-serif italic  text-center text-gray-700 bg-white/70 backdrop-blur-lg px-6 py-5 rounded-xl shadow-lg inline-block animate-fadeInSlow border-l-4 border-green-600">
             “On Earth, there is no heaven, but there are pieces of it.”
@@ -230,7 +228,7 @@ export default function About() {
             <h2 className="text-5xl lg:text-6xl font-serif text-gray-900 mb-8 leading-tight">
               Our Mission
             </h2>
-            <p className="text-lg lg:text-2xl text-gray-700 leading-relaxed lg:leading-loose">
+            <p className="text-xl lg:text-2xl text-gray-700 leading-relaxed lg:leading-loose">
               Our mission statement is simple: To widely promote sustainable
               tourism in several African destinations aimed at addressing
               tourist demands, exposing tourists to unique African cultures,
