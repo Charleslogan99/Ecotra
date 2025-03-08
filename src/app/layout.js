@@ -17,10 +17,17 @@ export default function RootLayout({ children }) {
     "/accounts/login",
     "/accounts/sign-up",
     "/accounts/dashboard",
+    "/accounts/dashboard/bookings",
+    "/accounts/dashboard/manage-bookings",
+    "/accounts/dashboard/payment-history",
     "/accounts/forgotpassword",
     "/admin",
     "/admin/users",
     "/admin/bookings",
+    "/admin/manage-tours",
+    "/admin/manage-payment",
+    "/admin/reviews",
+    "/admin/settings",
   ];
 
   return (
