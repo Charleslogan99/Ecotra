@@ -172,7 +172,7 @@ export function Steps() {
               <h3 className="text-xl font-semibold text-gray-900 mb-4">
                 {step.title}
               </h3>
-              <p className="text-gray-700 font-serif">{step.description}</p>
+              <p className="text-gray-700 text-lg font-serif">{step.description}</p>
             </motion.div>
           ))}
         </motion.div>

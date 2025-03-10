@@ -21,13 +21,15 @@ export default function RootLayout({ children }) {
     "/accounts/dashboard/manage-bookings",
     "/accounts/dashboard/payment-history",
     "/accounts/forgotpassword",
-    "/admin",
-    "/admin/users",
-    "/admin/bookings",
-    "/admin/manage-tours",
-    "/admin/manage-payment",
-    "/admin/reviews",
-    "/admin/settings",
+    "/admin/dashboard",
+    "/admin/profile",
+    "/admin/signup",
+    "/admin/login",
+    "/admin/dashboard/manage-users",
+    "/admin/dashboard/manage-bookings",
+    "/admin/dashboard/manage-tours",
+    "/admin/dashboard/manage-payment",
+    "/admin/dashboard/profile",
   ];
 
   return (
@@ -71,7 +73,7 @@ export default function RootLayout({ children }) {
         <meta name="twitter:card" content="summary_large_image" />
 
         {/* Favicon */}
-        <link rel="icon" href="/logo.png" type="image/png" sizes="32x32" />
+        <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

@@ -21,11 +21,12 @@ const InputField = React.memo(
         onChange={onChange}
         placeholder={placeholder}
         required
-        className="mt-1 block w-full rounded-md border border-gray-600 px-4 py-3 text-gray-100 placeholder-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500 bg-transparent focus:border-green-500 shadow-sm sm:text-lg"
+        className="mt-1 block w-full rounded-md border border-gray-600 px-4 py-3 text-gray-100 placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 bg-transparent focus:border-green-500 shadow-sm sm:text-lg"
       />
     </div>
   )
 );
+
 
 const PasswordField = React.memo(
   ({
@@ -174,7 +175,9 @@ export default function SignUp() {
               onChange={(e) => setSelectedCountry(e.target.value)}
               className="mt-1 block w-full rounded-md border border-gray-600 px-4 py-3 text-gray-100 bg-transparent focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 shadow-sm sm:text-lg"
             >
-              <option value="">-- Select your country --</option>
+              <option value="" className="text-gray-500" style={{ color: '#6b7280' }}>
+                -- Select your country --
+              </option>
               {countries.map((country) => (
                 <option key={country.value} value={country.value}>
                   {country.label}
@@ -182,6 +185,7 @@ export default function SignUp() {
               ))}
             </select>
           </div>
+
           <div>
             <label className="block text-lg font-medium text-gray-50">
               Phone Number
@@ -201,12 +205,13 @@ export default function SignUp() {
                 border: "1px solid #4a4a4a",
                 fontSize: "1rem",
                 outline: "none",
+                "::placeholder": { color: "#9ca3af" }, // Light gray placeholder (text-gray-400)
               }}
               containerStyle={{
                 width: "100%",
               }}
               buttonStyle={{
-                backgroundColor: "transparent",
+                backgroundColor: "black",
                 borderRight: "1px solid #4a4a4a",
                 paddingLeft: "10px",
                 paddingRight: "10px",
@@ -225,6 +230,7 @@ export default function SignUp() {
               }}
             />
           </div>
+
           <InputField
             label="Email Address"
             id="email"

@@ -18,7 +18,7 @@ const InputField = React.memo(({ label, id, type, value, onChange, placeholder }
       onChange={onChange}
       placeholder={placeholder}
       required
-      className="mt-1 block bg-transparent w-full rounded-md border border-gray-600 px-3 py-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+      className="mt-1 block bg-transparent placeholder-gray-800 w-full rounded-md border border-gray-600 px-3 py-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
     />
   </div>
 ));
@@ -53,10 +53,22 @@ export default function Login() {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const togglePassword = useCallback(() => setPasswordVisible((prev) => !prev), []);
   const handleEmailChange = useCallback((e) => setEmail(e.target.value), []);
   const handlePasswordChange = useCallback((e) => setPassword(e.target.value), []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    
+    // Simulate API request
+    setTimeout(() => {
+      setLoading(false);
+      alert("Login successful!");
+    }, 2000);
+  };
 
   return (
     <div
@@ -84,7 +96,7 @@ export default function Login() {
           <p className="mt-2 text-sm sm:text-lg text-gray-400">To get access to all your dashboards</p>
         </div>
 
-        <form className="mt-8 space-y-6">
+        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <InputField
             label="Email Address"
             id="email"
@@ -111,9 +123,11 @@ export default function Login() {
 
           <button
             type="submit"
-            className="mt-6 w-full rounded-md bg-green-600 px-4 py-2 text-base sm:text-lg font-medium text-black hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+            disabled={loading}
+            className={`mt-6 w-full rounded-md px-4 py-2 text-base sm:text-lg font-medium text-black focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 
+              ${loading ? "bg-green-500 cursor-not-allowed" : "bg-green-600 hover:bg-green-700"}`}
           >
-            Login
+            {loading ? "Logging in..." : "Login"}
           </button>
 
           <div className="flex flex-col sm:flex-row justify-between mt-4">
