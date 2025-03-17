@@ -185,12 +185,12 @@ export default function Home() {
   return (
     <div className="font-sans">
       <HeroSection />
+      <PopularDestinations />
       <SpecialTours />
       <KeyFeaturesSection />
       <Cta />
       <Services />
       <Stats />
-      <PopularDestinations />
       <Steps />
       <Testimonials />
       <Partners />
