@@ -20,7 +20,7 @@ export default function EnvironmentalScholarTours() {
         </div>
 
         {/* Text Content Directly Under the Image */}
-        <div className="p-6 sm:p-10  sm:text-left">
+        <div className="p-2 sm:p-10  sm:text-left">
           <h1 className="text-4xl sm:text-4xl md:text-5xl font-extrabold text-gray-800 mb-4 sm:mb-6">
             Environmental Scholar Trips
           </h1>

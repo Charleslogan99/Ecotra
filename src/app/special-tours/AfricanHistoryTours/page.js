@@ -23,7 +23,7 @@ export default function AfricanHistoryTours() {
           </div>
         </div>
 
-        <div className="p-10">
+        <div className="p-2">
           <h1 className="text-5xl font-extrabold text-gray-800 mb-6">
             African History Tours
           </h1>

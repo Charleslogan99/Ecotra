@@ -18,7 +18,7 @@ export default function MysteryTours() {
                   </div>
                 </div>
         
-        <div className="p-10">
+        <div className="p-2">
           <h1 className="text-5xl font-extrabold text-gray-800 mb-6">
             Mystery Tours
           </h1>
