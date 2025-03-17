@@ -38,14 +38,14 @@ export default function AdminDashboardPage() {
   return (
     <div className="space-y-6">
       {/* Welcome Section */}
-      <div className="p-6 rounded-lg shadow-sm bg-gray-100 flex justify-between items-center">
+      <div className="p-6 rounded-lg shadow-sm  flex justify-between items-center">
         <h1 className="text-2xl font-bold text-green-800">Welcome, {admin.name}!</h1>
       </div>
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {stats.map((stat, index) => (
-          <div key={index} className="bg-white p-6 shadow-md rounded-lg flex items-center space-x-4">
+          <div key={index} className=" p-6 shadow-sm rounded-lg flex items-center space-x-4">
             <div className="text-green-500 text-4xl">{stat.icon}</div>
             <div>
               <p className="text-gray-600 text-sm">{stat.label}</p>
@@ -56,7 +56,7 @@ export default function AdminDashboardPage() {
       </div>
 
       {/* Upcoming Tours */}
-      <div className="bg-white p-6 rounded-lg shadow-md">
+      <div className=" p-6 rounded-lg shadow-sm">
         <h2 className="text-lg font-semibold text-gray-700">Upcoming Tours</h2>
         {upcomingTours.length > 0 ? (
           <ul className="mt-4 space-y-3">
@@ -76,7 +76,7 @@ export default function AdminDashboardPage() {
       </div>
 
       {/* Recent Activity */}
-      <div className="bg-white p-6 rounded-lg shadow-md">
+      <div className=" p-6 rounded-lg shadow-sm">
         <h2 className="text-lg font-semibold text-gray-700">Recent Activity</h2>
         {recentActivity.length > 0 ? (
           <ul className="mt-4 space-y-3">

@@ -13,7 +13,7 @@ export function SpecialTours() {
       {
         id: 1,
         name: "Environmental Scholar Tours",
-        image: "/images/tourimages/tour5.jpg",
+        image: "/images/tourimages/environmental.jpg",
         link: "/special-tours/EnvironmentalScholarTours",
       },
       {
@@ -25,7 +25,7 @@ export function SpecialTours() {
       {
         id: 3,
         name: "African History Tours",
-        image: "/images/tourimages/AfricanHistory.avif",
+        image: "/images/tourimages/africanhistory.jpg",
         link: "/special-tours/AfricanHistoryTours",
       },
     ],

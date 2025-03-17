@@ -10,14 +10,12 @@ export default function PaymentHistoryPage() {
   ]);
 
   return (
-    <div className="p-6 space-y-6 max-w-4xl mx-auto">
-      {/* Header */}
+    <div className=" sm:p-6 space-y-6 max-w-6xl mx-auto">
       <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-green-800">Payment History</h1>
+        <h1 className="text-xl sm:text-2xl font-bold text-green-800">Payment History</h1>
       </div>
 
-      {/* Payment List */}
-      <div className="bg-white p-6 rounded-lg shadow-md overflow-x-auto">
+      <div className="hidden sm:block  p-6 rounded-lg shadow-sm overflow-x-auto">
         <h2 className="text-lg font-semibold text-gray-700 mb-4">Recent Transactions</h2>
         {payments.length > 0 ? (
           <table className="w-full border-collapse">
@@ -62,6 +60,39 @@ export default function PaymentHistoryPage() {
           </table>
         ) : (
           <p className="text-gray-500 mt-4">No payment history available.</p>
+        )}
+      </div>
+
+      <div className="sm:hidden space-y-4">
+        {payments.length > 0 ? (
+          payments.map((payment) => (
+            <div key={payment.id} className="bg-white p-4 rounded-lg shadow-sm">
+              <div className="flex justify-between items-center">
+                <div>
+                  <h3 className="text-gray-900 font-semibold">{payment.date}</h3>
+                  <p className="text-gray-600">{payment.amount}</p>
+                </div>
+                <span
+                  className={`px-3 py-1 rounded-full text-white text-xs font-bold ${
+                    payment.status === "paid"
+                      ? "bg-green-500"
+                      : payment.status === "pending"
+                      ? "bg-yellow-500"
+                      : "bg-red-500"
+                  }`}
+                >
+                  {payment.status}
+                </span>
+              </div>
+              <div className="flex justify-between items-center mt-4">
+                <button className="text-blue-500 hover:text-blue-700 flex items-center">
+                  <FaFileInvoice className="mr-1" /> View Invoice
+                </button>
+              </div>
+            </div>
+          ))
+        ) : (
+          <p className="text-gray-500 text-center">No payment history available.</p>
         )}
       </div>
     </div>

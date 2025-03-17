@@ -55,7 +55,7 @@ export function KeyFeaturesSection() {
                 delay: index * 0.2,
                 ease: "easeOut",
               }}
-              className="p-8 rounded-2xl hover:shadow-md transition-shadow duration-300"
+              className="p-8 rounded-2xl hover:shadow-sm transition-shadow duration-300"
             >
               <div className="bg-green-900 w-16 h-16 flex items-center justify-center rounded-full mb-6 mx-auto">
                 <span className="text-green-600 text-3xl font-bold">
