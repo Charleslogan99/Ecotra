@@ -48,7 +48,7 @@ export function HeroSection() {
           Explore the Best <br /> Destinations in Africa with Us
         </h1>
         <p className="text-lg sm:text-sm font-medium opacity-90 mt-4 leading-relaxed italic">
-        Hello, Habari, Ndeewo, Sawubona, Mhoro, Molo!
+        Hello, Habari, Ndeewo, Báwo ni, Sawubona, Mhoro, Molo!
         </p>
         <p className="text-lg sm:text-xl font-medium opacity-90 mt-4 leading-relaxed">
           We offer unique travel experiences that suit your interests and
