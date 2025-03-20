@@ -1,4 +1,5 @@
 "use client";
+// import ReduxProvider from "@/redux/provider";
 import { usePathname } from "next/navigation";
 import { Roboto } from "next/font/google";
 import "./globals.css";
@@ -73,7 +74,7 @@ export default function RootLayout({ children }) {
         <meta name="twitter:card" content="summary_large_image" />
 
         {/* Favicon */}
-        <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64" />
+        <link rel="icon" href="/favicon.ico " type="image/png" sizes="512x512" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -97,6 +98,7 @@ export default function RootLayout({ children }) {
       <body className="bg-gray-100">
         {!hiddenRoutes.includes(pathname) && <Navbar />}
         <main className="min-h-screen">{children}</main>
+        {/* <ReduxProvider>{children}</ReduxProvider> */}
         {!hiddenRoutes.includes(pathname) && <Footer />}
       </body>
     </html>
